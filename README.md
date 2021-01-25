@@ -3,6 +3,8 @@
 ## Introduction
 This repository hosts the source of the OGC Developer Website https://developer.ogc.org
 
+The website is served from the [gh-pages](https://github.com/opengeospatial/developer-website/tree/gh-pages) branch.
+
 ## Intellectual Property Rights
 
 The content of this repository is copyrighted by the Open Geospatial Consortium (OGC) and may be [licensed](https://github.com/opengeospatial/er_template/blob/master/LICENSE) for designated purposes.
