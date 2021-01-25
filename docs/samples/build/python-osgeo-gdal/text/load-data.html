@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Load vector feature data from a GeoPackage &mdash; OGC Developer 2.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="OGC Developer 2.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Python OSGeo GDAL" href="index.html"/>
+        <link rel="next" title="Export vector feature data from a GeoPackage" href="export-data.html"/>
+        <link rel="prev" title="Python OSGeo GDAL" href="index.html"/> 
+
+  
+  <script src="static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../index.html" class="icon icon-home"> OGC Developer
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python OSGeo GDAL</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Load vector feature data from a GeoPackage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-does-geopackage-have-these-tables">Why does GeoPackage have these tables?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-gdal-ogr-library">Using the GDAL/OGR library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="export-data.html">Export vector feature data from a GeoPackage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="export-data.html#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../java-nga-geopackage/text/index.html">Java NGA GeoPackage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../java-nga-geopackage/text/load-data.html">Load vector feature data from a GeoPackage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../java-nga-geopackage/text/load-data.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../java-nga-geopackage/text/load-data.html#why-does-geopackage-have-these-tables">Why does GeoPackage have these tables?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../java-nga-geopackage/text/load-data.html#using-the-nga-geopackage-java-library">Using the NGA GeoPackage Java library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../java-nga-geopackage/text/export-data.html">Export vector feature data from a GeoPackage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../java-nga-geopackage/text/export-data.html#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">OGC Developer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Python OSGeo GDAL</a> &raquo;</li>
+      
+    <li>Load vector feature data from a GeoPackage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/python-osgeo-gdal/text/load-data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="load-vector-feature-data-from-a-geopackage">
+<h1>Load vector feature data from a GeoPackage<a class="headerlink" href="#load-vector-feature-data-from-a-geopackage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>There are several different ways to create and read a GeoPackage. Most of the implementing software products have their own unique way of supporting the handling of a GeoPackage. In this chapter we will show how a GeoPackage can be read using the free and open source GDAL library.</p>
+<p>For ease of reference, we reproduce the GeoPackage schema overview below.</p>
+<a class="reference internal image-reference" href="../../images/geopackage-overview1.png"><img alt="../../images/geopackage-overview1.png" src="../../images/geopackage-overview1.png" style="width: 560px; height: 327px;" /></a>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_spatial_ref_sys</span></code> table contains coordinate reference system definitions that are used to reference vector and tile data in user tables to locations on the earth.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_contents</span></code> table provides a list of all geospatial contents in a GeoPackage to allow applications to identify and describe geospatial data that is available for access and/or update.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_geometry_columns</span></code> table specifies the type of geometry supported by user data tables containing features.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_tile_matrix_set</span></code> table provides records identifying each tile pyramid user data table contained in the GeoPackage.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_tile_matrix</span></code> table documents the structure of the tile matrix at each zoom level in each tiles table.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_extensions</span></code> table or updateable view in a GeoPackage is used to indicate that a particular extension applies to a GeoPackage, a table in a GeoPackage, or a column of a table in a GeoPackage.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_data_columns</span></code> table stores a minimal description of the schema of feature and tile matrix data tables that supplements the data available from the SQLite sqlite_master table and pragma table_info(table_name) SQL function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_data_column_constraints</span></code> table contains data to specify restrictions on basic data type column values.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_metadata</span></code> table allows for metadata to be stored inside the GeoPackage.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gpkg_metadata_reference</span></code> table relates metadata records stored in the gpkg_metadata to feature and tile data stored in the GeoPackage.</p>
+</div>
+<div class="section" id="why-does-geopackage-have-these-tables">
+<h2>Why does GeoPackage have these tables?<a class="headerlink" href="#why-does-geopackage-have-these-tables" title="Permalink to this headline">¶</a></h2>
+<p>The GeoPackage standard implements the OGC OpenGIS® Simple Features Interface Standard (SFS) which provides a common way for applications to store and access feature data in relational or object-relational databases. The specific tables that play a key role in this are the <code class="docutils literal notranslate"><span class="pre">gpkg_geometry_columns</span></code> , <code class="docutils literal notranslate"><span class="pre">gpkg_spatial_ref_sys</span></code>, <code class="docutils literal notranslate"><span class="pre">gpkg_contents</span></code> and a user-named table that contains the feature properties. Use of the SFS by GeoPackage allows implementations of the GeoPackage standard to make use of the large number of spatial reference systems available from registers such as the <a class="reference external" href="https://www.epsg-registry.org/">EPSG Geodetic Parameter Registry</a>. Use of the SFS by GeoPackage also makes GeoPackages interoperable with other formats that use the SFS, for example the OGC Geography Markup Language (GML). This means that data can be exchanged between a GeoPackage and other SFS-based formats with minimal or no information loss because the data models are based on a common feature model.</p>
+<p>The GeoPackage standard adopts a tile-based pyramid structure for storing imagery and raster maps at multiple resolutions. An illustration of this structure is shown below. The specific tables that play a key role in storage of such data include <code class="docutils literal notranslate"><span class="pre">gpkg_tile_matrix_set</span></code> , <code class="docutils literal notranslate"><span class="pre">gpkg_tile_matrix</span></code> , <code class="docutils literal notranslate"><span class="pre">gpkg_contents</span></code> and a user-named table that contains the actual binary encoded tiles. This tile-based pyramid structure is particularly useful when handling a GeoPackage on small or constrained devices such as mobile phones, tablets or laptops because an appropriate resolution can be selected based on the zoom level and the device screen size.</p>
+<a class="reference internal image-reference" href="../../images/pyramid1.png"><img alt="../../images/pyramid1.png" src="../../images/pyramid1.png" style="width: 560px; height: 327px;" /></a>
+</div>
+<div class="section" id="using-the-gdal-ogr-library">
+<h2>Using the GDAL/OGR library<a class="headerlink" href="#using-the-gdal-ogr-library" title="Permalink to this headline">¶</a></h2>
+<p>There are alternative ways of accessing a GeoPackage, including through use of other prorgamming languages and libraries. One of the software libraries that offers this ability is the free and open source Geospatial Data Abstraction Layer (GDAL) and its vector toolkit, OGR. GDAL offers C, C++ and Python bindings that allow it to be imported into a variety of applications.</p>
+<p>To build and install GDAL on Windows, Linux or Mac OS X, the source code can downloaded from the <a class="reference external" href="http://www.gdal.org/usergroup0.html">GDAL website</a>.</p>
+<p>For a quick start, GDAL 1.11 is also installed during the installation of QGIS.</p>
+<p>An example Python script for reading a GeoPackage using GDAL 1.11 is below. The source code has been adapted from <a class="reference external" href="http://gdal.org/1.11/ogr/ogr_apitut.html">here</a>. When the program runs it prints out the values of feature properties.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">ogr</span>
+<span class="c1"># First open a handle on the GeoPackage.</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ogr</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span> <span class="s2">&quot;/home/ogckm/Downloads/states10.gpkg&quot;</span> <span class="p">)</span>
+<span class="c1"># If the file handle is null then exit</span>
+<span class="k">if</span> <span class="n">ds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s2">&quot;Open failed.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="c1"># Select the dataset to retrieve from the GeoPackage and assign it to an layer instance called lyr.</span>
+<span class="c1"># The names of available datasets can be found in the gpkg_contents table.</span>
+<span class="n">lyr</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">GetLayerByName</span><span class="p">(</span> <span class="s2">&quot;statesQGIS&quot;</span> <span class="p">)</span>
+<span class="c1"># Refresh the reader</span>
+<span class="n">lyr</span><span class="o">.</span><span class="n">ResetReading</span><span class="p">()</span>
+<span class="c1"># for each feature in the layer, print the feature properties</span>
+<span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">lyr</span><span class="p">:</span>
+
+    <span class="n">feat_defn</span> <span class="o">=</span> <span class="n">lyr</span><span class="o">.</span><span class="n">GetLayerDefn</span><span class="p">()</span>
+    <span class="c1"># for each non-geometry feature property, print its value</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">feat_defn</span><span class="o">.</span><span class="n">GetFieldCount</span><span class="p">()):</span>
+        <span class="n">field_defn</span> <span class="o">=</span> <span class="n">feat_defn</span><span class="o">.</span><span class="n">GetFieldDefn</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">field_defn</span><span class="o">.</span><span class="n">GetType</span><span class="p">()</span> <span class="o">==</span> <span class="n">ogr</span><span class="o">.</span><span class="n">OFTInteger</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">feat</span><span class="o">.</span><span class="n">GetFieldAsInteger</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">field_defn</span><span class="o">.</span><span class="n">GetType</span><span class="p">()</span> <span class="o">==</span> <span class="n">ogr</span><span class="o">.</span><span class="n">OFTReal</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">feat</span><span class="o">.</span><span class="n">GetFieldAsDouble</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">field_defn</span><span class="o">.</span><span class="n">GetType</span><span class="p">()</span> <span class="o">==</span> <span class="n">ogr</span><span class="o">.</span><span class="n">OFTString</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">feat</span><span class="o">.</span><span class="n">GetFieldAsString</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">feat</span><span class="o">.</span><span class="n">GetFieldAsString</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># Confirm whether there is a geometry property</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">feat</span><span class="o">.</span><span class="n">GetGeometryRef</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">geom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">geom</span><span class="o">.</span><span class="n">GetGeometryType</span><span class="p">()</span> <span class="o">==</span> <span class="n">ogr</span><span class="o">.</span><span class="n">wkbMultiPolygon</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s2">&quot;has a geometry property&quot;</span>
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Note that GDAL 2.0 uses a different set of classes for accessing vector data. We have used GDAL 1.11 in this example because it is currently included by default in Linux repositories and also comes bundled within QGIS.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="export-data.html" class="btn btn-neutral float-right" title="Export vector feature data from a GeoPackage" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Python OSGeo GDAL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Open Geospatial Consortium. License: CC BY 3.0.
+      Last updated on Jan 21, 2021.
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../static/jquery.js"></script>
+      <script type="text/javascript" src="../../static/underscore.js"></script>
+      <script type="text/javascript" src="../../static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
