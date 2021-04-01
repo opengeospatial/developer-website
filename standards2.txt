@@ -34,25 +34,27 @@
 			</ul>
 		</div>
 	</div>
-
 	<div id="contents">
-		<div class="wrapper clearfix">
-			<div id="sidebar">
+		<div id="adbox2">
+			<div class="wrapper clearfix">
+				<div class="info">
 
+				</div>
 			</div>
-			<div class="main">
-				<h1>Standards</h1>
-				<p style="font-size:12px;">
-					An OGC Standard is a document, established by consensus and approved by the OGC Membership, that provides rules and guidelines, aimed at the optimum degree of interoperability in a given context. A complete list of OGC Implementation Standards can be found on the <a href="https://www.ogc.org/docs/is">OGC website</a>.
-				</p>
-				<p style="font-size:12px;">
-					Below is a list of approved and draft standards. Note that in some cases the standards identified below are multi-part standards.
-				</p>
+			<div class="highlight2">
 
 			</div>
 		</div>
+		<div class="body clearfix">
+			<h2><font color="white"> Standards </font> </h2>
+			<p style="font-size:12px;">
+				An OGC Standard is a document, established by consensus and approved by the OGC Membership, that provides rules and guidelines, aimed at the optimum degree of interoperability in a given context. A complete list of OGC Implementation Standards can be found on the <a href="https://www.ogc.org/docs/is">OGC website</a>.
+			</p>
+			<p style="font-size:12px;">
+				Below is a list of approved and draft standards. Note that in some cases the standards identified below are multi-part standards.
+			</p>
+		</div>
 	</div>
-
 	<div id="footer">
 		<ul id='featured' class='wrapper clearfix'>
 			<h2>Highlighted</h2>

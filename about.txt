@@ -35,7 +35,6 @@
 		</div>
 	</div>
 
-
 	<div id="contents">
 		<div class="wrapper clearfix">
 			<div id="sidebar">
@@ -52,10 +51,10 @@
 				<p>
 					This OGC Developers website has been created to provide a gateway to resources that developers find useful.
 				</p>
-
 			</div>
 		</div>
 	</div>
+
 
 	<div id="footer">
 		<ul id="featured" class="wrapper clearfix">

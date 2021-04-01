@@ -116,9 +116,7 @@ img {
 	padding: 56px 0 0;
 }
 #contents h1, #featured h3 {
-	color: #fbfdfd;
-	font: italic 34px Georgia, "Times New Roman", Times, serif;
-	font-style: italic;
+	color: #fbfdfd;	
 	margin: 0 0 18px;
 }
 #contents p {
@@ -593,7 +591,7 @@ img {
 #footer .footnote {
 	float: right;
 	display: inline-block;
-	color: #03436f;
+	color: #ffffff;
 	width: 460px;
 	margin-right: 10px;
 }
