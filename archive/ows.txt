@@ -34,25 +34,25 @@
 			</ul>
 		</div>
 	</div>
-
-
 	<div id="contents">
-		<div class="wrapper clearfix">
-			<div id="sidebar">
+		<div id="adbox2">
+			<div class="wrapper clearfix">
+				<div class="info">
 
+				</div>
 			</div>
-			<div class="main">
-				<h1>OGC Web Services</h1>
-				<p>
-					OGC Web Services (OWS) are defined using open non-proprietary Internet standards; in particular the World Wide Web (WWW) standards of HTTP, Uniform Resource Locators (URLs), Multipurpose Internet Mail Extensions (MIME) types and the Extensible Markup Language (XML).
-				</p>
+			<div class="highlight2">
 
 			</div>
 		</div>
+		<div class="body clearfix">
+			<h2><font color="white"> OGC Web Services </font> </h2>
+			<p style="font-size:12px;">
+				OGC Web Services (OWS) are defined using open non-proprietary Internet standards; in particular the World Wide Web (WWW) standards of HTTP, Uniform Resource Locators (URLs), Multipurpose Internet Mail Extensions (MIME) types and the Extensible Markup Language (XML).
+			</p>
+		</div>
 	</div>
-
 	<div id="footer">
-
 		<ul id='featured' class='wrapper clearfix'>
 			<p style="font-size:12px;"><a href='https://lists.opengeospatial.org/mailman/listinfo/wfs-dev'>Web Feature Service (WFS)</a></p>
 			<p style="font-size:12px;"><a href='https://lists.opengeospatial.org/mailman/listinfo/wcs-dev'>Web Coverage Service (WCS)</a></p>
@@ -62,6 +62,7 @@
 			<p style="font-size:12px;"><a href='https://www.ogc.org'>Sensor Observation Service (SOS)</a></p>
 			<p style="font-size:12px;"><a href='https://www.ogc.org'>Sensor Planning Service (SPS)</a></p>
 		</ul>
+
 
 		<div class="body">
 			<div class="wrapper clearfix">
@@ -97,6 +98,7 @@
 					</div>
 				</div>
 				<div id="newsletter">
+
 				</div>
 				<p class="footnote">
 					© Copyright © 2021.Open Geospatial Consortium all rights reserved

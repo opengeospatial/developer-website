@@ -34,34 +34,37 @@
 			</ul>
 		</div>
 	</div>
-
-
 	<div id="contents">
-		<div class="wrapper clearfix">
-			<div id="sidebar">
+		<div id="adbox2">
+			<div class="wrapper clearfix">
+				<div class="info">
 
+				</div>
 			</div>
-			<div class="main">
-				<h1>OGC Web Services</h1>
-				<p>
-					OGC Web Services (OWS) are defined using open non-proprietary Internet standards; in particular the World Wide Web (WWW) standards of HTTP, Uniform Resource Locators (URLs), Multipurpose Internet Mail Extensions (MIME) types and the Extensible Markup Language (XML).
-				</p>
+			<div class="highlight2">
 
 			</div>
 		</div>
+		<div class="body clearfix">
+			<h2><font color="white"> Open Source </font> </h2>
+			<p style="font-size:12px;">
+				Join the community of developers of open source software that implements OGC API standards.
+			</p>
+		</div>
 	</div>
-
 	<div id="footer">
-
 		<ul id='featured' class='wrapper clearfix'>
-			<p style="font-size:12px;"><a href='https://lists.opengeospatial.org/mailman/listinfo/wfs-dev'>Web Feature Service (WFS)</a></p>
-			<p style="font-size:12px;"><a href='https://lists.opengeospatial.org/mailman/listinfo/wcs-dev'>Web Coverage Service (WCS)</a></p>
-			<p style="font-size:12px;"><a href='https://lists.opengeospatial.org/mailman/listinfo/wps-dev'>Web Processing Service (WPS)</a></p>
-			<p style="font-size:12px;"><a href='https://www.ogc.org'>Web Map Service (WMS)</a></p>
-			<p style="font-size:12px;"><a href='https://www.ogc.org'>Catalogue Services for the Web (CSW)</a></p>
-			<p style="font-size:12px;"><a href='https://www.ogc.org'>Sensor Observation Service (SOS)</a></p>
-			<p style="font-size:12px;"><a href='https://www.ogc.org'>Sensor Planning Service (SPS)</a></p>
+			<p style="font-size:12px;"><a href='https://52north.org'>52°North</a></p>
+			<p style="font-size:12px;"><a href='https://apache.org'>Apache Software Foundation</a></p>
+			<p style="font-size:12px;"><a href='https://github.com/codice'>Codice Foundation</a></p>
+			<p style="font-size:12px;"><a href='https://github.com/DGIWG'>Defence Geospatial Information Working Group (DGIWG)</a></p>
+			<p style="font-size:12px;"><a href='https://github.com/esa'>European Space Agency (ESA)</a></p>
+			<p style="font-size:12px;"><a href='https://github.com/nasa'>National Aeronautics and Space Administration (NASA)</a></p>
+			<p style="font-size:12px;"><a href='https://github.com/ngageoint'>National Geospatial-Intelligence Agency (NGA)</a></p>
+			<p style="font-size:12px;"><a href='https://osgeo.org'>Open Source Geospatial Foundation</a></p>
+			<p style="font-size:12px;"><a href='https://github.com/OrdnanceSurvey'>Ordnance Survey</a></p>
 		</ul>
+
 
 		<div class="body">
 			<div class="wrapper clearfix">
@@ -97,6 +100,7 @@
 					</div>
 				</div>
 				<div id="newsletter">
+
 				</div>
 				<p class="footnote">
 					© Copyright © 2021.Open Geospatial Consortium all rights reserved

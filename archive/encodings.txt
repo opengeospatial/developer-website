@@ -34,25 +34,25 @@
 			</ul>
 		</div>
 	</div>
-
-
 	<div id="contents">
-		<div class="wrapper clearfix">
-			<div id="sidebar">
+		<div id="adbox2">
+			<div class="wrapper clearfix">
+				<div class="info">
 
+				</div>
 			</div>
-			<div class="main">
-				<h1>Encodings</h1>
-				<p>
-					Join the community of developers of software that implements OGC data encoding standards.
-				</p>
+			<div class="highlight2">
 
 			</div>
 		</div>
+		<div class="body clearfix">
+			<h2><font color="white"> Encodings </font> </h2>
+			<p style="font-size:12px;">
+				Join the community of developers of software that implements OGC data encoding standards.
+			</p>
+		</div>
 	</div>
-
 	<div id="footer">
-
 		<ul id='featured' class='wrapper clearfix'>
 			<p style="font-size:12px;"><a href='https://gitter.im'>3D Tiles</a></p>
 			<p style="font-size:12px;"><a href='https://gitter.im'>ARML2.0</a></p>
@@ -88,6 +88,7 @@
 			<p style="font-size:12px;"><a href='https://gitter.im'>OGC Hierarchical Data Format Version 5 (HDF5®) Standard</a></p>
 		</ul>
 
+
 		<div class="body">
 			<div class="wrapper clearfix">
 				<div id="links">
@@ -122,6 +123,7 @@
 					</div>
 				</div>
 				<div id="newsletter">
+
 				</div>
 				<p class="footnote">
 					© Copyright © 2021.Open Geospatial Consortium all rights reserved
