@@ -34,23 +34,24 @@
 			</ul>
 		</div>
 	</div>
-
-
 	<div id="contents">
-		<div class="wrapper clearfix">
-			<div id="sidebar">
+		<div id="adbox2">
+			<div class="wrapper clearfix">
+				<div class="info">
 
+				</div>
 			</div>
-			<div class="main">
-				<h1>Guides</h1>
-				<p>
-					Read through some of the developer and user guides to find out how to get rapidly implement an OGC standard.
-				</p>
+			<div class="highlight2">
 
 			</div>
 		</div>
+		<div class="body clearfix">
+			<h2><font color="white"> Guides </font> </h2>
+			<p style="font-size:12px;">
+				Read through some of the developer and user guides to find out how to get rapidly implement an OGC standard.
+			</p>
+		</div>
 	</div>
-
 	<div id="footer">
 
 		<ul id='featured' class='wrapper clearfix'>
@@ -76,6 +77,8 @@
 			<p style="font-size:12px;"><a href="https://docs.opengeospatial.org/guides/19-061.html">OGC Disasters Resilience Pilot User Guide: Flood - Emergency Response and Impact Assessment</a></p>
 			<p style="font-size:12px;"><a href="https://docs.opengeospatial.org/guides/19-063.html">OGC Disasters Resilience Pilot User Guide: Connecting Communities During Disasters for Timely Impact Analysis</a></p>
 		</ul>
+
+
 
 		<div class="body">
 			<div class="wrapper clearfix">
@@ -111,6 +114,7 @@
 					</div>
 				</div>
 				<div id="newsletter">
+
 				</div>
 				<p class="footnote">
 					© Copyright © 2021.Open Geospatial Consortium all rights reserved
