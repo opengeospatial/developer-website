@@ -269,6 +269,7 @@ img {
 /** main **/
 .main {
 	padding: 0 10px;
+
 }
 /** sidebar **/
 #sidebar {
@@ -476,6 +477,7 @@ img {
 }
 #footer .body {
 	background: #072438 url(../images/bg-footer.jpg) no-repeat center top;
+
 	min-height: 136px;
 	padding: 36px 0;
 }
