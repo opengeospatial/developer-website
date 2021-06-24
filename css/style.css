@@ -35,7 +35,7 @@ img {
 .btn1, .btn2, .btn3 {
 	color: #fdfdfd;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
@@ -121,7 +121,7 @@ img {
 }
 #contents p {
 	color: #e8eff4;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 0 30px;
@@ -185,7 +185,7 @@ img {
 }
 #adbox p {
 	color: #176eb0;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 24px;
 }
 #adbox p a {
@@ -240,7 +240,7 @@ img {
 }
 #adbox2 p {
 	color: #176eb0;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 24px;
 }
 #adbox2 p a {
@@ -304,7 +304,7 @@ img {
 /** time **/
 .time {
 	color: #2986bb;
-	font-size: 12px;
+	font-size: 20px;
 }
 /** list **/
 .list {
@@ -318,7 +318,7 @@ img {
 }
 .list li h4 {
 	color: #fbfdfd;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 24px;
 	margin: 0;
 	text-transform: uppercase;
@@ -333,7 +333,7 @@ img {
 	float: right;
 	color: #34b0fb;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 20px;
 }
 .list li a.more:hover {
 	color: #c3e9fe;
@@ -488,7 +488,7 @@ img {
 }
 #footer p {
 	//color: #7890a1; //GEH
-	font-size: 12px;
+	font-size: 20px;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 0 6px;
@@ -521,7 +521,7 @@ img {
 }
 #featured li p {
 	color: #07304d;
-	font-size: 12px;
+	font-size: 20px;
 	text-align: center;
 }
 /** links **/
