@@ -1,21 +1,17 @@
 name: z
 in: query
 description: |+
-    Define the vertical level to return data from 
-    i.e. z=level
+    Define the vertical levels to return data from 
 
-    for instance if the 850hPa pressure level is being queried
+    A range to return data for all levels between and including 2 defined levels
 
-    z=850
-
-    or a range to return data for all levels between and including 2 defined levels
     i.e. z=minimum value/maximum value
 
     for instance if all values between and including 10m and 100m
 
     z=10/100
 
-    finally a list of height values can be specified
+    A list of height values can be specified
     i.e. z=value1,value2,value3
 
     for instance if values at 2m, 10m and 80m are required
@@ -35,5 +31,3 @@ description: |+
 required: false
 schema:
   type: string
-style: form
-explode: false
