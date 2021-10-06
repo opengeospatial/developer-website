@@ -6,7 +6,7 @@ var gaID  = "SV85LY8GKN";
 var aryCookies = { 
   "ad_storage"        : "denied", 
   "analytics_storage" : "denied", 
-  "linkedin_insight"  : "denied" 
+  // "linkedin_insight"  : "denied" 
 };
 
 //var domain = getDomainName(getDomain(window.location.href,true));
