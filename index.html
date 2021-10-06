@@ -18,57 +18,9 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	<script type="text/javascript" src="./js/cookiepanel.js"></script>
-	<link type="text/css" rel="stylesheet" href="./css/cookiepanel.css" />
+	<link type="text/css" rel="stylesheet" src="/css/cookiepanel.css" />
 </head>
 <body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KGJV26"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	
-	    <!-- The Modal -->
-	    <div id="ex1" class="modal">
-	      <p>Required Cookies (minimal set for site operation)<br/>
-		<label class="switch">
-		  <input type="checkbox" checked disabled>
-		  <span class="slider round"></span>
-		</label>
-	      </p>
-	      <p>Google Analytics<br/>
-		<label class="switch">
-		  <input id="opt_analytics_storage" type="checkbox" checked>
-		  <span class="slider round"></span>
-		</label>
-	      </p>
-	      <p>Google Ads:<br/>
-		<label class="switch">
-		  <input id="opt_ad_storage" type="checkbox" checked>
-		  <span class="slider round"></span>
-		</label>
-	      </p>
-	      <!--p>LinkedIn Insights<br/>
-		<label class="switch">
-		  <input id="opt_linkedin_insight" type="checkbox" checked>
-		  <span class="slider round"></span>
-		</label>
-	      </p-->
-	      <hr/>
-	      <p>Make selection then click "Yes" below.</p>
-	      <!-- <a href="#" rel="modal:close">Close</a> -->
-	    </div>
-
-	    <div id='cookiePanel'>
-	      <p>Do you consent to the use of cookies on this site?</p>
-	      <button id="btnConsentGranted" class="btnConsent">Yes</button>
-	      <button id="btnConsentDenied" class="btnConsent">No</button>
-	      <a href="#ex1" rel="modal:open">Set Specific Preferences</a>
-	    </div>
-	    <!--div id="clearCookieLink">
-	      <a href="javascript:clearAndReload();">Clear Cookies</a>
-	    </div-->
-	
-	
-	
 	<div id="header">
 		<div class="wrapper clearfix">
 			<div id="logo">
@@ -222,5 +174,50 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KGJV26"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<!-- The Modal -->
+	<div id="ex1" class="modal">
+		<p>Required Cookies (minimal set for site operation)<br/>
+			<label class="switch">
+				<input type="checkbox" checked disabled>
+				<span class="slider round"></span>
+			</label>
+		</p>
+		<p>Google Analytics<br/>
+			<label class="switch">
+				<input id="opt_analytics_storage" type="checkbox" checked>
+				<span class="slider round"></span>
+			</label>
+		</p>
+		<p>Google Ads:<br/>
+			<label class="switch">
+				<input id="opt_ad_storage" type="checkbox" checked>
+				<span class="slider round"></span>
+			</label>
+		</p>
+		<!--p>LinkedIn Insights<br/>
+			<label class="switch">
+				<input id="opt_linkedin_insight" type="checkbox" checked>
+				<span class="slider round"></span>
+			</label>
+		</p-->
+		<hr/>
+		<p>Make selection then click "Yes" below.</p>
+		<!-- <a href="#" rel="modal:close">Close</a> -->
+	</div>
+	<div id='cookiePanel'>
+		<p>Do you consent to the use of cookies on this site?</p>
+		<button id="btnConsentGranted" class="btnConsent">Yes</button>
+		<button id="btnConsentDenied" class="btnConsent">No</button>
+		<a href="#ex1" rel="modal:open">Set Specific Preferences</a>
+	</div>
+	<!--div id="clearCookieLink">
+		<a href="javascript:clearAndReload();">Clear Cookies</a>
+	</div-->		
 </body>
 </html>
