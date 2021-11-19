@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: A sample API conforming to the standard OGC API - Processes - Part 1: Core
+  title: A sample API conforming to the standard OGC API - Processes - Part 1
   version: 1.0.0-redoc.1
   description: |-
     This document is an API definition document provided alongside the OGC API - Processes standard. The OGC API - Processes Standard specifies a processing interface to communicate over a RESTful protocol using JavaScript Object Notation (JSON) encodings. The specification allows for the wrapping of computational tasks into executable processes that can be offered by a server and be invoked by a client application.
