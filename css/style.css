@@ -6,9 +6,59 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont-Heavy.woff2') format('woff2'),
+        url('../fonts/Mont-Heavy.woff') format('woff'),
+        url('../fonts/Mont-Heavy.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont-SemiBold.woff2') format('woff2'),
+        url('../fonts/Mont-SemiBold.woff') format('woff'),
+        url('../fonts/Mont-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont-Bold.woff2') format('woff2'),
+        url('../fonts/Mont-Bold.woff') format('woff'),
+        url('../fonts/Mont-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont Book';
+    src: url('../fonts/Mont-Book.woff2') format('woff2'),
+        url('../fonts/Mont-Book.woff') format('woff'),
+        url('../fonts/Mont-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/Mont-Regular.woff2') format('woff2'),
+        url('../fonts/Mont-Regular.woff') format('woff'),
+        url('../fonts/Mont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
 	background: url(../images/bg-body.jpg) repeat left top;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Mont', sans-serif;
 	min-width: 960px;
 	margin: 0;
 }
@@ -28,7 +78,7 @@ img {
 	visibility:hidden;
 }
 
-/*------------------------------ HEADER ------------------------------*/
+/*------------------------------ Buttons ------------------------------*/
 .btn1, .btn2, .btn3, #newsletter input {
 	background: url(../images/interface.png) no-repeat;
 }
@@ -91,7 +141,7 @@ img {
 	list-style: none;
 	margin: 0 10px;
 	padding: 0;
-*width: 516px; /** Needed for IE7 **/
+	*width: 516px; /** Needed for IE7 **/
 }
 #navigation li {
 	float: left;
