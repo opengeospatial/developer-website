@@ -209,7 +209,7 @@ img {
 /** adbox **/
 #adbox {
 	background: #020a13 url(../images/bg-adbox.jpg) no-repeat center top;
-	font-family: 'Lato', sans-serif;
+	/*font-family: 'Lato', sans-serif;*/
 	min-height: 433px;
 	margin: -56px 0 22px;
 /** Needed for IE7 **/
@@ -264,7 +264,7 @@ img {
 /** adbox **/
 #adbox2 {
 	background: #020a13 url(../images/bg-adbox.jpg) no-repeat center top;
-	font-family: 'Lato', sans-serif;
+	/*font-family: 'Lato', sans-serif;*/
 	max-height: 133px;
 	margin: -56px 0 22px;
 /** Needed for IE7 **/
@@ -533,7 +533,7 @@ img {
 }
 #footer h4 {
 	color: #fff;
-	font: normal 14px Georgia, "Times New Roman", Times, serif;
+	font: normal 14px "Mont Book"; /*Georgia, "Times New Roman", Times, serif;*/
 	margin: 0 0 12px;
 }
 #footer p {
