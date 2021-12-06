@@ -203,5 +203,5 @@ paths:
         500:
           $ref: "https://developer.ogc.org/api/processes/responses/ServerError.yaml"
 servers:
-  - description: 52°North demo server
-    url: http://geoprocessing.demo.52north.org:8080/javaps/rest/
+  - description: Example demo server
+    url: http://example.org/ogc/
