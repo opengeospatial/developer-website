@@ -24,7 +24,7 @@ paths:
            * The processes metadata (path /processes),
            * The endpoint for job monitoring (path /jobs).
 
-         For more information, see [Section 7.2](https://docs.ogc.org/is/18-062/18-062.html#sc_landing_page).
+         For more information, see [Section 7.2](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_landing_page).
       operationId: getLandingPage
       tags:
         - Capabilities
@@ -50,7 +50,7 @@ paths:
          |Callback|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback|
          |Dismiss|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss|
 
-         For more information, see [Section 7.4](https://docs.ogc.org/is/18-062/18-062.html#sc_conformance_classes).
+         For more information, see [Section 7.4](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_conformance_classes).
       operationId: getConformanceClasses
       tags:
         - ConformanceDeclaration
@@ -65,7 +65,7 @@ paths:
       description: |
          The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
 
-         For more information, see [Section 7.9](https://docs.ogc.org/is/18-062/18-062.html#sc_process_list).
+         For more information, see [Section 7.9](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_process_list).
       operationId: getProcesses
       tags:
         - ProcessList
@@ -80,7 +80,7 @@ paths:
 
          Implementations SHOULD consider supporting the OGC process description.
 
-         For more information, see [Section 7.10](https://docs.ogc.org/is/18-062/18-062.html#sc_process_description).
+         For more information, see [Section 7.10](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_process_description).
       operationId: getProcessDescription
       tags:
         - ProcessDescription
@@ -97,7 +97,7 @@ paths:
       description: |
         Lists available jobs.
 
-        For more information, see [Section 11](https://docs.ogc.org/is/18-062/18-062.html#sc_job_list).
+        For more information, see [Section 11](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_job_list).
       operationId: getJobs
       tags:
         - JobList
@@ -112,7 +112,7 @@ paths:
       description: |
         Create a new job.
 
-        For more information, see [Section 7.11](https://docs.ogc.org/is/18-062/18-062.html#sc_create_job).
+        For more information, see [Section 7.11](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_create_job).
       operationId: execute
       tags:
         - Execute
@@ -152,7 +152,7 @@ paths:
       description: |
         Shows the status of a job.
 
-         For more information, see [Section 7.12](https://docs.ogc.org/is/18-062/18-062.html#sc_retrieve_status_info).
+         For more information, see [Section 7.12](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_retrieve_status_info).
       operationId: getStatus
       tags:
         - Status
@@ -170,7 +170,7 @@ paths:
       description: |
         Cancel a job execution and remove it from the jobs list.
 
-        For more information, see [Section 13](https://docs.ogc.org/is/18-062/18-062.html#Dismiss).
+        For more information, see [Section 13](https://docs.ogc.org/is/18-062r2/18-062r2.html#Dismiss).
       operationId: dismiss
       tags:
         - Dismiss
@@ -189,7 +189,7 @@ paths:
       description: |
         Lists available results of a job. In case of a failure, lists exceptions instead.
 
-        For more information, see [Section 7.13](https://docs.ogc.org/is/18-062/18-062.html#sc_retrieve_job_results).
+        For more information, see [Section 7.13](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_retrieve_job_results).
       operationId: getResult
       tags:
         - Result
