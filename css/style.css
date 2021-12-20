@@ -1,3 +1,12 @@
+/*BRAND COLORS
+
+#00B1FF - OGC Blue
+#0580DA - Dark Blue
+#66E2FF - Light Blue
+#B9C1C6 - Neutral
+
+#093149 - Dark
+*/
 /* Website template by freewebsitetemplates.com */
 @font-face {
 	font-family: 'Lato', sans-serif;
@@ -57,7 +66,7 @@
 }
 
 body {
-	background: url(../images/bg-body.jpg) repeat left top;
+	background-image: linear-gradient(to bottom right,#00B1FF,#0580DA);
 	font-family: 'Mont', sans-serif;
 	min-width: 960px;
 	margin: 0;
@@ -123,7 +132,8 @@ img {
 }
 /*------------------------------ HEADER ------------------------------*/
 #header {
-	background: url(../images/bg-header.png) repeat-x center top;
+	/*background: url(../images/bg-header.png) repeat-x center top;*/
+	background: #000000;
 	height: 50px;
 	padding: 16px 0 0;
 	text-align: right;
@@ -157,7 +167,8 @@ img {
 	text-decoration: none;
 }
 #navigation li a:hover, #navigation li.selected a {
-	color: #44b2f1;
+	/*color: #0580DA;*/
+	color: #B9C1C6;
 }
 /*------------------------------ CONTENTS ------------------------------*/
 #contents {
@@ -181,7 +192,7 @@ img {
 	color: #e8eff4;
 }
 #contents p a:hover {
-	color: #0aa3fa;
+	color: #66E2FF; /*#0aa3fa;*/
 }
 #contents p b {
 	display: block;
@@ -353,7 +364,7 @@ img {
 }
 /** time **/
 .time {
-	color: #2986bb;
+	color: #093149;/* #2986bb; */
 	font-size: 20px;
 }
 /** list **/
@@ -381,7 +392,7 @@ img {
 }
 .list li a.more {
 	float: right;
-	color: #34b0fb;
+	color: #093149; /*#34b0fb;*/
 	display: inline-block;
 	font-size: 20px;
 }
