@@ -1,0 +1,4 @@
+[submodule "sprints/15"]
+	path = sprints/15
+	url = https://github.com/doublebyte1/sprint-landing.git
+	branch = gh-pages
