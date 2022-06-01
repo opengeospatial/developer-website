@@ -4,5 +4,5 @@
 	branch = gh-pages
 [submodule "sprints/16"]
 	path = sprints/16
-	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-16.git
+	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git
 	branch = gh-pages
