@@ -1,19 +1,19 @@
 {
     "links": [
         {
-            "href": "http://www.example.org/edr/collections/",
+            "href": "http://www.example.org/edr/collections/?f=json",
             "hreflang": "en",
             "rel": "self",
             "type": "application/json"
         },
         {
-            "href": "http://www.example.org/edr/collections/",
+            "href": "http://www.example.org/edr/collections/f=html",
             "hreflang": "en",
             "rel": "alternate",
             "type": "text/html"
         },
         {
-            "href": "http://www.example.org/edr/collections/",
+            "href": "http://www.example.org/edr/collections/f=xml",
             "hreflang": "en",
             "rel": "alternate",
             "type": "application/xml"
@@ -21,7 +21,7 @@
     ],
     "collections": [
         {
-            "id": "hourly observations",
+            "id": "hrly_obs",
             "title": "Hourly Site Specific observations",
             "description": "Observation data for UK observing sites",
             "keywords": [
@@ -50,47 +50,48 @@
                     "type": "text/html"
                 },
                 {
-                    "href": "https://www.metoffice.gov.uk/services/data/datapoint/terms-and-conditions---datapoint#termsofservice",
+                    "href": "http://www.example.org/data/datapoint/terms-and-conditions---datapoint#termsofservice",
                     "hreflang": "en",
                     "rel": "restrictions",
                     "type": "text/html"
                 },
                 {
-                    "href": "http://www.example.org/edr/collections/hrly_obs/position",
+                    "href": "http://www.example.org/edr/collections/hrly_obs?f=json",
                     "hreflang": "en",
-                    "rel": "data"
+                    "rel": "collection",
+                    "type": "application/json"
                 },
                 {
-                    "href": "http://www.example.org/edr/collections/hrly_obs/radius",
+                    "href": "http://www.example.org/edr/collections/hrly_obs?f=html",
                     "hreflang": "en",
-                    "rel": "data"
+                    "rel": "alternate",
+                    "type": "text/html"
                 },
                 {
-                    "href": "http://www.example.org/edr/collections/hrly_obs/area",
+                    "href": "http://www.example.org/edr/collections/hrly_obs?f=xml",
                     "hreflang": "en",
-                    "rel": "data"
-                },
-                {
-                    "href": "http://www.example.org/edr/collections/hrly_obs/locations",
-                    "hreflang": "en",
-                    "rel": "data"
-                }
+                    "rel": "alternate",
+                    "type": "application/xml"
+                }                
             ],
             "extent": {
                 "spatial": {
-                    "bbox": [
+                    "bbox": [[
                         -15.0,
                         48.0,
                         5.0,
                         62.0
-                    ],
+                    ]],
                     "crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]]"
                 },
                 "temporal": {
                     "interval": [
+                        ["2020-04-19T11:00:00Z","2020-06-30T09:00:00Z"]
+                    ],
+                    "values": [
                         "2020-04-19T11:00:00Z/2020-06-30T09:00:00Z"
                     ],
-                    "trs": "TIMECRS[\"DateTime\",TDATUM[\"Gregorian Calendar\"],CS[TemporalDateTime,1],AXIS[\"Time (T)\",future]"
+                    "trs": "TIMECRS[\"DateTime\",TDATUM[\"Gregorian Calendar\"],CS[TemporalDateTime,1],AXIS[\"Time (T)\",future]]"
                 }
             },
             "data_queries" : {
@@ -211,7 +212,7 @@
                 }
             },
             "crs": [
-                "CRS84"
+                "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
             ],
             "output_formats": [
                 "CoverageJSON",
@@ -429,48 +430,69 @@
             ],
             "links": [
                 {
-                    "href": "https://http://www.example.org/uk-3-hourly-site-specific-forecast",
+                    "href": "https://www.example.org/uk-3-hourly-site-specific-forecast",
                     "hreflang": "en",
                     "rel": "service-doc",
                     "type": "text/html"
                 },
                 {
-                    "href": "https://http://www.example.org/terms-and-conditions---datapoint#datalicence",
+                    "href": "https://www.example.org/terms-and-conditions---datapoint#datalicence",
                     "hreflang": "en",
                     "rel": "licence",
                     "type": "text/html"
                 },
                 {
-                    "href": "https://http://www.example.org/terms-and-conditions---datapoint#termsofservice",
+                    "href": "https://www.example.org/terms-and-conditions---datapoint#termsofservice",
                     "hreflang": "en",
                     "rel": "restrictions",
                     "type": "text/html"
                 },
                 {
-                    "href": "http://www.example.org/edr/collections/3_hrly_fcst/instances",
+                    "href": "http://www.example.org/edr/collections/3_hrly_fcst?f=json",
+                    "hreflang": "en",
+                    "rel": "collection",
+                    "type": "application/json"
+                },
+                {
+                    "href": "http://www.example.org/edr/collections/3_hrly_fcst?f=html",
+                    "hreflang": "en",
+                    "rel": "alternate",
+                    "type": "text/html"
+                },
+                {
+                    "href": "http://www.example.org/edr/collections/3_hrly_fcst?f=xml",
+                    "hreflang": "en",
+                    "rel": "alternate",
+                    "type": "application/xml"
+                },                
+                {
+                    "href": "http://www.example.org/edr/collections/3_hrly_fcst/instances?f=json",
                     "hreflang": "en",
                     "rel": "collection"
                 }
             ],
             "extent": {
                 "spatial": {
-                    "bbox": [
+                    "bbox": [[
                         -15.0,
                         48.0,
                         5.0,
                         62.0
-                    ],
+                    ]],
                     "crs": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]]"
                 },
                 "temporal": {
                     "interval": [
-                        "2020-06-23T18:00:00Z/2020-07-04T21:00:00Z"
+                        ["2020-04-19T11:00:00Z","2020-06-30T09:00:00Z"]
                     ],
-                    "trs": "TIMECRS[\"DateTime\",TDATUM[\"Gregorian Calendar\"],CS[TemporalDateTime,1],AXIS[\"Time (T)\",future]"
+                    "values": [
+                        "2020-04-19T11:00:00Z/2020-06-30T09:00:00Z"
+                    ],
+                    "trs": "TIMECRS[\"DateTime\",TDATUM[\"Gregorian Calendar\"],CS[TemporalDateTime,1],AXIS[\"Time (T)\",future]]"
                 }
             },
             "crs": [
-                "CRS84"
+                "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
            ],
             "output_formats": [
                 "CoverageJSON",
