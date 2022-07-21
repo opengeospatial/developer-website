@@ -3,13 +3,11 @@ info:
   title: OGC API - Environmental Data Retrieval Standard
   description: Example of OGC API - Environmental Data Retrieval Standard OpenAPI document
   version: 1.0.1
-  contact:
-    name: Open Geospatial Consortium (OGC)
-    url: 'https://www.ogc.org/contacts'
-    email: standards-team@ogc.org
   license:
     name: OGC License
     url: 'https://www.ogc.org/legal'
+  x-logo:
+    url: 'https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png'    
 servers:
   - url: 'https://www.example.org/edr'
     description: Example OGC API - Environmental Data Retrieval server
