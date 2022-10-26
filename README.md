@@ -3,6 +3,16 @@
 ## Introduction
 This repository hosts the source of the OGC Developer Website https://developer.ogc.org
 
+## Install the gh-pages branch
+
+This project uses sub-modules. Clone with:
+
+` git clone -b gh-pages --recurse-submodules https://github.com/opengeospatial/developer-website.git`
+
+Update sub-modules with:
+
+`git submodule foreach git pull origin gh-pages`
+
 ## Intellectual Property Rights
 
 The content of this repository is copyrighted by the Open Geospatial Consortium (OGC) and may be [licensed](https://github.com/opengeospatial/er_template/blob/master/LICENSE) for designated purposes.
