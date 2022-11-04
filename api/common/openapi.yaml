@@ -8,9 +8,6 @@ info:
     OGC API - Common - Part 1: Core 1.0 is an OGC Standard.
     Copyright (c) 2021 Open Geospatial Consortium.
     To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
-
-    This document is also available on
-    [OGC](http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/ogcapi-common-1.yaml).
   version: 1.0.0
   contact:
     name: "Open Geospatial Consortium (OGC)"
