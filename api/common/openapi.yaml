@@ -6,6 +6,9 @@ info:
     [OGC standard "OGC API - Common - Part 1: Core"](http://docs.opengeospatial.org/is/19-072/19-072.html).
 
     OGC API - Common - Part 1: Core 1.0 is an OGC Standard.
+
+    For OGC API - Common - Part 2: Geospatial Data, refer to [Example 2](index2.html).
+
     Copyright (c) 2021 Open Geospatial Consortium.
     To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
   version: 1.0.0

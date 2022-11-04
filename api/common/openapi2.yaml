@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: 'Building Blocks specified in OGC API - Common - Part 1 and 2'
-  description: 'Draft example of OGC API - Common OpenAPI docs. This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard. Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.'
+  description: 'Draft example of an API definition document that uses building blocks from Parts 1 and 2 of OGC API - Common. This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard. Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.'
   version: 0.0.1
   contact:
     name: "Open Geospatial Consortium (OGC)"
@@ -68,7 +68,7 @@ paths:
       - OGC API Common
       description: |-
         A list of all requirements classes specified in a standard that the
-        server conforms to. 
+        server conforms to.
       operationId: getConformanceDeclaration
       parameters:
       - name: f
