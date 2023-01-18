@@ -15,7 +15,7 @@ Add another module:
 
 Update sub-modules with:
 
-`git submodule foreach git pull origin gh-pages`
+`git submodule foreach git pull origin gh-pages-v2`
 
 Don't forget to commit & push the results.
 
