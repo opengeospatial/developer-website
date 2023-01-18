@@ -1,0 +1,20 @@
+//
+// Testimonials section styling
+//
+
+#testimonials {
+    color: $black;
+    .testimonials-text {
+        font-size: 20px;
+        font-family: $font-family-base;
+    }
+    .testimonials-title {
+        font-size: 15px;
+        font-family: $font-family-base;
+    }
+    // Brand images for client section
+    .img-brand {
+        //height: 2.75rem;
+        height: 80px;
+    }
+}

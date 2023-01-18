@@ -1,0 +1,358 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title OGC Developer Website
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/3d_emblem_lockup.ico')
+
+        // Font Awesome icons (free version)
+        //script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js', crossorigin='anonymous')
+        //script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css', crossorigin='anonymous')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+        link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')
+
+        //script(src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js")
+        //link(rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css")
+        //link(rel="stylesheet" type="text/css" href="assets/swagger-ui.css")
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+        // prims.js
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-bash.min.js" integrity="sha512-35RBtvuCKWANuRid6RXP2gYm4D5RMieVL/xbp6KiMXlIqgNrI7XRUh9HurE8lKHW4aRpC0TZU3ZfqG8qmQ35zA==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        //link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        //link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.min.css" integrity="sha512-y6rcKLYkttB9ZUBaz0IsncWFo1VoqISrcMY6J1i6Nb9WB9jRrpll8zjt5e1/naZHyXFoR/1VlH72+2VJ1Uzh7A==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-funky.min.css" integrity="sha512-KaCkQvJ0dQIhdJ0Am5LM3sgXA+Y0LWpbxkfKACZnlOqDvk54lZaWYk/sQiJGNRuSyFpe24jpjwJ4q+u3Rbez5g==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        //link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css" integrity="sha512-5HvW0a7ihK3ro2KhwEksDHXgIezsTeZybZDIn8d8Y015Ny+t7QWSIjnlCTjFzlK7Klb604HLGjsNqU/i5mJLjQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        //link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css" integrity="sha512-kSwGoyIkfz4+hMo5jkJngSByil9jxJPKbweYec/UgS+S1EgE45qm4Gea7Ks2oxQ7qiYyyZRn66A9df2lMtjIsw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        //link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css" integrity="sha512-kSwGoyIkfz4+hMo5jkJngSByil9jxJPKbweYec/UgS+S1EgE45qm4Gea7Ks2oxQ7qiYyyZRn66A9df2lMtjIsw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+    body#page-top
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
+            .container
+                a.navbar-brand(href='https://www.ogc.org/')
+                    img(src='assets/img/ogc-logo-white.svg', alt='...')
+                button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    | Menu
+                    i.fas.fa-bars.ms-1
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.text-uppercase.ms-auto.py-4.py-lg-0
+                        li.nav-item
+                            a.nav-link(href='#adopters') Adopters
+                        li.nav-item
+                            a.nav-link(href='#get_started') Get Started
+                        li.nav-item
+                            a.nav-link(href='#learn') Learn
+                        li.nav-item
+                            a.nav-link(href='#community') Community
+                a(href='https://github.com/doublebyte1/developer-website-v2')
+                    img(style='position: absolute; top: 0; right: 0; border: 0;' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' alt='Fork me on GitHub')
+
+
+
+        // Masthead
+        header.masthead
+
+            .container.px-5
+                .row.gx-5.align-items-center
+                    .col-lg-9
+                        .masthead-heading Build interoperable, geospatial, solutions with OGC standards
+
+                        .masthead-subheading 
+                            .li
+                                .ul
+                                    svg(width='12' height='10' viewbox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                        path(d='M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z' fill='white' fill-opacity='0.87')
+                                    | Providing a consistent way for different systems to interoperate and share geospatial data.
+                                .ul
+                                    svg(width='12' height='10' viewbox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                        path(d='M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z' fill='white' fill-opacity='0.87')
+                                    | Enabling applications to more easily access and use geospatial data from a wide variety of sources.
+                                .ul
+                                    svg(width='12' height='10' viewbox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                        path(d='M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z' fill='white' fill-opacity='0.87')
+                                    | Made by developers, for developers.
+                        
+                        a.btn.btn-primary.btn-xl.text-uppercase(href='#learn') Learn
+                        a.btn.btn-secondary.btn-xl.text-uppercase(href='#get_started') Get Started
+
+                    .col-lg-3
+                        //- img(title='This image was generated with the assistance of AI.' src='assets/img/sockets.svg', alt='...', style='width: 90%;')
+                        div.box#code-box
+                            pre
+                                code.language-bash
+                                    | curl -X 'GET' \
+                                    | 'https://demo.pygeoapi.io/master/collections/lakes/items?limit=10&skipGeometry=false&offset=0' \
+                                    | -H 'accept: application/geo+json'
+                        a.btn.btn-light(onclick='copyToClipboard(this)') Copy
+
+        section#adopters.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Organisations using OGC APIs
+                    p.text-muted 
+                        | Organizations in every sector use OGC APIs to share their geospatial data.
+
+                div.py-5(id="shuffleOrgs")
+                    .container
+                        .row.align-items-center
+                            .col-md-4.col-sm-6.my-4
+                            .col-md-4.col-sm-6.my-4
+
+                .text-center
+                    p.text-muted.small 
+                        | * If you would like to add your organisation to this list, please create a PR.
+
+        // Testimonials
+        section#testimonials.page-section.bg-dark
+            .container
+                .text-center
+                    //- h2.section-heading.text-uppercase Testimonials
+
+                    #carouselExampleControls.carousel.slide(data-bs-ride='carousel')
+                    
+                        .carousel-indicators
+                            button.active(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+                            button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='1' aria-label='Slide 2')
+                        .carousel-inner
+                            .carousel-item.active
+                                .carousel-caption.d-none.d-md-block
+                                    .testimonials-text
+                                        p "The OGC APIs are still being designed and tested. They’re not going to be a cure-all panacea for geospatial data, and I’m fully sure that they won’t be able to make everybody happy. So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won’t make everybody happy, but we can try to make nobody hate the APIs." 
+                                    .testimonials-title
+                                        p - Ivan Sanchez Ortega, Freelance GIS+JS developer and OSGeo charter member
+                                img.rounded-circle(src='assets/img/ivan.png' alt='Gobe' height='200')
+                            .carousel-item
+                                .carousel-caption.d-none.d-md-block
+                                    .testimonials-text                             
+                                        p "Exciting times for international weather/climate/water data exchange, using open standards and open source reference implementations."                        
+                                    .testimonials-title 
+                                        p - Tom Kralidis, OSGeo Board Member and Key Contributor of FOSS4G projects
+                                img.rounded-circle(src='assets/img/tom.jpeg' alt='Tom')
+
+                        button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev')
+                            span.carousel-control-prev-icon(aria-hidden='true')
+                            span.visually-hidden Previous
+                        button.carousel-control-next(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next')
+                            span.carousel-control-next-icon(aria-hidden='true')
+                            span.visually-hidden Next
+
+
+        // About
+        section#about.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase What can you do with the OGC APIs?
+                //-     h3.section-subheading.text-muted Main reasons for using OGC API Features.
+                .row.text-center
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-file-signature.fa-stack-1x.fa-inverse
+                        h4.my-3 Access the OpenAPI definition
+                        p.text-muted
+                            | Each OGC API is described using the
+                            a(href='https://swagger.io/specification/') OpenAPI 
+                            | specification. You can access an existing deployment to interact with a server implementation, or use it to generate code stubs for your own implementation.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-cube.fa-stack-1x.fa-inverse
+                        h4.my-3 Develop using the API building blocks
+                        p.text-muted
+                            | Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs.
+                            | The OGC APIs are developed in 
+                            a(href='https://blocks.ogc.org/') discrete building blocks
+                            |, which you can mix & match to spatially enable your existing APIs.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-check.fa-stack-1x.fa-inverse
+                        h4.my-3 Validate your implementation
+                        p.text-muted
+                            | The 
+                            a(href='https://www.ogc.org/compliance/') OGC Compliance program 
+                            | provides the tools to test your implementation and make sure it is compliant to the standard.
+                            | If you want to take your application to the next level, you can apply for a compliance certification.
+
+        // Get Started
+        section#get_started.page-section.bg-light
+                .container
+                    .text-center
+                        h2.section-heading.text-uppercase Get Started
+                    p.text-muted Each OGC API addresses a specific type of geospatial data or associated resources. 
+                        | Browse the list bellow to find the one that matches your needs. <br />
+                        | Still don't find what you are looking for? Try the
+                        a(href='https://sn80uo0zmbg.typeform.com/to/gcwDDNB6?typeform-source=blocks.ogc.org') OGC API configurator.
+                    <br>
+                    .div(id="shuffleApis")
+                        .row
+                            .col-lg-4
+                            .col-lg-4
+                            .col-lg-4
+                            .col-lg-4
+
+        // Encodings
+        section#encodings.page-section
+            .container
+                .text-center
+                    h3.section-heading.text-uppercase What about encodings?
+
+                p.text-muted The OGC APIs do not mandate any encodings. You can use popular encodings such as JSON, GeoJSON, YAML, or anything else you like. If you are unsure about what to use, check out these OGC encodings. 
+        
+
+                .row
+                    .col-lg-4
+                        .team-member
+                            img.mx-auto.rounded-circle(src='assets/img/polyhedron-mathematics-geometry-rhombicosidodecahedron-archimedean-solid-mathematics-3f454e0ef2cb96cf4e83cca8e7c9c0df.png', alt='...')
+                            h4 JSON-FG
+                            p.text-muted If you are using GeoJSON, but your data is not in WGS84, be sure to check this encoding. OGC Features and Geometries JSON extends GeoJSON, in order to overcome some of its limitations. 
+                            a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                i.fa.fa-link
+                            a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogc-feat-geo-json' title='GitHub repo' target="_blank")
+                                i.fa-brands.fa-github
+                    .col-lg-4
+                        .team-member
+                            img.mx-auto.rounded-circle(src='assets/img/geopkg.png', alt='...')
+                            h4 GeoPackage
+                            p.text-muted GeoPackage lets you store different types of geospatial information (e.g.: vector data, attributes, metadata, styles) in a single container.
+                            a.btn.btn-dark.btn-social.mx-2(href='https://www.geopackage.org/' title='Website' target="_blank")
+                                i.fa.fa-link
+                            a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/geopackage' title='GitHub repo' target="_blank")
+                                i.fa-brands.fa-github
+                    .col-lg-4
+                        .team-member
+                            img.mx-auto.rounded-circle(src='assets/img/COG_Alt_Logo.png', alt='...')
+                            h4 Cloud Optimized GeoTIFF (COG)
+                            p.text-muted If you work with imagery and grid coverage data on the web, you could check out this format, backwards compatible with GeoTIFF.
+                            a.btn.btn-dark.btn-social.mx-2(href='https://www.cogeo.org/' title='Website' target="_blank")
+                                i.fa.fa-link
+                            a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/CloudOptimizedGeoTIFF' title='GitHub repo' target="_blank")
+                                i.fa-brands.fa-github
+
+
+ 
+        // Learn
+        section#learn.page-section.bg-light
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Learn
+                    h3.section-subheading.text-muted If you want learn more about the conceptual part of OGC API, try these learning resources.
+
+                ul.timeline
+                    li
+                        .timeline-image
+                            a(href='https://opengeospatial.github.io/e-learning/ogc/text/index.html' title='E-learning' target="_blank")
+                                img.rounded-circle.img-fluid(src='assets/img/about/elearning.jpeg', alt='...')
+                        .timeline-panel
+                            .timeline-heading
+                                h4.subheading OGC e-learning
+                            .timeline-body
+                                p.text-muted
+                                    | Modular course that provides some background about OGC standards.
+                    li.timeline-inverted
+                        .timeline-image
+                            a(href='https://geoe3.ogc.org/' title='E-learning' target="_blank")
+                                img.rounded-circle.img-fluid(src='assets/img/GeoE3_bright_final.jpg', alt='...')
+                        .timeline-panel
+                            .timeline-heading
+                                h4.subheading GEOE3 Academy
+                            .timeline-body
+                                p.text-muted
+                                    | This learning platform offers different courses, mostly focused on Spatial Data Infrastructures.
+
+        // Try it!
+        //- section#try.page-section
+        //-         //-  .container
+        //-         //- .text-center
+        //-         //-     h2.section-heading.text-uppercase Try it!
+        //-         //-     h3.section-subheading.text-muted Try a request to retrieve the features of a large lake.
+
+        //-         div(id="swagger-ui")
+
+        // Community
+        section#community.page-section
+             .container
+                .text-center
+                    h2.section-heading.text-uppercase Community
+                    h3.section-subheading.text-muted Be part of the #OGCAPI comunity. Tell us what’s working well, what you want to see added or improved, and find out about new updates.
+                .row.text-center
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='https://github.com/opengeospatial/developer-events/wiki' title='Events')
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fa-solid.fa-users.fa-stack-1x.fa-inverse
+                        h4.my-3 Events
+                        p.text-muted
+                            | Check-out the code sprints, developer workshops and other hybrid/online developer events.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='https://dev.to/doublebyte' title='Dev.to')
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fa-brands.fa-dev.fa-stack-1x.fa-inverse
+                        h4.my-3 Dev.to
+                        p.text-muted
+                            | #OGCAPI related content in a constructive and inclusive social network for software developers.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='https://discord.gg/3uyaZZuXr3' title='Discord')                        
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fab.fa-discord.fa-stack-1x.fa-inverse
+                        h4.my-3 Discord
+                        p.text-muted
+                            | Chat with other developers and take active part in the code sprints in the OGC Community channel.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='blogs.html' title='Blogs' target="_blank")                        
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fa-solid.fa-blog.fa-stack-1x.fa-inverse
+                        h4.my-3 Blogs
+                        p.text-muted
+                            | Blogs from the community.
+        // Footer
+        footer.footer.py-4.bg-light
+            .container
+                .row.align-items-center
+                    .col-lg-4.text-lg-start
+                        | Copyright &copy; 2022. Open Geospatial Consortium all rights reserved
+                    .col-lg-4.my-3.my-lg-0
+                        a.btn.btn-dark.btn-social.mx-2(href='https://noc.social/@doublebyte')
+                            i.fa-brands.fa-mastodon
+                        a.btn.btn-dark.btn-social.mx-2(href='mailto:devrel@ogc.org')
+                            i.fa.fa-envelope
+                    //- .col-lg-4.text-lg-end
+                    //-     a.link-dark.text-decoration-none.me-3(data-bs-toggle='modal', data-bs-target='#portfolioModal1') Privacy Policy
+
+
+        // Portfolio Modals
+        include includes/portfolio-modal-1
+
+        // Bootstrap core JS
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js')
+
+        // Jquery
+        script(src='https://code.jquery.com/jquery-3.6.2.min.js')
+
+        // Core theme JS
+        script(src='js/scripts.js')
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        // * *                               SB Forms JS                               * *
+        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        //script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')
+
