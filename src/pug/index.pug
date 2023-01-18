@@ -50,8 +50,10 @@ html(lang='en')
                     i.fas.fa-bars.ms-1
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.text-uppercase.ms-auto.py-4.py-lg-0
+                        //- li.nav-item
+                        //-     a.nav-link(href='#adopters') Adopters
                         li.nav-item
-                            a.nav-link(href='#adopters') Adopters
+                            a.nav-link(href='#testimonials') Testimonials
                         li.nav-item
                             a.nav-link(href='#get_started') Get Started
                         li.nav-item
@@ -99,22 +101,23 @@ html(lang='en')
                                     | -H 'accept: application/geo+json'
                         a.btn.btn-light(onclick='copyToClipboard(this)') Copy
 
-        section#adopters.page-section
-            .container
-                .text-center
-                    h2.section-heading.text-uppercase Organisations using OGC APIs
-                    p.text-muted 
-                        | Organizations in every sector use OGC APIs to share their geospatial data.
 
-                div.py-5(id="shuffleOrgs")
-                    .container
-                        .row.align-items-center
-                            .col-md-4.col-sm-6.my-4
-                            .col-md-4.col-sm-6.my-4
+        //- section#adopters.page-section
+        //-     .container
+        //-         .text-center
+        //-             h2.section-heading.text-uppercase Organisations using OGC APIs
+        //-             p.text-muted 
+        //-                 | Organizations in every sector use OGC APIs to share their geospatial data.
 
-                .text-center
-                    p.text-muted.small 
-                        | * If you would like to add your organisation to this list, please create a PR.
+        //-         div.py-5(id="shuffleOrgs")
+        //-             .container
+        //-                 .row.align-items-center
+        //-                     .col-md-4.col-sm-6.my-4
+        //-                     .col-md-4.col-sm-6.my-4
+
+        //-         .text-center
+        //-             p.text-muted.small 
+        //-                 | * If you would like to add your organisation to this list, please create a PR.
 
         // Testimonials
         section#testimonials.page-section.bg-dark
