@@ -7,11 +7,11 @@ This repository hosts static code for version 2.0 of the OGC Developer Website. 
 
 This project uses sub-modules for the code sprint micro websites. Clone with:
 
-` git clone -b gh-pages --recurse-submodules https://github.com/opengeospatial/developer-website.git`
+` git clone -b gh-pages-v2 --recurse-submodules https://github.com/opengeospatial/developer-website.git`
 
 Add another module:
 
-`git submodule add -b gh-pages https://github.com/opengeospatial/dev-ogc-org-sprint-landing-x.git sprints/x`
+`git submodule add -b gh-pages-v2 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-x.git sprints/x`
 
 Update sub-modules with:
 
