@@ -130,14 +130,16 @@ html(lang='en')
                         .carousel-indicators
                             button.active(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='1' aria-label='Slide 2')
+                            button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='2' aria-label='Slide 3')
+
                         .carousel-inner
                             .carousel-item.active
                                 .carousel-caption.d-none.d-md-block
                                     .testimonials-text
-                                        p "The OGC APIs are still being designed and tested. They’re not going to be a cure-all panacea for geospatial data, and I’m fully sure that they won’t be able to make everybody happy. So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won’t make everybody happy, but we can try to make nobody hate the APIs." 
+                                        p "So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won’t make everybody happy, but we can try to make nobody hate the APIs." 
                                     .testimonials-title
                                         p - Ivan Sanchez Ortega, Freelance GIS+JS developer and OSGeo charter member
-                                img.rounded-circle(src='assets/img/ivan.png' alt='Gobe' height='200')
+                                img.rounded-circle(src='assets/img/ivan.png' alt='Ivan' height='200')
                             .carousel-item
                                 .carousel-caption.d-none.d-md-block
                                     .testimonials-text                             
@@ -145,7 +147,13 @@ html(lang='en')
                                     .testimonials-title 
                                         p - Tom Kralidis, OSGeo Board Member and Key Contributor of FOSS4G projects
                                 img.rounded-circle(src='assets/img/tom.jpeg' alt='Tom')
-
+                            .carousel-item
+                                .carousel-caption.d-none.d-md-block
+                                    .testimonials-text                             
+                                        p "An ideal ecosystem would see most data stored in cloud-native geospatial formats, and then a wide array of services on top of those, with most of them implementing OGC API interfaces."
+                                    .testimonials-title 
+                                        p - Chris Holmes, Product Architect at Planet and Technical Fellow at Radiant.Earth
+                                img.rounded-circle(src='assets/img/chris.jpeg' alt='Chris')
                         button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev')
                             span.carousel-control-prev-icon(aria-hidden='true')
                             span.visually-hidden Previous
