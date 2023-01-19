@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>OGC Developer Website</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/3d_emblem_lockup.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <!--script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" crossorigin="anonymous"></script>
+        <!--script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css', crossorigin='anonymous')-->
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!--script(src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js")-->
+        <!--link(rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css")-->
+        <!--link(rel="stylesheet" type="text/css" href="assets/swagger-ui.css")-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- prims.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-bash.min.js" integrity="sha512-35RBtvuCKWANuRid6RXP2gYm4D5RMieVL/xbp6KiMXlIqgNrI7XRUh9HurE8lKHW4aRpC0TZU3ZfqG8qmQ35zA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer")-->
+        <!--link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-dark.min.css" integrity="sha512-y6rcKLYkttB9ZUBaz0IsncWFo1VoqISrcMY6J1i6Nb9WB9jRrpll8zjt5e1/naZHyXFoR/1VlH72+2VJ1Uzh7A==" crossorigin="anonymous" referrerpolicy="no-referrer")-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-funky.min.css" integrity="sha512-KaCkQvJ0dQIhdJ0Am5LM3sgXA+Y0LWpbxkfKACZnlOqDvk54lZaWYk/sQiJGNRuSyFpe24jpjwJ4q+u3Rbez5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!--link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css" integrity="sha512-5HvW0a7ihK3ro2KhwEksDHXgIezsTeZybZDIn8d8Y015Ny+t7QWSIjnlCTjFzlK7Klb604HLGjsNqU/i5mJLjQ==" crossorigin="anonymous" referrerpolicy="no-referrer")-->
+        <!--link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css" integrity="sha512-kSwGoyIkfz4+hMo5jkJngSByil9jxJPKbweYec/UgS+S1EgE45qm4Gea7Ks2oxQ7qiYyyZRn66A9df2lMtjIsw==" crossorigin="anonymous" referrerpolicy="no-referrer")-->
+        <!--link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css" integrity="sha512-kSwGoyIkfz4+hMo5jkJngSByil9jxJPKbweYec/UgS+S1EgE45qm4Gea7Ks2oxQ7qiYyyZRn66A9df2lMtjIsw==" crossorigin="anonymous" referrerpolicy="no-referrer")-->
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="./"><img src="assets/img/ogc-logo-white.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#get_started">Get Started</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#learn">Learn</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
+                    </ul>
+                </div>
+                <a href="https://github.com/opengeospatial/developer-website.git"><img style="position: absolute; top: 0; right: 0; border: 0" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-9">
+                        <div class="masthead-heading">Build interoperable, geospatial, solutions with OGC standards</div>
+                        <div class="masthead-subheading">
+                            <div class="li">
+                                <div class="ul">
+                                    <svg width="12" height="10" viewbox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z" fill="white" fill-opacity="0.87"></path></svg>
+                                    Providing a consistent way for different systems to interoperate and share geospatial data.
+                                </div>
+                                <div class="ul">
+                                    <svg width="12" height="10" viewbox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z" fill="white" fill-opacity="0.87"></path></svg>
+                                    Enabling applications to more easily access and use geospatial data from a wide variety of sources.
+                                </div>
+                                <div class="ul">
+                                    <svg width="12" height="10" viewbox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z" fill="white" fill-opacity="0.87"></path></svg>
+                                    Made by developers, for developers.
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary btn-xl text-uppercase" href="#learn">Learn</a>
+                        <a class="btn btn-secondary btn-xl text-uppercase" href="#get_started">Get Started</a>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="box" id="code-box">
+                            <pre><code class="language-bash">curl -X 'GET' \
+'https://demo.pygeoapi.io/master/collections/lakes/items?limit=10&skipGeometry=false&offset=0' \
+-H 'accept: application/geo+json'</code></pre>
+                        </div>
+                        <a class="btn btn-light" onclick="copyToClipboard(this)">Copy</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Testimonials-->
+        <section class="page-section bg-dark" id="testimonials">
+            <div class="container">
+                <div class="text-center">
+                    <div class="carousel slide" id="carouselExampleControls" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button class="active" type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="testimonials-text"><p>"So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won’t make everybody happy, but we can try to make nobody hate the APIs."</p></div>
+                                    <div class="testimonials-title"><p>- Ivan Sanchez Ortega, Freelance GIS+JS developer and OSGeo charter member</p></div>
+                                </div>
+                                <img class="rounded-circle" src="assets/img/ivan.png" alt="Ivan" height="200" />
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="testimonials-text"><p>"Exciting times for international weather/climate/water data exchange, using open standards and open source reference implementations."</p></div>
+                                    <div class="testimonials-title"><p>- Tom Kralidis, OSGeo Board Member and Key Contributor of FOSS4G projects</p></div>
+                                </div>
+                                <img class="rounded-circle" src="assets/img/tom.jpeg" alt="Tom" />
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="testimonials-text"><p>"An ideal ecosystem would see most data stored in cloud-native geospatial formats, and then a wide array of services on top of those, with most of them implementing OGC API interfaces."</p></div>
+                                    <div class="testimonials-title"><p>- Chris Holmes, Product Architect at Planet and Technical Fellow at Radiant.Earth</p></div>
+                                </div>
+                                <img class="rounded-circle" src="assets/img/chris.jpeg" alt="Chris" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Get Started-->
+        <section class="page-section bg-light" id="get_started">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Get Started</h2>
+                    <p class="text-muted">
+                        Each standard addresses a specific type of geospatial data or associated resources.
+                        <i>Interfaces</i>
+                        define how services can access the data, while
+                        <i>encodings</i>
+                        define the structure and organisation of data formats and messaging protocols. Browse the list bellow to find the one that matches your needs.
+                    </p>
+                </div>
+                <h3 class="text-uppercase">Interfaces</h3>
+                <p class="text-muted">
+                    Interface Standards provide rules that determine the operations in a server client architecture. For instance web mapping applications, or
+                    <i>Web GIS</i>
+                    fit into this pattern, where an interface is used to request maps to a map service provider.
+                </p>
+                <div class="div" id="shuffleApis">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                    </div>
+                </div>
+                <p class="text-muted">
+                    Still don't find what you are looking for?Try the
+                    <a href="https://sn80uo0zmbg.typeform.com/to/gcwDDNB6?typeform-source=blocks.ogc.org">
+                        OGC API configurator.
+                        <br />
+                    </a>
+                </p>
+                <h3 class="text-uppercase">Encodings</h3>
+                <p class="text-muted">Data Encoding Standards provide the rules for structuring and organising geospatial data for use in a given context.They apply to binary formats (e.g.: GeoTIFF), as well as human-readable formats (e.g.: JSON).</p>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/polyhedron-mathematics-geometry-rhombicosidodecahedron-archimedean-solid-mathematics-3f454e0ef2cb96cf4e83cca8e7c9c0df.png" alt="..." />
+                            <h4>JSON-FG</h4>
+                            <p class="text-muted">If you are using GeoJSON, but your data is not in WGS84, be sure to check this encoding. OGC Features and Geometries JSON extends GeoJSON, in order to overcome some of its limitations.</p>
+                            <a class="btn btn-dark btn-social mx-2" href="!#" title="Website" target="_blank"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogc-feat-geo-json" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/geopkg.png" alt="..." />
+                            <h4>GeoPackage</h4>
+                            <p class="text-muted">GeoPackage lets you store different types of geospatial information (e.g.: vector data, attributes, metadata, styles) in a single container.</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.geopackage.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/geopackage" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/COG_Alt_Logo.png" alt="..." />
+                            <h4>Cloud Optimized GeoTIFF (COG)</h4>
+                            <p class="text-muted">If you work with imagery and grid coverage data on the web, you could check out this format, backwards compatible with GeoTIFF.</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.cogeo.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/CloudOptimizedGeoTIFF" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Learn-->
+        <section class="page-section bg-light" id="learn">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Learn</h2>
+                    <h3 class="section-subheading text-muted">If you want learn more about the conceptual part of OGC API, try these learning resources.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image">
+                            <a href="https://opengeospatial.github.io/e-learning/ogc/text/index.html" title="E-learning" target="_blank"><img class="rounded-circle img-fluid" src="assets/img/about/elearning.jpeg" alt="..." /></a>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading"><h4 class="subheading">OGC e-learning</h4></div>
+                            <div class="timeline-body"><p class="text-muted">Modular course that provides some background about OGC standards.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <a href="https://geoe3.ogc.org/" title="E-learning" target="_blank"><img class="rounded-circle img-fluid" src="assets/img/GeoE3_bright_final.jpg" alt="..." /></a>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading"><h4 class="subheading">GEOE3 Academy</h4></div>
+                            <div class="timeline-body"><p class="text-muted">This learning platform offers different courses, mostly focused on Spatial Data Infrastructures.</p></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Try it!-->
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center"><h2 class="section-heading text-uppercase">You may also want to check</h2></div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-file-signature fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Definition Server</h4>
+                        <p class="text-muted">
+                            The
+                            <a href="https://defs.opengis.net/vocprez/">OGC Definition Server</a>
+                            is a web accessible source of information about things ("Concepts") the OGC defines or that communities ask the OGC to host on their behalf (e.g.: technical terms from application schemas).
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-cube fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Location building blocks</h4>
+                        <p class="text-muted">
+                            Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs. The OGC APIs are developed in
+                            <a href="https://blocks.ogc.org/">discrete building blocks</a>
+                            , which you can mix & match to spatially enable your existing APIs.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-check fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Compliance and Certification</h4>
+                        <p class="text-muted">
+                            The
+                            <a href="https://www.ogc.org/compliance/">OGC Compliance program</a>
+                            provides the tools to test your implementation and make sure it is compliant to the standard. If you want to take your application to the next level, you can apply for a compliance certification.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Community-->
+        <section class="page-section" id="community">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Community</h2>
+                    <h3 class="section-subheading text-muted">Be part of the #OGCAPI comunity. Tell us what’s working well, what you want to see added or improved, and find out about new updates.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <a href="https://github.com/opengeospatial/developer-events/wiki" title="Events">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fa-solid fa-users fa-stack-1x fa-inverse"></i>
+                            </a>
+                        </span>
+                        <h4 class="my-3">Events</h4>
+                        <p class="text-muted">Check-out the code sprints, developer workshops and other hybrid/online developer events.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <a href="https://dev.to/doublebyte" title="Dev.to">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fa-brands fa-dev fa-stack-1x fa-inverse"></i>
+                            </a>
+                        </span>
+                        <h4 class="my-3">Dev.to</h4>
+                        <p class="text-muted">#OGCAPI related content in a constructive and inclusive social network for software developers.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <a href="https://discord.gg/3uyaZZuXr3" title="Discord">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fab fa-discord fa-stack-1x fa-inverse"></i>
+                            </a>
+                        </span>
+                        <h4 class="my-3">Discord</h4>
+                        <p class="text-muted">Chat with other developers and take active part in the code sprints in the OGC Community channel.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <a href="blogs.html" title="Blogs" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fa-solid fa-blog fa-stack-1x fa-inverse"></i>
+                            </a>
+                        </span>
+                        <h4 class="my-3">Blogs</h4>
+                        <p class="text-muted">Blogs from the community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; 2022. Open Geospatial Consortium all rights reserved</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://noc.social/@doublebyte"><i class="fa-brands fa-mastodon"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="mailto:devrel@ogc.org"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Privacy Policy</h2>
+                                    <p class="item-intro text-muted">OGC API Features does not log or share your personal information.</p>
+                                    <p>We don't track you. We don't profile you. Period</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Jquery-->
+        <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!--script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')-->
+    </body>
+</html>
