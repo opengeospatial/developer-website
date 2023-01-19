@@ -1,0 +1,21 @@
+ 
+[submodule "dist/sprints/15"]
+	path = dist/sprints/15
+	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git
+	branch = master
+[submodule "dist/sprints/16"]
+	path = dist/sprints/16
+	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-16.git
+	branch = master
+[submodule "dist/sprints/17"]
+	path = dist/sprints/17
+	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-17.git
+	branch = master
+[submodule "dist/sprints/18"]
+	path = dist/sprints/18
+	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-18.git
+	branch = master
+[submodule "dist/sprints/19"]
+	path = dist/sprints/19
+	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-19.git
+	branch = master
