@@ -175,23 +175,57 @@ html(lang='en')
 
                     h3.text-uppercase Interfaces
                     p.text-muted Interface Standards provide rules that determine the operations in a server client architecture. For instance web mapping applications, or 
-                        i Web GIS 
-                        | fit into this pattern, where an interface is used to request maps to a map service provider.
+                        i Web GIS, 
+                        | fit into this pattern where an interface is used to request maps to a map service provider.
 
-                    .div(id="shuffleApis")
-                        .row
-                            .col-lg-4
-                            .col-lg-4
-                            .col-lg-4
-                            .col-lg-4
+                    //- .div(id="shuffleApis")
+                    //-     .row
+                    //-         .col-lg-4
+                    //-         .col-lg-4
+                    //-         .col-lg-4
+                    //-         .col-lg-4
 
-                    //- .card.bg-info.border-info.mb-3(style='max-width: 48rem;')
-                    //-     .card-body.text-white
-                    //-         h5.card-title Still don't find what you are looking for?
-                    //-         p.card-text
-                    //-             | Try the
-                    //-             a(href='https://sn80uo0zmbg.typeform.com/to/gcwDDNB6?typeform-source=blocks.ogc.org') OGC API configurator.
-                    //-     <br>                            
+                    .row
+                        .col-lg-4
+                            .team-member
+                                .ribbon-holder
+                                    .ribbon.ribbon-holder Published
+                                    img.mx-auto.rounded-circle(src='assets/img/tile-thumb.jpg', alt='...')
+                                    h4 OGC API - Tiles
+                                    p.text-muted Interface for tiles of geospatial information (e.g.: vector data, maps or coverages). 
+                                    a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                        i.fa.fa-link
+                                    a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-tiles' title='GitHub repo' target="_blank")
+                                        i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                .ribbon-holder
+                                    .ribbon.ribbon-holder Published
+                                    img.mx-auto.rounded-circle(src='assets/img/feat-full.jpg', alt='...')
+                                    h4 OGC API - Features
+                                    p.text-muted Interface for feature data.
+                                    a.btn.btn-dark.btn-social.mx-2(href='https://features.developer.ogc.org/' title='Website' target="_blank")
+                                        i.fa.fa-link
+                                    a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-features' title='GitHub repo' target="_blank")
+                                        i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/sensorthings.jpg', alt='...')
+                                h4 SensorThings API
+                                p.text-muted Interface for 3D geospatial data.
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-3d-geovolumes' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/geovolumes-thumb.jpg', alt='...')
+                                h4 3D GeoVolumes
+                                p.text-muted Interface for spatially enabled IoT devices, data and applications.
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-3d-geovolumes' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github                                
 
                     p.text-muted Still don't find what you are looking for?
                         | Try the 
