@@ -161,44 +161,6 @@ html(lang='en')
                             span.carousel-control-next-icon(aria-hidden='true')
                             span.visually-hidden Next
 
-
-        // About
-        section#about.page-section
-            .container
-                .text-center
-                    h2.section-heading.text-uppercase What can you do with the OGC APIs?
-                //-     h3.section-subheading.text-muted Main reasons for using OGC API Features.
-                .row.text-center
-                    .col-md-4
-                        span.fa-stack.fa-4x
-                            i.fas.fa-circle.fa-stack-2x.text-primary
-                            i.fas.fa-file-signature.fa-stack-1x.fa-inverse
-                        h4.my-3 Access the OpenAPI definition
-                        p.text-muted
-                            | Each OGC API is described using the
-                            a(href='https://swagger.io/specification/') OpenAPI 
-                            | specification. You can access an existing deployment to interact with a server implementation, or use it to generate code stubs for your own implementation.
-                    .col-md-4
-                        span.fa-stack.fa-4x
-                            i.fas.fa-circle.fa-stack-2x.text-primary
-                            i.fas.fa-cube.fa-stack-1x.fa-inverse
-                        h4.my-3 Develop using the API building blocks
-                        p.text-muted
-                            | Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs.
-                            | The OGC APIs are developed in 
-                            a(href='https://blocks.ogc.org/') discrete building blocks
-                            |, which you can mix & match to spatially enable your existing APIs.
-                    .col-md-4
-                        span.fa-stack.fa-4x
-                            i.fas.fa-circle.fa-stack-2x.text-primary
-                            i.fas.fa-check.fa-stack-1x.fa-inverse
-                        h4.my-3 Validate your implementation
-                        p.text-muted
-                            | The 
-                            a(href='https://www.ogc.org/compliance/') OGC Compliance program 
-                            | provides the tools to test your implementation and make sure it is compliant to the standard.
-                            | If you want to take your application to the next level, you can apply for a compliance certification.
-
         // Get Started
         section#get_started.page-section.bg-light
                 .container
@@ -293,6 +255,43 @@ html(lang='en')
         //-         //-     h3.section-subheading.text-muted Try a request to retrieve the features of a large lake.
 
         //-         div(id="swagger-ui")
+
+        // About
+        section#about.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase You may also want to check
+                //-     h3.section-subheading.text-muted Main reasons for using OGC API Features.
+                .row.text-center
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-file-signature.fa-stack-1x.fa-inverse
+                        h4.my-3 Definition Server
+                        p.text-muted
+                            | The
+                            a(href='https://defs.opengis.net/vocprez/') OGC Definition Server
+                            | is a web accessible source of information about things ("Concepts") the OGC defines or that communities ask the OGC to host on their behalf (e.g.: technical terms from application schemas).
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-cube.fa-stack-1x.fa-inverse
+                        h4.my-3 Location building blocks
+                        p.text-muted
+                            | Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs.
+                            | The OGC APIs are developed in 
+                            a(href='https://blocks.ogc.org/') discrete building blocks
+                            |, which you can mix & match to spatially enable your existing APIs.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-check.fa-stack-1x.fa-inverse
+                        h4.my-3 Compliance and Certification
+                        p.text-muted
+                            | The 
+                            a(href='https://www.ogc.org/compliance/') OGC Compliance program 
+                            | provides the tools to test your implementation and make sure it is compliant to the standard.
+                            | If you want to take your application to the next level, you can apply for a compliance certification.
 
         // Community
         section#community.page-section
