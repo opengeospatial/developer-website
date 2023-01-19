@@ -29,8 +29,8 @@ visitedApis = [];
 
 $(document).ready(function(){
 
-  shuffleOrgs($('#shuffleOrgs .row.align-items-center'), visitedOrgs);
-  shuffleApis($('#shuffleApis .row'), visitedApis);
+  //shuffleOrgs($('#shuffleOrgs .row.align-items-center'), visitedOrgs);
+  //shuffleApis($('#shuffleApis .row'), visitedApis);
   //loadSwagger();
 
 });
