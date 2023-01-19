@@ -166,16 +166,18 @@ html(lang='en')
                 .container
                     .text-center
                         h2.section-heading.text-uppercase Get Started
-                    p.text-muted Each standard addresses a specific type of geospatial data or associated resources. 
+                        p.text-muted Each standard addresses a specific type of geospatial data or associated resources. 
+                            i Interfaces
+                            | define how services can access the data, while 
+                            i encodings 
+                            | define the structure and organisation of data formats and messaging protocols.
+                            | Browse the list bellow to find the one that matches your needs.
 
-                        //- h3.section-subheading.text-uppercase What about encodings?
+                    h3.text-uppercase Interfaces
+                    p.text-muted Interface Standards provide rules that determine the operations in a server client architecture. For instance web mapping applications, or 
+                        i Web GIS 
+                        | fit into this pattern, where an interface is used to request maps to a map service provider.
 
-
-                        | Interfaces define how services can access the data while encodings define the structure and organisation of data formats and messaging protocols.
-                        | Browse the list bellow to find the one that matches your needs. <br />
-                        | Still don't find what you are looking for? If you are looing for an interface, try the
-                        a(href='https://sn80uo0zmbg.typeform.com/to/gcwDDNB6?typeform-source=blocks.ogc.org') OGC API configurator.
-                    <br>
                     .div(id="shuffleApis")
                         .row
                             .col-lg-4
@@ -183,45 +185,50 @@ html(lang='en')
                             .col-lg-4
                             .col-lg-4
 
-        // Encodings
-        section#encodings.page-section
-            .container
-                .text-center
-                    h3.section-heading.text-uppercase What about encodings?
+                    //- .card.bg-info.border-info.mb-3(style='max-width: 48rem;')
+                    //-     .card-body.text-white
+                    //-         h5.card-title Still don't find what you are looking for?
+                    //-         p.card-text
+                    //-             | Try the
+                    //-             a(href='https://sn80uo0zmbg.typeform.com/to/gcwDDNB6?typeform-source=blocks.ogc.org') OGC API configurator.
+                    //-     <br>                            
 
-                p.text-muted The OGC APIs do not mandate any encodings. You can use popular encodings such as JSON, GeoJSON, YAML, or anything else you like. If you are unsure about what to use, check out these OGC encodings. 
-        
+                    p.text-muted Still don't find what you are looking for?
+                        | Try the 
+                        a(href='https://sn80uo0zmbg.typeform.com/to/gcwDDNB6?typeform-source=blocks.ogc.org') OGC API configurator.
+                            <br>  
 
-                .row
-                    .col-lg-4
-                        .team-member
-                            img.mx-auto.rounded-circle(src='assets/img/polyhedron-mathematics-geometry-rhombicosidodecahedron-archimedean-solid-mathematics-3f454e0ef2cb96cf4e83cca8e7c9c0df.png', alt='...')
-                            h4 JSON-FG
-                            p.text-muted If you are using GeoJSON, but your data is not in WGS84, be sure to check this encoding. OGC Features and Geometries JSON extends GeoJSON, in order to overcome some of its limitations. 
-                            a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
-                                i.fa.fa-link
-                            a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogc-feat-geo-json' title='GitHub repo' target="_blank")
-                                i.fa-brands.fa-github
-                    .col-lg-4
-                        .team-member
-                            img.mx-auto.rounded-circle(src='assets/img/geopkg.png', alt='...')
-                            h4 GeoPackage
-                            p.text-muted GeoPackage lets you store different types of geospatial information (e.g.: vector data, attributes, metadata, styles) in a single container.
-                            a.btn.btn-dark.btn-social.mx-2(href='https://www.geopackage.org/' title='Website' target="_blank")
-                                i.fa.fa-link
-                            a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/geopackage' title='GitHub repo' target="_blank")
-                                i.fa-brands.fa-github
-                    .col-lg-4
-                        .team-member
-                            img.mx-auto.rounded-circle(src='assets/img/COG_Alt_Logo.png', alt='...')
-                            h4 Cloud Optimized GeoTIFF (COG)
-                            p.text-muted If you work with imagery and grid coverage data on the web, you could check out this format, backwards compatible with GeoTIFF.
-                            a.btn.btn-dark.btn-social.mx-2(href='https://www.cogeo.org/' title='Website' target="_blank")
-                                i.fa.fa-link
-                            a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/CloudOptimizedGeoTIFF' title='GitHub repo' target="_blank")
-                                i.fa-brands.fa-github
-
-
+                    h3.text-uppercase Encodings
+                    p.text-muted Data Encoding Standards provide the rules for structuring and organising geospatial data for use in a given context.
+                        | They apply to binary formats (e.g.: GeoTIFF), as well as human-readable formats (e.g.: JSON).
+                    .row
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/polyhedron-mathematics-geometry-rhombicosidodecahedron-archimedean-solid-mathematics-3f454e0ef2cb96cf4e83cca8e7c9c0df.png', alt='...')
+                                h4 JSON-FG
+                                p.text-muted If you are using GeoJSON, but your data is not in WGS84, be sure to check this encoding. OGC Features and Geometries JSON extends GeoJSON, in order to overcome some of its limitations. 
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogc-feat-geo-json' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/geopkg.png', alt='...')
+                                h4 GeoPackage
+                                p.text-muted GeoPackage lets you store different types of geospatial information (e.g.: vector data, attributes, metadata, styles) in a single container.
+                                a.btn.btn-dark.btn-social.mx-2(href='https://www.geopackage.org/' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/geopackage' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/COG_Alt_Logo.png', alt='...')
+                                h4 Cloud Optimized GeoTIFF (COG)
+                                p.text-muted If you work with imagery and grid coverage data on the web, you could check out this format, backwards compatible with GeoTIFF.
+                                a.btn.btn-dark.btn-social.mx-2(href='https://www.cogeo.org/' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/CloudOptimizedGeoTIFF' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
  
         // Learn
         section#learn.page-section.bg-light
