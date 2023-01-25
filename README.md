@@ -13,6 +13,10 @@ Update sub-modules with:
 
 `git submodule foreach git pull origin gh-pages`
 
+The sponsoring page was installed using `git subtree`. Update it:
+
+`git subtree pull --prefix sprints/sponsoring https://github.com/doublebyte1/sponsoring.git gh-pages --squash`
+
 ## Intellectual Property Rights
 
 The content of this repository is copyrighted by the Open Geospatial Consortium (OGC) and may be [licensed](https://github.com/opengeospatial/er_template/blob/master/LICENSE) for designated purposes.
