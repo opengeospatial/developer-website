@@ -15,7 +15,7 @@ Update sub-modules with:
 
 The sponsoring page was installed using `git subtree`. **Do not attempt to update it directly!** Do the changes on the [source repository](https://github.com/doublebyte1/sponsoring.git) first and update it with:
 
-`git subtree pull --prefix sprints/sponsoring https://github.com/doublebyte1/sponsoring.git gh-pages --squash`
+`git subtree pull --prefix sprints/sponsoring https://github.com/opengeospatial/dev-sprint-sponsoring.git gh-pages --squash`
 
 Don´t forget to push the result:
 
