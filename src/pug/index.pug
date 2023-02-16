@@ -119,7 +119,7 @@ html(lang='en')
                         .carousel-indicators
                             button.active(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='1' aria-label='Slide 2')
-                            button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='2' aria-label='Slide 3')
+                            //- button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='2' aria-label='Slide 3')
 
                         .carousel-inner
                             .carousel-item.active
@@ -136,13 +136,13 @@ html(lang='en')
                                     .testimonials-title 
                                         p - Tom Kralidis, OSGeo Board Member and Key Contributor of FOSS4G projects
                                 img.rounded-circle(src='assets/img/tom.jpeg' alt='Tom')
-                            .carousel-item
-                                .carousel-caption.d-none.d-md-block
-                                    .testimonials-text                             
-                                        p "An ideal ecosystem would see most data stored in cloud-native geospatial formats, and then a wide array of services on top of those, with most of them implementing OGC API interfaces."
-                                    .testimonials-title 
-                                        p - Chris Holmes, Product Architect at Planet and Technical Fellow at Radiant.Earth
-                                img.rounded-circle(src='assets/img/chris.jpeg' alt='Chris')
+                            //- .carousel-item
+                            //-     .carousel-caption.d-none.d-md-block
+                            //-         .testimonials-text                             
+                            //-             p "An ideal ecosystem would see most data stored in cloud-native geospatial formats, and then a wide array of services on top of those, with most of them implementing OGC API interfaces."
+                            //-         .testimonials-title 
+                            //-             p - Chris Holmes, Product Architect at Planet and Technical Fellow at Radiant.Earth
+                            //-     img.rounded-circle(src='assets/img/chris.jpeg' alt='Chris')
                         button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev')
                             span.carousel-control-prev-icon(aria-hidden='true')
                             span.visually-hidden Previous
@@ -273,7 +273,42 @@ html(lang='en')
                                         i.fa.fa-link
                                     a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-processes' title='GitHub repo' target="_blank")
                                         i.fa-brands.fa-github 
-
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/cube-coverages-thumb.jpg', alt='...')
+                                h4 OGC API - Coverages
+                                p.text-muted Interface for accessing homogeneous collections of values located in space/time (e.g.: coverages). A satellite image is an example of a gridded coverage.
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-coverages' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/movingfeatures-thumb.jpg', alt='...')
+                                h4 OGC API - Moving Features
+                                p.text-muted Interface to access representations of Moving Features.
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-movingfeatures' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/routes-thumb.jpg', alt='...')
+                                h4 OGC API - Routes
+                                p.text-muted  Interface to request routes in a manner independent of the underlying routing data set, routing engine or algorithm.
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-routes' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/joins-thumb.jpg', alt='...')
+                                h4 OGC API - Joins
+                                p.text-muted Interface to join data from input files with tabular data from other sources.
+                                a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
+                                    i.fa.fa-link
+                                a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-joins' title='GitHub repo' target="_blank")
+                                    i.fa-brands.fa-github
 
                     p.text-muted Still don't find what you are looking for?
                         | Try the 
