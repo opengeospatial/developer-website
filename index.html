@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Google tag-->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5KGJV26');
+        </script>
+        <!-- End Google Tag Manager-->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -271,6 +285,14 @@
                             <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-joins" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/xml.jpeg" alt="..." />
+                            <h4>OWS</h4>
+                            <p class="text-muted">Looking for the legacy OGC Web Services (e.g.: WFS, WMTS, WMS)?</p>
+                            <a class="btn btn-dark btn-social mx-2" href="ows.html" title="Website" target="_blank"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
                 </div>
                 <p class="text-muted">
                     Still don't find what you are looking for?Try the
@@ -436,6 +458,17 @@
                 </div>
             </div>
         </section>
+        <section class="page-section" id="adopters">
+            <div class="container">
+                <div class="text-center"><h2 class="section-heading text-uppercase">Who is behind the OGC standards?</h2></div>
+                <p class="text-muted">
+                    OGC standards are developed through a member-driven consensus process, which creates royalty free, publicly available, open geospatial standards. The
+                    <a href="https://www.ogc.org/">Open Geospatial Consortium (OGC)</a>
+                    is the organisation which drives this process. It is supported by an active community of members, with involvement from a large range of organizations, as well as smaller ones.
+                    <a href="https://www.ogc.org/about/members/">Join OGC today!</a>
+                </p>
+            </div>
+        </section>
         <!-- Footer-->
         <footer class="footer py-4 bg-light">
             <div class="container">
@@ -445,6 +478,7 @@
                         <a class="btn btn-dark btn-social mx-2" href="https://noc.social/@doublebyte"><i class="fa-brands fa-mastodon"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="mailto:devrel@ogc.org"><i class="fa fa-envelope"></i></a>
                     </div>
+                    <div class="col-lg-4 text-lg-end"><a class="link-dark text-decoration-none me-3" href="https://www.ogc.org/about/policies/privacy-policy/" target="_blank">Privacy Policy</a></div>
                 </div>
             </div>
         </footer>
