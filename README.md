@@ -24,6 +24,10 @@ Publish to GitHub Pages with:
 
 `git subtree push --prefix dist origin gh-pages-v2`
 
+Forced update:
+
+`git push origin `git subtree split --prefix dist master`:gh-pages-v2 --force`
+
 ## Intellectual Property Rights
 
 The content of this repository is copyrighted by the Open Geospatial Consortium (OGC) and may be [licensed](https://github.com/opengeospatial/er_template/blob/master/LICENSE) for designated purposes.
