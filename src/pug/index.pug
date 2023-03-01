@@ -317,15 +317,14 @@ html(lang='en')
                                     i.fa.fa-link
                                 a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-joins' title='GitHub repo' target="_blank")
                                     i.fa-brands.fa-github
-                        //- .col-lg-4
-                        //-     .team-member
-                        //-         img.mx-auto.rounded-circle(src='assets/img/joins-thumb.jpg', alt='...')
-                        //-         h4 OWS Services
-                        //-         p.text-muted Interface to join data from input files with tabular data from other sources.
-                        //-         a.btn.btn-dark.btn-social.mx-2(href='!#' title='Website' target="_blank")
-                        //-             i.fa.fa-link
-                        //-         a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/ogcapi-joins' title='GitHub repo' target="_blank")
-                        //-             i.fa-brands.fa-github
+
+                        .col-lg-4
+                            .team-member
+                                img.mx-auto.rounded-circle(src='assets/img/xml.jpeg', alt='...')
+                                h4 OWS
+                                p.text-muted Looking for the legacy OGC Web Services (e.g.: WFS, WMTS, WMS)?
+                                a.btn.btn-dark.btn-social.mx-2(href='ows.html' title='Website' target="_blank")
+                                    i.fa.fa-link
 
                     p.text-muted Still don't find what you are looking for?
                         | Try the 
@@ -469,6 +468,19 @@ html(lang='en')
                         h4.my-3 Blogs
                         p.text-muted
                             | Blogs from the community.
+
+        section#adopters.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Who is behind the OGC standards?
+                p.text-muted 
+                    | OGC standards are developed through a member-driven consensus process, which creates royalty free, publicly available, open geospatial standards.
+                    | The
+                    a(href="https://www.ogc.org/") Open Geospatial Consortium (OGC)
+                    | is the organisation which drives this process. It is supported by an active community of members, with involvement from a large range of organizations, as well as smaller ones. <a href="https://www.ogc.org/about/members/">Join OGC today!</a>
+
+
+
         // Footer
         footer.footer.py-4.bg-light
             .container
@@ -482,7 +494,6 @@ html(lang='en')
                             i.fa.fa-envelope
                     .col-lg-4.text-lg-end
                         a.link-dark.text-decoration-none.me-3(href='https://www.ogc.org/about/policies/privacy-policy/' target="_blank") Privacy Policy
-
 
         // Portfolio Modals
         include includes/portfolio-modal-1

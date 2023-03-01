@@ -8,7 +8,7 @@ html(lang='en')
         meta(name='description', content='')
         meta(name='author', content='')
 
-        title Blogs
+        title OWS
 
         // Favicon
         link(rel='icon', type='image/x-icon', href='assets/3d_emblem_lockup.ico')
@@ -31,37 +31,39 @@ html(lang='en')
 
     body#page-top
 
-
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
             .container
                 a.navbar-brand(href='./')
                     img(src='assets/img/ogc-logo-white.svg', alt='...')
 
+
         section#adopters.page-section
             .container
                 .text-left
-                    h2.section-heading.text-uppercase blogs
+                    h2.section-heading.text-uppercase OGC Web Services
                     p.text-muted 
-                        | Blogs run by thought leaders and geospatial experts from the community, which may ocasionaly talk about #OGCAPI, among other (geospatial) things.
-                        | If you would like to be added, please create an issue, or even better, a pull request
-                        a(href='https://github.com/doublebyte1/developer-website-v2') here
-                        |.
+                        | OGC Web Services were created more than ten years ago, when the web technologies looked very different from what is used nowadays.
+                        | OGC encourages the transition from OWS to OGC API Standards and there is a deprecation plan in place for OWS standards.
+                        | If you are going to implement a standard from scratch, please consider using one of the OGC APIs instead.
 
                     p
-                    a(href="https://www.ogc.org/blog" target="_blank") OGC
+                    a(href="https://www.ogc.org/standard/wfs/" target="_blank") Web Feature Service (WFS)
                     p
-                    a(href="https://www.linkedin.com/newsletters/random-gis-talks-6946681194994372608/" target="_blank") Krishna G Lodha
+                    a(href="https://www.ogc.org/standard/wms/" target="_blank") Web Map Service (WMS)
                     p
-                    a(href="https://ivan.sanchezortega.es/" target="_blank") Iván Sánchez Ortega
+                    a(href="https://www.ogc.org/standard/wmts/" target="_blank") Web Map Tile Service (WMTS)
                     p
-                    a(href="https://anitagraser.com/" target="_blank") Anita Graser’s Free and Open Source GIS Ramblings
+                    a(href="https://www.ogc.org/standard/wps/" target="_blank") Web Processing Service (WPS)
                     p
-                    a(href="https://blog.ianturton.com/" target="_blank") Ian's random blog
+                    a(href="https://www.ogc.org/standard/wps/" target="_blank") Web Processing Service (WPS)
                     p
-                    a(href="https://justobjects.nl/" target="_blank") Just Objects
-                    //- p
-                    //- a(href="https://cholmes.medium.com/" target="_blank") Chris Holmes
+                    a(href="https://www.ogc.org/standard/wcs/" target="_blank") Web Coverage Service (WCS)
+                    p
+                    a(href="https://www.ogc.org/standard/wmc/" target="_blank") Web Map Context (WMC)
+                    p
+                    a(href="https://www.ogc.org/standard/wcps/" target="_blank") Web Coverage Processing Service (WCPS)
+                    p
 
         // Footer
         footer.footer.py-4.bg-light
@@ -77,9 +79,6 @@ html(lang='en')
                     .col-lg-4.text-lg-end
                         //- a.link-dark.text-decoration-none.me-3(data-bs-toggle='modal', data-bs-target='#portfolioModal1') Privacy Policy
                         a.link-dark.text-decoration-none.me-3(href='https://www.ogc.org/about/policies/privacy-policy/' target="_blank") Privacy Policy
-
-        // Portfolio Modals
-        include includes/portfolio-modal-1
 
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js')
