@@ -127,7 +127,7 @@ html(lang='en')
                         .carousel-indicators
                             button.active(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='1' aria-label='Slide 2')
-                            //- button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='2' aria-label='Slide 3')
+                            button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='2' aria-label='Slide 3')
 
                         .carousel-inner
                             .carousel-item.active
@@ -144,6 +144,13 @@ html(lang='en')
                                     .testimonials-title 
                                         p - Tom Kralidis, OSGeo Board Member and Key Contributor of FOSS4G projects
                                 img.rounded-circle(src='assets/img/tom.jpeg' alt='Tom')
+                            .carousel-item
+                                .carousel-caption.d-none.d-md-block
+                                    .testimonials-text                             
+                                        p "Using industry tools, you can take these specifications (OGC APIs) as is and easily generate service and client implementations. APIs are now programmatically ingestible to create implementation and documentation!  Huge step forward!"                        
+                                    .testimonials-title 
+                                        p - Steve McDaniel, Software Scientist at Hexagon
+                                img.rounded-circle(src='assets/img/Steve_McDaniel_Head_Shot.png' alt='Steve')
                             //- .carousel-item
                             //-     .carousel-caption.d-none.d-md-block
                             //-         .testimonials-text                             
