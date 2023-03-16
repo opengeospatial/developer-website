@@ -1,24 +1,24 @@
 [submodule "sprints/15"]
 	path = sprints/15
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git
-	branch = gh-pages
+	branch = gh-pages-v2
 [submodule "sprints/16"]
 	path = sprints/16
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-16.git
-	branch = gh-pages
+	branch = gh-pages-v2
 [submodule "sprints/17"]
 	path = sprints/17
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-17.git
-	branch = gh-pages
+	branch = gh-pages-v2
 [submodule "sprints/18"]
 	path = sprints/18
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-18.git
-	branch = gh-pages
+	branch = gh-pages-v2
 [submodule "sprints/19"]
 	path = sprints/19
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-19.git
-	branch = gh-pages
+	branch = gh-pages-v2
 [submodule "sprints/20"]
 	path = sprints/20
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-20.git
-	branch = gh-pages
+	branch = gh-pages-v2
