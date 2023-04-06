@@ -98,24 +98,6 @@ html(lang='en')
                                     | -H 'accept: application/geo+json'
                         a.btn.btn-light(onclick='copyToClipboard(this)') Copy
 
-
-        //- section#adopters.page-section
-        //-     .container
-        //-         .text-center
-        //-             h2.section-heading.text-uppercase Organisations using OGC APIs
-        //-             p.text-muted 
-        //-                 | Organizations in every sector use OGC APIs to share their geospatial data.
-
-        //-         div.py-5(id="shuffleOrgs")
-        //-             .container
-        //-                 .row.align-items-center
-        //-                     .col-md-4.col-sm-6.my-4
-        //-                     .col-md-4.col-sm-6.my-4
-
-        //-         .text-center
-        //-             p.text-muted.small 
-        //-                 | * If you would like to add your organisation to this list, please create a PR.
-
         // Testimonials
         section#testimonials.page-section.bg-dark
             .container
@@ -128,6 +110,7 @@ html(lang='en')
                             button.active(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='1' aria-label='Slide 2')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='2' aria-label='Slide 3')
+                            button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='3' aria-label='Slide 4')
 
                         .carousel-inner
                             .carousel-item.active
@@ -151,6 +134,14 @@ html(lang='en')
                                     .testimonials-title 
                                         p - Steve McDaniel, Software Scientist at Hexagon
                                 img.rounded-circle(src='assets/img/Steve_McDaniel_Head_Shot.png' alt='Steve')
+                            .carousel-item
+                                .carousel-caption.d-none.d-md-block
+                                    .testimonials-text                             
+                                        p "The next generation of OGC API standards make it easy for data publishers to create modern, developer friendly APIs to access geospatial data. Being involved in the development of this next generation of API standards has enabled Ordnance Survey to significantly modernise how our customers access authoritative geospatial data."
+                                    .testimonials-title 
+                                        p - Michael Gordon, Strategic Product Manager at Ordnance Survey
+                                img.rounded-circle(src='assets/img/michael-os.png' alt='Michael')
+
                             //- .carousel-item
                             //-     .carousel-caption.d-none.d-md-block
                             //-         .testimonials-text                             
