@@ -6,9 +6,8 @@ info:
   license:
     name: OGC License
     url: 'https://www.ogc.org/legal'
-servers:
-  - url: 'https://example.org/edr'
-    description: Example OGC API - Environmental Data Retrieval server
+  x-logo:
+    url: 'https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png'    
 tags:
   - name: Capabilities
     description: Essential characteristics of the information available from the API.
