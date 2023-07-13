@@ -2,5 +2,5 @@ description: Invalid request.
 content:
   application/json:
     schema:
-      $ref: ../../schemas/exception.yaml
+      $ref: ../../schemas/core/exception.yaml
   text/xml: {}

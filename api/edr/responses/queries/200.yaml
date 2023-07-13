@@ -2,10 +2,10 @@ description: Data ranges required to construct valid queries for the choosen dat
 content:
   application/prs.coverage+json:
     schema:
-      $ref: ../../schemas/coverageJSON.yaml
+      $ref: ../../schemas/covjson/coverageJSON.yaml
   application/geo+json:
     schema:
-      $ref: ../../schemas/edrFeatureCollectionGeoJSON.yaml
+      $ref: ../../schemas/edr-geojson/edrFeatureCollectionGeoJSON.yaml
   application/x-netcdf: 
     schema:
       type: object  

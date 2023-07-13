@@ -2,7 +2,7 @@ description: Metadata about the Environmental data collections shared by this AP
 content:
   application/json:
     schema:
-      $ref: ../../schemas/collections.yaml
+      $ref: ../../schemas/collections/collections.yaml
   text/html:
     schema:
       type: string
