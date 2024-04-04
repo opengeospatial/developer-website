@@ -5,17 +5,16 @@ This repository hosts static code for version 2.0 of the OGC Developer Website. 
 
 ## Install the gh-pages-v2 branch
 
-This project uses sub-modules for the code sprint micro websites. Clone with:
+This project uses `git subtree`. **Do not attempt to update it directly!** Do the changes on the source repository first, for instance [dev-ogc-org-sprint-landing-15](https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git) and add it here:
 
-` git clone -b gh-pages-v2 --recurse-submodules https://github.com/opengeospatial/developer-website.git`
+` git subtree add --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash` 
 
-Add another module:
+Keep it in sync with:
+` git subtree pull --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash` 
 
-`git submodule add -b gh-pages-v2 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-x.git sprints/x`
+For the [sponsoring page](https://github.com/doublebyte1/sponsoring.git) first and update it with:
 
-Update sub-modules with:
-
-`git submodule foreach git pull origin gh-pages-v2`
+`git subtree pull --prefix sprints/sponsoring https://github.com/opengeospatial/dev-sprint-sponsoring.git gh-pages --squash`
 
 Don't forget to commit & push the results.
 
