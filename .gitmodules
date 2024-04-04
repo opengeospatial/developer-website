@@ -1,8 +1,3 @@
- 
-[submodule "dist/sprints/19"]
-	path = dist/sprints/19
-	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-19.git
-	branch = master
 [submodule "dist/sprints/18"]
 	path = dist/sprints/18
 	url = https://github.com/opengeospatial/dev-ogc-org-sprint-landing-18.git
