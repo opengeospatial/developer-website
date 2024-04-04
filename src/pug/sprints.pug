@@ -11,7 +11,7 @@ html(lang='en')
         title OGC Code Sprints
 
         // Favicon
-        link(rel='icon', type='image/x-icon', href='assets/3d_emblem_lockup.ico')
+        link(rel='icon', type='image/x-icon', href='../assets/3d_emblem_lockup.ico')
 
         // Font Awesome icons (free version)
         //script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')
@@ -27,17 +27,16 @@ html(lang='en')
         //link(rel="stylesheet" type="text/css" href="assets/swagger-ui.css")
 
         // Core theme CSS (includes Bootstrap)
-        link(href='css/styles.css', rel='stylesheet')
+        link(href='../css/styles.css', rel='stylesheet')
 
-    body#page-top
+    body
 
-        // Navigation
-        nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
+        // In action
+        section#inaction.page-section.bg-light
             .container
-                a.navbar-brand(href='./')
-                    img(src='assets/img/ogc-logo-white.svg', alt='...')
-
-
+                .text-center
+                    h2.section-heading.text-uppercase Code Sprints
+                    h3.section-subheading.text-muted Landing page for OGC Code Sprints
 
         // Footer
         footer.footer.py-4.bg-light
@@ -61,5 +60,5 @@ html(lang='en')
         script(src='https://code.jquery.com/jquery-3.6.2.min.js')
 
         // Core theme JS
-        script(src='js/scripts.js')
+        script(src='../js/scripts.js')
 
