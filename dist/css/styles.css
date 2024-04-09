@@ -11354,7 +11354,7 @@ section#try {
   /* Hover Effects on Card */
 }
 #cards .current-card {
-  background: #44ef1d;
+  background: #FFD700;
   border: none;
   border-radius: 1rem;
   transition: all 0.2s;
