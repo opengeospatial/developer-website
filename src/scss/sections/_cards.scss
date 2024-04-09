@@ -1,11 +1,20 @@
 //
-// Pricing section styling
+// Cards section styling
 //
 
-#pricing {
+#cards {
     // background: #007bff;
-    background: linear-gradient(to right, #668bba, #f3f6f8);
- 
+    // background: linear-gradient(to right, #668bba, #f3f6f8);
+
+    .current-card {
+      // background: #FFD700;
+      background:rgb(68, 239, 29);
+      border: none;
+      border-radius: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    }    
+
     .card {
         border: none;
         border-radius: 1rem;
@@ -55,7 +64,7 @@
   /* Hover Effects on Card */
   
   @media (min-width: 992px) {
-    .card:hover {
+    .card:hover, .current-card:hover {
       margin-top: -.25rem;
       margin-bottom: .25rem;
       box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
