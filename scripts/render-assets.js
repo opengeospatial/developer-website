@@ -20,4 +20,9 @@ module.exports = function renderAssets() {
     const sprintsOut = upath.resolve(upath.dirname(__filename), '../dist/sprints/index.html');
     sh.cp('-R', sprintsIn, sprintsOut)
 
+    const sourceApiPath = upath.resolve(upath.dirname(__filename), '../api');
+    const destApiPath = upath.resolve(upath.dirname(__filename), '../dist/.');
+    
+    sh.cp('-R', sourceApiPath, destApiPath)
+
 };
