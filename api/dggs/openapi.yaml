@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: 'Building Blocks specified in OGC API - Discrete Global Grid Systems - Part 1: Core'
   description: 'Draft example of OGC API - Discrete Global Grid Systems - Part 1 OpenAPI docs. This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard. Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.'
-  version: 0.0.1
+  version: 0.0.2
   contact:
     name: "Open Geospatial Consortium (OGC)"
     email: standards-team@ogc.org
@@ -16,537 +16,379 @@ servers:
 - description: Example OGC API - DGGS server
   url: https://example.com/ogcapi
 paths:
-  "/":
+  /:
     get:
       tags:
-      - Landing Page
+        - Landing Page
       operationId: getLandingPage
       summary: Retrieve the OGC API landing page for this service.
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/LandingPage"
+          $ref: '#/components/responses/LandingPage'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/conformance":
+          $ref: '#/components/responses/ServerError'
+  /conformance:
     get:
       tags:
-      - Conformance
+        - Conformance
       operationId: getConformance
-      summary: Retrieve the set of OGC API conformance classes that are supported
-        by this service.
+      summary: Retrieve the set of OGC API conformance classes that are supported by this service.
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/Conformance"
+          $ref: '#/components/responses/Conformance'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/api":
+          $ref: '#/components/responses/ServerError'
+  /api:
     get:
       tags:
-      - API
+        - API
       operationId: getAPI
       summary: Retrieve this API definition.
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/API"
+          $ref: '#/components/responses/API'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/api/all-collections":
+          $ref: '#/components/responses/ServerError'
+  /api/all-collections:
     get:
       tags:
-      - API
+        - API
       operationId: getAPICollections
-      summary: Retrieve the list of collections available from this API implementation
-        & deployment.
+      summary: Retrieve the list of collections available from this API implementation & deployment.
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/Enumeration"
+          $ref: '#/components/responses/Enumeration'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/api/dggs":
+          $ref: '#/components/responses/ServerError'
+  /api/dggs:
     get:
       tags:
-      - API
+        - API
       operationId: getAPIDGGS
-      summary: Retrieve the list of shared Discrete Global Grid Systems available
-        from this API implementation & deployment.
+      summary: Retrieve the list of shared Discrete Global Grid Systems available from this API implementation & deployment.
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/Enumeration"
+          $ref: '#/components/responses/Enumeration'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections":
+          $ref: '#/components/responses/ServerError'
+  /collections:
     get:
       tags:
-      - Data Collections
+        - Data Collections
       operationId: getCollectionsList
-      summary: Retrieve the list of geospatial data collections available from this
-        service.
+      summary: Retrieve the list of geospatial data collections available from this service.
       parameters:
-      - "$ref": "#/components/parameters/datetime"
-      - name: bbox
-        in: query
-        description: |-
-          Only features that have a geometry that intersects the bounding box are selected. The bounding box is provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (height or depth):
-          * Lower left corner, coordinate axis 1 * Lower left corner, coordinate axis 2 * Minimum value, coordinate axis 3 (optional) * Upper right corner, coordinate axis 1 * Upper right corner, coordinate axis 2 * Maximum value, coordinate axis 3 (optional)
-          The coordinate reference system of the values is WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84) unless a different coordinate reference system is specified in the parameter `bbox-crs`.
-          For WGS 84 longitude/latitude the values are in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the antimeridian the first value (west-most box edge) is larger than the third value (east-most box edge).
-          If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
-          If a feature has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
-        required: false
-        schema:
-          type: array
-          oneOf:
-          - minItems: 4
-            maxItems: 4
-          - minItems: 6
-            maxItems: 6
-          items:
-            type: number
-            format: double
-        style: form
-        explode: false
-      - name: limit
-        in: query
-        description: |-
-          The optional limit parameter limits the number of collections that are presented in the response document.
-          Only items are counted that are on the first level of the collection in the response document. Nested objects contained within the explicitly requested items shall not be counted.
-          * Minimum = 1 * Maximum = 10000 * Default = 10
-        required: false
-        schema:
-          type: integer
-          minimum: 1
-          maximum: 10000
-          default: 10
-        style: form
-        explode: false
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/datetime'
+        - $ref: '#/components/parameters/bbox'
+        - name: limit
+          in: query
+          description: |-
+            The optional limit parameter limits the number of collections that are presented in the response document.
+            Only items are counted that are on the first level of the collection in the response document. Nested objects contained within the explicitly requested items shall not be counted.
+            * Minimum = 1 * Maximum = 10000 * Default = 10
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 10000
+            default: 10
+          style: form
+          explode: false
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/CollectionsList"
-  "/collections/{collectionId}":
+          $ref: '#/components/responses/CollectionsList'
+  /collections/{collectionId}:
     get:
       tags:
-      - Data Collections
+        - Data Collections
       operationId: getCollection
       summary: Retrieve the description of a collection available from this service.
       parameters:
-      - "$ref": "#/components/parameters/collectionId-all"
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/collectionId-all'
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/Collection"
-  "/dggs":
+          $ref: '#/components/responses/Collection'
+  /dggs:
     get:
       tags:
-      - DGGS Definition
+        - DGGS Definition
       summary: Retrieve the list of available DGGS
       operationId: getDGGSList
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/DGGSList"
+          $ref: '#/components/responses/DGGSList'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/dggs/{dggsId}":
+          $ref: '#/components/responses/ServerError'
+  /dggs/{dggsId}:
     get:
       tags:
-      - DGGS Definition
-      summary: "(Optional) Retrieve the definition of the specified Discrete Global
-        Grid System"
+        - DGGS Definition
+      summary: (Optional) Retrieve the definition of the specified Discrete Global Grid System
       operationId: getDGGS
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/components/parameters/f-metadata'
       responses:
         '200':
-          "$ref": "#/components/responses/DGGS"
+          $ref: '#/components/responses/DGGS'
         '404':
           description: The requested DGGS id was not found
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/exception"
+                $ref: '#/components/schemas/exception'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/dggs/{dggsId}/zones/{zoneId}":
+          $ref: '#/components/responses/ServerError'
+  /dggs/{dggsId}/zones/{zoneId}:
     get:
       tags:
-      - DGGS Definition
-      summary: "(Optional) Retrieve information about a DGGS Zone, such as geometry
-        and data availability."
+        - DGGS Definition
+      summary: (Optional) Retrieve information about a DGGS Zone, such as geometry and data availability.
       operationId: getDGGSZone
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/zoneId"
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/components/parameters/datetime"
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/components/parameters/zoneId'
+        - $ref: '#/components/parameters/collections'
+        - $ref: '#/components/parameters/datetime'
       responses:
         '200':
-          description: 'DGGS zone information returned as a response, potentially
-            including id, geometry, links to DGGS (rel: dggs), dataset, (rel: dataset),
-            collection (rel: geodata), data (rel: dggs-zone-data) (if available for
-            this zone)'
+          description: 'DGGS zone information returned as a response, potentially including id, geometry, links to DGGS (rel: dggs), dataset, (rel: dataset), collection (rel: geodata), data (rel: dggs-zone-data) (if available for this zone)'
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/zone-info'
             application/geo+json:
               schema:
                 allOf:
-                - format: geojson-feature
-                - title: GeoJSON Polygon Feature
-                  type: object
-                  required:
-                  - type
-                  - properties
-                  - geometry
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Feature
-                    id:
-                      oneOf:
-                      - type: number
-                      - type: string
-                    properties:
-                      type: object
-                      nullable: true
-                    geometry:
-                      title: GeoJSON Polygon
-                      type: object
-                      required:
-                      - type
-                      - coordinates
-                      properties:
-                        type:
-                          type: string
-                          enum:
-                          - Polygon
-                        coordinates:
-                          type: array
-                          items:
-                            type: array
-                            minItems: 4
-                            items:
-                              type: array
-                              minItems: 2
-                              items:
-                                type: number
-                        bbox:
-                          type: array
-                          minItems: 4
-                          items:
-                            type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
+                  - format: geojson-feature
+                  - $ref: '#/components/schemas/zone-info/properties/geometry/allOf/1'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections/{collectionId}/dggs":
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/dggs:
     get:
       tags:
-      - DGGS Definition
+        - DGGS Definition
       summary: Retrieve the list of available DGGS for the specified collection
       operationId: getCollectionDGGSList
       parameters:
-      - "$ref": "#/components/parameters/f-metadata"
-      - "$ref": "#/components/parameters/collectionId-all"
+        - $ref: '#/components/parameters/f-metadata'
+        - $ref: '#/components/parameters/collectionId-all'
       responses:
         '200':
-          "$ref": "#/components/responses/DGGSList"
+          $ref: '#/components/responses/DGGSList'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections/{collectionId}/dggs/{dggsId}":
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/dggs/{dggsId}:
     get:
       tags:
-      - DGGS Definition
-      summary: "(Optional) Retrieve the definition of the specified Discrete Global
-        Grid System in the context of a specified collection"
+        - DGGS Definition
+      summary: (Optional) Retrieve the definition of the specified Discrete Global Grid System in the context of a specified collection
       operationId: getCollectionDGGS
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/f-metadata"
-      - "$ref": "#/components/parameters/collectionId-all"
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/components/parameters/f-metadata'
+        - $ref: '#/components/parameters/collectionId-all'
       responses:
         '200':
-          "$ref": "#/components/responses/DGGS"
+          $ref: '#/components/responses/DGGS'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections/{collectionId}/dggs/{dggsId}/zones/{zoneId}":
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/dggs/{dggsId}/zones/{zoneId}:
     get:
       tags:
-      - DGGS Definition
-      summary: "(Optional) Retrieve information about a DGGS Zone, such as geometry
-        and data availability, in the context of a specific collection."
+        - DGGS Definition
+      summary: (Optional) Retrieve information about a DGGS Zone, such as geometry and data availability, in the context of a specific collection.
       operationId: getCollectionDGGSZone
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/zoneId"
-      - "$ref": "#/components/parameters/collectionId-all"
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/components/parameters/datetime"
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/components/parameters/zoneId'
+        - $ref: '#/components/parameters/collectionId-all'
+        - $ref: '#/components/parameters/collections'
+        - $ref: '#/components/parameters/datetime'
       responses:
         '200':
-          "$ref": "#/paths/~1dggs~1%7BdggsId%7D~1zones~1%7BzoneId%7D/get/responses/200"
+          $ref: '#/paths/~1dggs~1%7BdggsId%7D~1zones~1%7BzoneId%7D/get/responses/200'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/dggs/{dggsId}/data":
+          $ref: '#/components/responses/ServerError'
+  /dggs/{dggsId}/zones/{zoneId}/data:
     get:
       tags:
-      - DGGS Data Retrieval
-      summary: Retrieve data from a list of DGGS Zones, potentially as optimized DGGS
-        zone data packet.
-      operationId: retrieveDGGSData
-      parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - name: zones
-        in: query
-        style: form
-        description: A list of identifiers for specific zones of a Discrete Global
-          Grid Systems. These identifiers usually include a component corresponding
-          to a hierarchy level / scale / resolution, components identifying a spatial
-          region, and a optionally a temporal component.
-        required: false
-        explode: false
-        schema:
-          type: array
-          items:
-            type: string
-        example:
-        - 6-5-30
-        - 7-10-61
-        - 7-10-62
-        - 7-11-61
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/components/parameters/f-zoneData"
-      - "$ref": "#/components/parameters/properties"
-      - "$ref": "#/components/parameters/subset"
-      - "$ref": "#/components/parameters/filter"
-      - "$ref": "#/components/parameters/filter-lang"
-      - "$ref": "#/components/parameters/query"
-      - "$ref": "#/components/parameters/query-lang"
-      - "$ref": "#/components/parameters/datetime"
-      responses:
-        '200':
-          "$ref": "#/components/responses/ZoneData"
-        '204':
-          "$ref": "#/components/responses/EmptyData"
-        '404':
-          "$ref": "#/components/responses/NotFound"
-        '406':
-          "$ref": "#/components/responses/NotAcceptable"
-        '500':
-          "$ref": "#/components/responses/ServerError"
-  "/dggs/{dggsId}/zones/{zoneId}/data":
-    get:
-      tags:
-      - DGGS Data Retrieval
-      summary: Retrieve data from a DGGS Zone, potentially as optimized DGGS zone
-        data packet
+        - DGGS Data Retrieval
+      summary: Retrieve data from a DGGS Zone, potentially as optimized DGGS zone data packet
       operationId: retrieveDGGSZoneData
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/zoneId"
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/components/parameters/f-zoneData"
-      - "$ref": "#/components/parameters/properties"
-      - "$ref": "#/components/parameters/subset"
-      - "$ref": "#/components/parameters/filter"
-      - "$ref": "#/components/parameters/filter-lang"
-      - "$ref": "#/components/parameters/query"
-      - "$ref": "#/components/parameters/query-lang"
-      - "$ref": "#/components/parameters/datetime"
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/components/parameters/zoneId'
+        - $ref: '#/components/parameters/collections'
+        - $ref: '#/components/parameters/f-zoneData'
+        - $ref: '#/components/parameters/properties'
+        - $ref: '#/components/parameters/subset'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/filter-lang'
+        - $ref: '#/components/parameters/sortby'
+        - $ref: '#/components/parameters/datetime'
+        - $ref: '#/components/parameters/zone-depth'
       responses:
         '200':
-          "$ref": "#/components/responses/ZoneData"
+          $ref: '#/components/responses/ZoneData'
         '204':
-          "$ref": "#/components/responses/EmptyData"
+          $ref: '#/components/responses/EmptyData'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections/{collectionId}/dggs/{dggsId}/data":
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/dggs/{dggsId}/zones/{zoneId}/data:
     get:
       tags:
-      - DGGS Data Retrieval
-      summary: Retrieve data from a list of DGGS Zones for a specific collection,
-        potentially as optimized DGGS zone data packets.
-      operationId: retrieveCollectionDGGSData
-      parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/paths/~1dggs~1%7BdggsId%7D~1data/get/parameters/1"
-      - "$ref": "#/components/parameters/collectionId-all"
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/components/parameters/f-zoneData"
-      - "$ref": "#/components/parameters/properties"
-      - "$ref": "#/components/parameters/subset"
-      - "$ref": "#/components/parameters/filter"
-      - "$ref": "#/components/parameters/filter-lang"
-      - "$ref": "#/components/parameters/query"
-      - "$ref": "#/components/parameters/query-lang"
-      - "$ref": "#/components/parameters/datetime"
-      responses:
-        '200':
-          "$ref": "#/components/responses/ZoneData"
-        '204':
-          "$ref": "#/components/responses/EmptyData"
-        '404':
-          "$ref": "#/components/responses/NotFound"
-        '406':
-          "$ref": "#/components/responses/NotAcceptable"
-        '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections/{collectionId}/dggs/{dggsId}/zones/{zoneId}/data":
-    get:
-      tags:
-      - DGGS Data Retrieval
-      summary: Retrieve data from a DGGS Zone for a specific collection, potentially
-        as optimized DGGS zone data packet.
+        - DGGS Data Retrieval
+      summary: Retrieve data from a DGGS Zone for a specific collection, potentially as optimized DGGS zone data packet.
       operationId: retrieveCollectionDGGSZoneData
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/zoneId"
-      - "$ref": "#/components/parameters/collectionId-all"
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/components/parameters/f-zoneData"
-      - "$ref": "#/components/parameters/properties"
-      - "$ref": "#/components/parameters/subset"
-      - "$ref": "#/components/parameters/filter"
-      - "$ref": "#/components/parameters/filter-lang"
-      - "$ref": "#/components/parameters/query"
-      - "$ref": "#/components/parameters/query-lang"
-      - "$ref": "#/components/parameters/datetime"
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/components/parameters/zoneId'
+        - $ref: '#/components/parameters/collectionId-all'
+        - $ref: '#/components/parameters/collections'
+        - $ref: '#/components/parameters/f-zoneData'
+        - $ref: '#/components/parameters/properties'
+        - $ref: '#/components/parameters/subset'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/filter-lang'
+        - $ref: '#/components/parameters/sortby'
+        - $ref: '#/components/parameters/datetime'
+        - $ref: '#/components/parameters/zone-depth'
       responses:
         '200':
-          "$ref": "#/components/responses/ZoneData"
+          $ref: '#/components/responses/ZoneData'
         '204':
-          "$ref": "#/components/responses/EmptyData"
+          $ref: '#/components/responses/EmptyData'
         '404':
-          "$ref": "#/components/responses/NotFound"
+          $ref: '#/components/responses/NotFound'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/dggs/{dggsId}/zones":
+          $ref: '#/components/responses/ServerError'
+  /dggs/{dggsId}/zones:
     get:
       tags:
-      - DGGS Zone Query
-      summary: Retrieve the list of zones with data for this dataset, or for a particular
-        query
+        - DGGS Zone Query
+      summary: Retrieve the list of zones with data for this dataset, or for a particular query
       operationId: queryZones
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/collections"
-      - name: zone-level
-        in: query
-        description: The DGGS hierarchy level at which to return the list of zones.
-          The precision of the calculation to return the results depends on this parameter.
-          Returned zones will have a level equal or smaller to this specified level.
-          If `compact-zones` is set to true, all returned zones will be of this zone
-          level. If not specified, this defaults to the most detailed zone that the
-          system is able to return for the specific request.
-        required: false
-        schema:
-          type: integer
-        style: form
-        explode: false
-      - "$ref": "#/components/parameters/zones"
-      - "$ref": "#/components/parameters/limit"
-      - "$ref": "#/components/parameters/offset"
-      - "$ref": "#/components/parameters/datetime"
-      - "$ref": "#/components/parameters/filter"
-      - "$ref": "#/components/parameters/filter-lang"
-      - "$ref": "#/components/parameters/query"
-      - "$ref": "#/components/parameters/query-lang"
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/collections'
+        - $ref: '#/components/parameters/bbox'
+        - $ref: '#/components/parameters/bbox-crs'
+        - $ref: '#/components/parameters/dggsId'
+        - name: zone-level
+          in: query
+          description: The DGGS hierarchy level at which to return the list of zones. The precision of the calculation to return the results depends on this parameter. Returned zones will have a level equal or smaller to this specified level. If `compact-zones` is set to true, all returned zones will be of this zone level. If not specified, this defaults to the most detailed zone that the system is able to return for the specific request.
+          required: false
+          schema:
+            type: integer
+          style: form
+          explode: false
+        - $ref: '#/components/parameters/zone-level'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/parent-zone'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/datetime'
+        - $ref: '#/components/parameters/subset'
+        - $ref: '#/components/parameters/subset-crs'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/filter-lang'
+        - $ref: '#/components/parameters/f-zoneQueries'
       responses:
         '200':
-          "$ref": "#/components/responses/ZonesList"
+          $ref: '#/components/responses/ZonesList'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
-  "/collections/{collectionId}/dggs/{dggsId}/zones":
+          $ref: '#/components/responses/ServerError'
+  /collections/{collectionId}/dggs/{dggsId}/zones:
     get:
       tags:
-      - DGGS Zone Query
-      summary: Retrieve the list of zones with data for a specific collection, or
-        for a particular query
+        - DGGS Zone Query
+      summary: Retrieve the list of zones with data for a specific collection, or for a particular query
       operationId: queryCollectionZones
       parameters:
-      - "$ref": "#/components/parameters/dggsId"
-      - "$ref": "#/components/parameters/collectionId-all"
-      - "$ref": "#/components/parameters/collections"
-      - "$ref": "#/paths/~1dggs~1%7BdggsId%7D~1zones/get/parameters/2"
-      - "$ref": "#/components/parameters/zones"
-      - "$ref": "#/components/parameters/limit"
-      - "$ref": "#/components/parameters/offset"
-      - "$ref": "#/components/parameters/datetime"
-      - "$ref": "#/components/parameters/filter"
-      - "$ref": "#/components/parameters/filter-lang"
-      - "$ref": "#/components/parameters/query"
-      - "$ref": "#/components/parameters/query-lang"
-      - "$ref": "#/components/parameters/f-metadata"
+        - $ref: '#/components/parameters/collectionId-all'
+        - $ref: '#/components/parameters/collections'
+        - $ref: '#/components/parameters/bbox'
+        - $ref: '#/components/parameters/bbox-crs'
+        - $ref: '#/components/parameters/dggsId'
+        - $ref: '#/paths/~1dggs~1%7BdggsId%7D~1zones/get/parameters/4'
+        - $ref: '#/components/parameters/zone-level'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/parent-zone'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/datetime'
+        - $ref: '#/components/parameters/subset'
+        - $ref: '#/components/parameters/subset-crs'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/filter-lang'
+        - $ref: '#/components/parameters/f-zoneQueries'
       responses:
         '200':
-          "$ref": "#/components/responses/ZonesList"
+          $ref: '#/components/responses/ZonesList'
         '406':
-          "$ref": "#/components/responses/NotAcceptable"
+          $ref: '#/components/responses/NotAcceptable'
         '500':
-          "$ref": "#/components/responses/ServerError"
+          $ref: '#/components/responses/ServerError'
 components:
   schemas:
     confClasses:
       type: object
       required:
-      - conformsTo
+        - conformsTo
       properties:
         conformsTo:
           type: array
@@ -555,8 +397,8 @@ components:
     link:
       type: object
       required:
-      - href
-      - rel
+        - href
+        - rel
       properties:
         href:
           type: string
@@ -568,56 +410,48 @@ components:
           example: alternate
         type:
           type: string
-          description: A hint indicating what the media type of the result of dereferencing
-            the link should be.
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
           example: application/geo+json
         templated:
           type: boolean
           description: This flag set to true if the link is a URL template.
         hreflang:
           type: string
-          description: A hint indicating what the language of the result of dereferencing
-            the link should be.
+          description: A hint indicating what the language of the result of dereferencing the link should be.
           example: en
         title:
           type: string
-          description: Used to label the destination of a link such that it can be
-            used as a human-readable identifier.
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
           example: Trierer Strasse 70, 53115 Bonn
         length:
           type: integer
     landingPage:
       type: object
       required:
-      - links
+        - links
       properties:
         title:
           type: string
           title: The title of the API.
-          description: While a title is not required, implementors are strongly advised
-            to include one.
+          description: While a title is not required, implementors are strongly advised to include one.
           example: Buildings in Bonn
         description:
           type: string
-          example: Access to data about buildings in the city of Bonn via a Web API
-            that conforms to the OGC API Common specification.
+          example: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification.
         attribution:
           type: string
           title: attribution for the API
-          description: The `attribution` should be short and intended for presentation
-            to a user, for example, in a corner of a map. Parts of the text can be
-            links to other resources if additional information is needed. The string
-            can include HTML markup.
+          description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
         links:
           type: array
           items:
-            "$ref": "#/components/schemas/link"
+            $ref: '#/components/schemas/link'
     exception:
       title: Exception Schema
       description: JSON schema for exceptions based on RFC 7807
       type: object
       required:
-      - type
+        - type
       properties:
         type:
           type: string
@@ -632,13 +466,13 @@ components:
     collections:
       type: object
       required:
-      - links
-      - collections
+        - links
+        - collections
       properties:
         links:
           type: array
           items:
-            "$ref": "#/components/schemas/link"
+            $ref: '#/components/schemas/link'
         timeStamp:
           type: string
           format: date-time
@@ -653,12 +487,12 @@ components:
         collections:
           type: array
           items:
-            "$ref": "#/components/schemas/collectionInfo"
+            $ref: '#/components/schemas/collectionInfo'
     collectionInfo:
       type: object
       required:
-      - id
-      - links
+        - id
+        - links
       properties:
         id:
           type: string
@@ -675,58 +509,54 @@ components:
         links:
           type: array
           example:
-          - href: http://data.example.org/collections/dem?f=json
-            rel: self
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem?f=html
-            rel: alternate
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage
-            rel: coverage
-            type: image/tiff; application=geotiff
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage/domainset
-            rel: domainset
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage/rangetype
-            rel: rangetype
-            type: application/json
-            title: Digital Elevation Model
-          - href: http://data.example.org/collections/dem/coverage/metadata
-            rel: metadata
-            type: application/json
-            title: Digital Elevation Model
+            - href: http://data.example.org/collections/dem?f=json
+              rel: self
+              type: application/json
+              title: Digital Elevation Model
+            - href: http://data.example.org/collections/dem?f=html
+              rel: alternate
+              type: application/json
+              title: Digital Elevation Model
+            - href: http://data.example.org/collections/dem/coverage
+              rel: coverage
+              type: image/tiff; application=geotiff
+              title: Digital Elevation Model
+            - href: http://data.example.org/collections/dem/coverage/domainset
+              rel: domainset
+              type: application/json
+              title: Digital Elevation Model
+            - href: http://data.example.org/collections/dem/coverage/rangetype
+              rel: rangetype
+              type: application/json
+              title: Digital Elevation Model
+            - href: http://data.example.org/collections/dem/coverage/metadata
+              rel: metadata
+              type: application/json
+              title: Digital Elevation Model
           items:
-            "$ref": "#/components/schemas/link"
+            $ref: '#/components/schemas/link'
         extent:
-          "$ref": "#/components/schemas/extent-uad"
+          $ref: '#/components/schemas/extent-uad'
         itemType:
-          description: indicator about the type of the items in the collection if
-            the collection has an accessible /collections/{collectionId}/items endpoint
+          description: indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint
           type: string
           default: unknown
         crs:
-          description: the list of coordinate reference systems supported by the API;
-            the first item is the default coordinate reference system
+          description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
           type: array
           items:
             type: string
           default:
-          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+            - http://www.opengis.net/def/crs/OGC/1.3/CRS84
           example:
-          - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          - http://www.opengis.net/def/crs/EPSG/0/4326
+            - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+            - http://www.opengis.net/def/crs/EPSG/0/4326
         dataType:
           allOf:
-          - description: Type of data represented in the collection
-          - "$ref": "#/components/schemas/dataType"
+            - description: Type of data represented in the collection
+            - $ref: '#/components/schemas/dataType'
         geometryDimension:
-          description: 'The geometry dimension of the features shown in this layer
-            (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or
-            unknown'
+          description: 'The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown'
           type: integer
           minimum: 0
           maximum: 3
@@ -806,17 +636,17 @@ components:
                   the extent or all relevant geometries.
                 type: array
                 oneOf:
-                - minItems: 4
-                  maxItems: 4
-                - minItems: 6
-                  maxItems: 6
+                  - minItems: 4
+                    maxItems: 4
+                  - minItems: 6
+                    maxItems: 6
                 items:
                   type: number
                 example:
-                - -180
-                - -90
-                - 180
-                - 90
+                  - -180
+                  - -90
+                  - 180
+                  - 90
             crs:
               description: |-
                 Coordinate reference system of the coordinates in the spatial extent
@@ -827,8 +657,8 @@ components:
                 additional enum values.
               type: string
               enum:
-              - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-              - http://www.opengis.net/def/crs/OGC/0/CRS84h
+                - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+                - http://www.opengis.net/def/crs/OGC/0/CRS84h
               default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
         temporal:
           description: The temporal extent of the features in the collection.
@@ -862,8 +692,8 @@ components:
                   format: date-time
                   nullable: true
                 example:
-                - '2011-11-11T12:22:11Z'
-                -
+                  - '2011-11-11T12:22:11Z'
+                  - null
             trs:
               description: |-
                 Coordinate reference system of the coordinates in the temporal extent
@@ -873,7 +703,7 @@ components:
                 additional enum values.
               type: string
               enum:
-              - http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
+                - http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
               default: http://www.opengis.net/def/uom/ISO-8601/0/Gregorian
     extent-uad:
       title: Extent with Uniform Additional Dimensions Schema
@@ -881,101 +711,93 @@ components:
         The extent module only addresses spatial and temporal extents. This module extends extent by specifying how
         intervals and crs properties can be used to specify additional geometries.
       allOf:
-      - "$ref": "#/components/schemas/extent"
-      - type: object
-        additionalProperties:
-          description: The domain intervals for any additional dimensions of the extent
-            (envelope) beyond those described in temporal and spatial.
-          type: object
-          oneOf:
-          - required:
-            - interval
-            - crs
-          - required:
-            - interval
-            - trs
-          - required:
-            - interval
-            - vrs
-          properties:
-            interval:
-              description: |-
-                One or more intervals that describe the extent for this dimension of the dataset.
-                The value `null` is supported and indicates an unbounded or half-bounded interval.
-                The first interval describes the overall extent of the data for this dimension.
-                All subsequent intervals describe more precise intervals, e.g., to identify clusters of data.
-                Clients only interested in the overall extent will only need
-                to access the first item (a pair of lower and upper bound values).
-              type: array
-              minItems: 1
-              items:
+        - $ref: '#/components/schemas/extent'
+        - type: object
+          additionalProperties:
+            description: The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
+            type: object
+            oneOf:
+              - required:
+                  - interval
+                  - crs
+              - required:
+                  - interval
+                  - trs
+              - required:
+                  - interval
+                  - vrs
+            properties:
+              interval:
                 description: |-
-                  Lower and upper bound values of the interval. The values
-                  are in the coordinate reference system specified in `crs`, `trs` or `vrs`.
+                  One or more intervals that describe the extent for this dimension of the dataset.
+                  The value `null` is supported and indicates an unbounded or half-bounded interval.
+                  The first interval describes the overall extent of the data for this dimension.
+                  All subsequent intervals describe more precise intervals, e.g., to identify clusters of data.
+                  Clients only interested in the overall extent will only need
+                  to access the first item (a pair of lower and upper bound values).
                 type: array
-                minItems: 2
-                maxItems: 2
+                minItems: 1
                 items:
-                  oneOf:
-                  - type: string
-                    nullable: true
-                  - type: number
-                example:
-                - '2011-11-11T12:22:11Z'
-                - 32.5
-                -
-            crs:
-              type: string
-              description: generic coordinate reference system suitable for any type
-                of dimensions
-            trs:
-              type: string
-              description: temporal coordinate reference system (e.g. as defined by
-                Features for 'temporal')
-            vrs:
-              type: string
-              description: vertical coordinate reference system (e.g. as defined in
-                EDR for 'vertical')
+                  description: |-
+                    Lower and upper bound values of the interval. The values
+                    are in the coordinate reference system specified in `crs`, `trs` or `vrs`.
+                  type: array
+                  minItems: 2
+                  maxItems: 2
+                  items:
+                    oneOf:
+                      - type: string
+                        nullable: true
+                      - type: number
+                  example:
+                    - '2011-11-11T12:22:11Z'
+                    - 32.5
+                    - null
+              crs:
+                type: string
+                description: generic coordinate reference system suitable for any type of dimensions
+              trs:
+                type: string
+                description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
+              vrs:
+                type: string
+                description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')
     crs:
       title: CRS
       oneOf:
-      - description: Simplification of the object into a url if the other properties
-          are not present
-        type: string
-      - type: object
-        oneOf:
-        - required:
-          - uri
-          properties:
-            uri:
-              description: Reference to one coordinate reference system (CRS)
-              type: string
-              format: uri
-        - required:
-          - wkt
-          properties:
-            wkt:
-              description: A string defining the CRS using the JSON encodng for Well
-                Known Text
-              type: object
-        - required:
-          - referenceSystem
-          properties:
-            referenceSystem:
-              description: A reference system data structure as defined in the MD_ReferenceSystem
-                of the ISO 19115
-              type: object
+        - description: Simplification of the object into a url if the other properties are not present
+          type: string
+        - type: object
+          oneOf:
+            - required:
+                - uri
+              properties:
+                uri:
+                  description: Reference to one coordinate reference system (CRS)
+                  type: string
+                  format: uri
+            - required:
+                - wkt
+              properties:
+                wkt:
+                  description: A string defining the CRS using the JSON encodng for Well Known Text
+                  type: object
+            - required:
+                - referenceSystem
+              properties:
+                referenceSystem:
+                  description: A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115
+                  type: object
     dataType:
       oneOf:
-      - type: string
-      - type: string
-        enum:
-        - map
-        - vector
-        - coverage
+        - type: string
+        - type: string
+          enum:
+            - map
+            - vector
+            - coverage
     timeStamp:
-      description: This property indicates the time and date when the response was
-        generated
+      description: This property indicates the time and date when the response was generated
       type: string
       format: date-time
     numberReturned:
@@ -996,158 +818,173 @@ components:
       minimum: 0
       example: 127
     dggs:
-      title: Discrete Global Grid System definition
-      description: A definition of a Discrete Global Grid System following the Discrete
-        Global Grid System standard.
+      title: Discrete Global Grid Reference System description
+      description: A description of a Discrete Global Grid Reference System provided by the API.
       type: object
+      required:
+        - id
+        - title
+        - description
+        - defaultDepth
+        - links
       properties:
+        id:
+          description: Local DGGRS identifierc consistent with the `{dggsId}` parameter of `/dggs/{dggsId}` resources.
+          type: string
         title:
-          description: Title of this Discrete Global Grid System, normally used for
-            display to a human
+          description: Title of this Discrete Global Grid Rfeference System, intended for displaying to a human
           type: string
         description:
-          description: Brief narrative description of this Discrete Global Grid System,
-            normally available for display to a human
+          description: Brief narrative description of this Discrete Global Grid System, normally available for display to a human
           type: string
         keywords:
-          description: Unordered list of one or more commonly used or formalized word(s)
-            or phrase(s) used to describe this Discrete Global Grid System
+          description: Unordered list of one or more commonly used or formalized word(s) or phrase(s) used to describe this Discrete Global Grid Reference System
           type: array
           items:
             type: string
-        id:
-          description: Discrete Global Grid System identifier. Implementation of 'identifier'
-          type: string
         uri:
-          description: Reference to an official source for this Discrete Global Grid
-            System
+          description: Identifier for this Discrete Global Grid Reference System registered with an authority.
           type: string
           format: uri
         crs:
           allOf:
-          - description: Coordinate Reference System (CRS)
-          - "$ref": "#/components/schemas/crs"
-    dggs-item:
-      title: Discrete Global Grid System definition (item)
-      description: A minimal Discrete Global Grid System element for use within a
-        list of DGGS linking to a full definition.
-      type: object
-      required:
-      - links
-      properties:
-        id:
-          description: Optional local DGGS identifier, e.g. for use as unspecified
-            `{dggsId}` parameter. Implementation of 'identifier'
-          type: string
-        title:
-          description: Title of this Discrete Global Grid System, normally used for
-            display to a human
-          type: string
-        uri:
-          description: Reference to an official source for this Dicrete Global Grid
-            System
-          type: string
-          format: uri
-        crs:
-          allOf:
-          - description: Coordinate Reference System (CRS)
-          - "$ref": "#/components/schemas/crs"
+            - description: Coordinate Reference System (CRS) used by this DGGS  (mandatory if applicable), specified as a URI if one exists.
+            - $ref: '#/components/schemas/crs'
+        defaultDepth:
+          description: |-
+            The default zone depth returned for zone data retrieval when the `zone-depth` parameter is not used. This is the DGGS resolution levels beyond the requested DGGS zone’s hierarchy level included in the response, when retrieving data for a particular zone. This can be either: • A single positive integer value — representing a specific zone depth to return e.g., `5`; • A range of positive integer values in the form “{low}-{high}” — representing a
+              continuous range of zone depths to return e.g., `1-8`; or,
+            • A comma separated list of at least two (2) positive integer values — representing a
+              set of specific zone depths to return e.g., `1,3,7`.
+              A particular data encoding imply a particular zone depth and not support the default zone depth specified here,
+              in which case the default zone depth (or the only possible depth) for that encoding will be used.
+          oneOf:
+            - type: integer
+              minimum: 0
+            - type: string
+              description: A comma separated list of positive integers, or a {min}-{max} range of relative zone depths
         links:
-          description: Links to related resources. A 'self' link to the Discrete Global
-            Grid System definition is required. A templated 'dggs-zone-data' link
-            to retrieve data and/or a 'dggs-zone-query` link to query DGGS zones should
-            also be included.
+          description: Links to related resources. A `self` link to the Discrete Global Grid Reference System description and an `[ogc-rel:dggs-definition]` link to the DGGRS definition (using the schema defined by https://github.com/opengeospatial/ogcapi-discrete-global-grid-systems/blob/master/openapi/schemas/dggs/dggrs.yaml) are required. A `[dggs-zone-query]` link to query DGGS zones should also be included if _DGGS Zone Query_ is supported.
           type: array
           items:
-            "$ref": "#/components/schemas/link"
-    FeatureCollection:
-      title: GeoJSON FeatureCollection
-      type: object
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
+            $ref: '#/components/schemas/link'
+        linkTemplates:
+          description: Templated Links to related resources. A templated `[ogc-rel:dggs-zone-data]` link to retrieve data should be included if _DGGS Zone Data_ is supported.
           type: array
           items:
-            title: GeoJSON Feature
             type: object
             required:
-            - type
-            - properties
-            - geometry
+              - tref
+              - rel
             properties:
+              tref:
+                type: string
+                description: Supplies the URL template to a remote resource (or resource fragment), with template variables surrounded by curly brackets (`{` `}`).
+                example: http://data.example.com/buildings/{featureId}
+              rel:
+                type: string
+                description: The type or semantics of the relation.
+                example: alternate
               type:
                 type: string
-                enum:
-                - Feature
-              id:
-                oneOf:
-                - type: number
-                - type: string
+                description: A hint indicating what the media type of the result of dereferencing the link templates should be.
+                example: application/geo+json
+              varBase:
+                description: A base path to retrieve semantic information about the variables used in URL template.
+                type: string
+                example: /ogcapi/vars/
+              hreflang:
+                type: string
+                description: A hint indicating what the language of the result of dereferencing the link should be.
+                example: en
+              title:
+                type: string
+                description: Used to label the destination of a link template such that it can be used as a human-readable identifier.
+                example: Trierer Strasse 70, 53115 Bonn
+              length:
+                type: integer
+    dggs-item:
+      title: Discrete Global Grid Reference System description (item)
+      description: A minimal Discrete Global Grid Reference System element for use within a list of DGGRS linking to a full description.
+      type: object
+      required:
+        - id
+        - title
+        - links
+      properties:
+        id:
+          description: Local DGGRS identifierc consistent with the `{dggsId}` parameter of `/dggs/{dggsId}` resources.
+          type: string
+        title:
+          description: Title of this Discrete Global Grid System, normally used for display to a human
+          type: string
+        uri:
+          description: Identifier for this Discrete Global Grid Reference System registered with an authority.
+          type: string
+          format: uri
+        links:
+          description: Links to related resources. A `self` link to the Discrete Global Grid Reference System description and an `[ogc-rel:dggs-definition]` link to the DGGRS definition (using the schema defined by https://github.com/opengeospatial/ogcapi-discrete-global-grid-systems/blob/master/openapi/schemas/dggs/dggrs.yaml) are required.
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    zone-info:
+      title: Information for a specific Discrete Global Grid System zone
+      description: Zone information for a particular zone of a DGGS, including useful information such as zone geometry, data access links and statistics
+      type: object
+      required:
+        - id
+        - links
+      properties:
+        id:
+          description: Zone identifier based on the DGGRS.
+          type: string
+        links:
+          description: Links to related resources. A `[ogc-rel:dggs-zone-data]` link to retrieve data for this zone and a `[ogc-rel:dggs]` back to the `.../dggs` resource must be included.
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        areaMetersSquare:
+          description: Surface area of the zone in meters square.
+          type: number
+        volumeMetersCube:
+          description: Volume of the zone in meters cube for a DGGS with three spatial dimension.
+          type: number
+        temporalDurationSeconds:
+          description: Amount of time covered by the zone for a temporal DGGS.
+          type: number
+        geometry:
+          description: Spatial geometry of the zone.
+          allOf:
+            - format: geojson-feature
+            - title: GeoJSON Polygon Feature
+              type: object
+              required:
+                - type
+                - properties
+                - geometry
               properties:
-                type: object
-                nullable: true
-              geometry:
-                oneOf:
-                - title: GeoJSON Point
+                type:
+                  type: string
+                  enum:
+                    - Feature
+                id:
+                  oneOf:
+                    - type: number
+                    - type: string
+                properties:
                   type: object
                   nullable: true
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Point
-                    coordinates:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON LineString
+                geometry:
+                  title: GeoJSON Polygon
                   type: object
                   required:
-                  - type
-                  - coordinates
+                    - type
+                    - coordinates
                   properties:
                     type:
                       type: string
                       enum:
-                      - LineString
-                    coordinates:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: array
-                        minItems: 2
-                        items:
-                          type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON Polygon
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - Polygon
+                        - Polygon
                     coordinates:
                       type: array
                       items:
@@ -1163,41 +1000,233 @@ components:
                       minItems: 4
                       items:
                         type: number
-                - title: GeoJSON MultiPoint
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiPoint
-                    coordinates:
-                      type: array
-                      items:
+                bbox:
+                  type: array
+                  minItems: 4
+                  items:
+                    type: number
+        temporalInterval:
+          description: Sart and end time of the zone.
+          type: array
+          items:
+            type: string
+          minItems: 2
+          maxItems: 2
+        statistics:
+          type: object
+          description: Statistics for individual fields of the data (e.g., fields of the range of a coverage, or relevant numeric properties of a feature collection)
+          additionalProperties:
+            type: object
+            properties:
+              minimum:
+                type: number
+              maximum:
+                type: number
+              average:
+                type: number
+              stdDev:
+                type: number
+    dggrs:
+      description: Discrete Global Grid System Reference System Structure Definition.
+      type: object
+      required:
+        - gridConstraint
+        - zoneGeometry
+        - surfaceInterpolation
+        - referenceSystemType
+        - refinementStrategy
+        - refinementRatio
+      properties:
+        basePolyhedron:
+          properties:
+            orientation:
+              properties:
+                latitude:
+                  description: Reference Latitude to fix the orientation of the polyhedron.
+                  example: 0
+                  type: number
+                longitude:
+                  description: Reference Longitude to fix the orientation of the polyhedron.
+                  example: 0
+                  type: number
+              required:
+                - longitude
+                - latitude
+              type: object
+            polyhedronType:
+              description: The Type/Class of Polyhedron used to construct the Discrete Global Grid System - if it is constructued using a Base Polyhedron.
+              example: icosahedron
+              type: string
+          required:
+            - polyhedronType
+            - orientation
+          type: object
+        gridConstraint:
+          description: Constraints used to define different categories of DGGS. Each constraint is a constraint on the shape, size, or orientation of cells in a DiscreteGlobalGrid.
+          enum:
+            - cellAxisAligned
+            - cellConformal
+            - cellEquiAngular
+            - cellEquiDistant
+            - cellEqualSized
+          example: cellEqualSized
+          type: string
+        referenceSystemType:
+          type: object
+          required:
+            - MDRS
+            - CRS
+            - ZIRS
+            - GLOBE
+          properties:
+            CRS:
+              allOf:
+                - description: Coordinate Reference System (CRS)
+                - $ref: '#/components/schemas/crs'
+              example: EPSG:7789
+            GLOBE:
+              description: Globe Reference System Identifier/Specification
+              example: EPGS:7019
+              type: string
+            MDRS:
+              description: Metadata Reference System Identifier/Specification
+              example: TerraNexus_S_IT9_GRS80_2d10b58e2088c7e2
+              type: string
+            ZIRS:
+              description: Zone Identifier Reference System Identifier/Specification
+              type: object
+              required:
+                - ZoneIdentifiers
+              properties:
+                ZoneIdentifiers:
+                  description: array of zone identification schemas defined by the Discrete Global Grid System
+                  type: array
+                  items:
+                    type: string
+                  example:
+                    - topologicalMortonCode:
+                        description: Topological Morton Code (Space Filling Curve) Identifier. With a Level 0 alphabetical identifier from 'A' to 'S' followed by a numeric reference from 1 to 9 for all subsequent levels representing the arrangement of child zones following a Morton (Z-code) subdivision of the parent zone. The length of the identifier represents the level of refinement.
+                        idType: string
+                    - universalMortonCode:
+                        description: Universal Morton Code (Space Filling Curve) Identifier. An ellipsoidal bitwise concatination of longitude and latitude direct position to form a direct Morton code. This can be used across multiple DGGS infrastructures to provide a common index structure that is fixed in nature regardless of the topological zone index used by each DGGS.
+                        idType: string
+        refinementRatio:
+          description: The ratio of child zones to parent zones
+          example: 9
+          type: integer
+        refinementStrategy:
+          description: The refinement strategy used by the Discrete Global Grid System
+          enum:
+            - centredChildCell
+            - nestedChildCell
+            - nodeCentredChildCell
+            - edgeCentredChildCell
+            - faceCentredChildCell
+            - solidCentredChildCell
+          example: nestedChildCell
+          type: string
+        surfaceInterpolation:
+          description: The Surface Interpolation type used to define zone geometries of the Discrete Global Grid System
+          enum:
+            - spherical
+            - elliptical
+          example: elliptical
+          type: string
+        zoneGeometry:
+          description: Zone Geometry Specification
+          properties:
+            spatialDimension:
+              description: Number of Spatial Dimensions defined by the Discrete Global Grid System.
+              example: 2
+              type: integer
+            temporalDimension:
+              description: Number of Temporal Dimensions defined by the Discrete Global Grid System.
+              example: 0
+              type: integer
+            topologicalDimension:
+              description: Number of Topological Dimensions (Spatial + Temporal Dimensions) defined by the Discrete Global Grid System.
+              example: 2
+              type: integer
+            zoneType:
+              enum:
+                - triangle
+                - square
+                - hexagon
+                - pentagon
+                - diamond
+              example: triangle
+              type: string
+          required:
+            - spatialDimension
+            - temporalDimension
+            - topologicalDimension
+          type: object
+    FeatureCollection:
+      title: GeoJSON FeatureCollection
+      type: object
+      required:
+        - type
+        - features
+      properties:
+        type:
+          type: string
+          enum:
+            - FeatureCollection
+        features:
+          type: array
+          items:
+            title: GeoJSON Feature
+            type: object
+            required:
+              - type
+              - properties
+              - geometry
+            properties:
+              type:
+                type: string
+                enum:
+                  - Feature
+              id:
+                oneOf:
+                  - type: number
+                  - type: string
+              properties:
+                type: object
+                nullable: true
+              geometry:
+                oneOf:
+                  - title: GeoJSON Point
+                    type: object
+                    nullable: true
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - Point
+                      coordinates:
                         type: array
                         minItems: 2
                         items:
                           type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiLineString
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiLineString
-                    coordinates:
-                      type: array
-                      items:
+                      bbox:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: number
+                  - title: GeoJSON LineString
+                    type: object
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - LineString
+                      coordinates:
                         type: array
                         minItems: 2
                         items:
@@ -1205,24 +1234,22 @@ components:
                           minItems: 2
                           items:
                             type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
-                - title: GeoJSON MultiPolygon
-                  type: object
-                  required:
-                  - type
-                  - coordinates
-                  properties:
-                    type:
-                      type: string
-                      enum:
-                      - MultiPolygon
-                    coordinates:
-                      type: array
-                      items:
+                      bbox:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: number
+                  - title: GeoJSON Polygon
+                    type: object
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - Polygon
+                      coordinates:
                         type: array
                         items:
                           type: array
@@ -1232,11 +1259,85 @@ components:
                             minItems: 2
                             items:
                               type: number
-                    bbox:
-                      type: array
-                      minItems: 4
-                      items:
-                        type: number
+                      bbox:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: number
+                  - title: GeoJSON MultiPoint
+                    type: object
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - MultiPoint
+                      coordinates:
+                        type: array
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                      bbox:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: number
+                  - title: GeoJSON MultiLineString
+                    type: object
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - MultiLineString
+                      coordinates:
+                        type: array
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: array
+                            minItems: 2
+                            items:
+                              type: number
+                      bbox:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: number
+                  - title: GeoJSON MultiPolygon
+                    type: object
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                          - MultiPolygon
+                      coordinates:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: array
+                            minItems: 4
+                            items:
+                              type: array
+                              minItems: 2
+                              items:
+                                type: number
+                      bbox:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: number
               bbox:
                 type: array
                 minItems: 4
@@ -1250,13 +1351,13 @@ components:
     enumeration:
       type: object
       required:
-      - type
-      - enum
+        - type
+        - enum
       properties:
         type:
           type: string
           enum:
-          - enum
+            - enum
         enum:
           type: array
           items:
@@ -1264,40 +1365,39 @@ components:
     all-collections:
       type: string
       enum:
-      - blueMarble
-      - NaturalEarth:raster:HYP_HR_SR_OB_DR
-      - NaturalEarth:cultural:ne_10m_admin_0_countries
-      - NaturalEarth:physical:bathymetry
-      - SRTM_ViewFinderPanorama
-      - HRDEM-Ottawa
-      - HRDEM-RedRiver
+        - SRTM_ViewFinderPanorama
+        - NaturalEarth:cultural:ne_10m_admin_0_countries
+        - HRDEM-Ottawa
+        - HRDEM-RedRiver
+        - blueMarble
+        - NaturalEarth:raster:HYP_HR_SR_OB_DR
+        - NaturalEarth:physical:bathymetry
     all-dggs:
       type: string
       enum:
-      - OpenEAGGR
-      - rHEALPix
-      - H3
-      - GNOSISGlobalGrid
-      - GeoSOT
+        - ISEA3H
+        - ISEA9R
+        - GNOSISGlobalGrid
+        - OpenEAGGR
+        - rHEALPix
+        - H3
+        - GeoSOT
   parameters:
     f-metadata:
       name: f
       in: query
-      description: The format of the response. If no value is provided, the accept
-        header is used to determine the format. Accepted values are 'json' or 'html'.
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
       required: false
       schema:
         type: string
         enum:
-        - json
-        - html
+          - json
+          - html
       style: form
       explode: false
     offset:
       name: offset
-      description: The optional offset parameter indicates the offset within the result
-        set from which the server shall begin presenting results in the response document.
-        The first element has an offset of 0 (default).
+      description: The optional offset parameter indicates the offset within the result set from which the server shall begin presenting results in the response document. The first element has an offset of 0 (default).
       explode: false
       in: query
       required: false
@@ -1312,22 +1412,18 @@ components:
       description: Local identifier of a collection
       required: true
       schema:
-        "$ref": "#/components/schemas/all-collections"
+        $ref: '#/components/schemas/all-collections'
     collections:
       name: collections
       in: query
       style: form
-      description: The collections that should be included in the response. The parameter
-        value is a comma-separated list of collection identifiers. If the parameters
-        is missing, some or all collections will be included. The collection will
-        be rendered in the order specified, with the last one showing on top, unless
-        the priority is overridden by styling rules.
+      description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
       required: false
       explode: false
       schema:
         type: array
         items:
-          "$ref": "#/components/schemas/all-collections"
+          $ref: '#/components/schemas/all-collections'
     datetime:
       name: datetime
       in: query
@@ -1352,6 +1448,38 @@ components:
         type: string
       style: form
       explode: false
+    bbox:
+      name: bbox
+      in: query
+      description: |-
+        Only features that have a geometry that intersects the bounding box are selected. The bounding box is provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (height or depth):
+        * Lower left corner, coordinate axis 1 * Lower left corner, coordinate axis 2 * Minimum value, coordinate axis 3 (optional) * Upper right corner, coordinate axis 1 * Upper right corner, coordinate axis 2 * Maximum value, coordinate axis 3 (optional)
+        The coordinate reference system of the values is WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84) unless a different coordinate reference system is specified in the parameter `bbox-crs`.
+        For WGS 84 longitude/latitude the values are in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the antimeridian the first value (west-most box edge) is larger than the third value (east-most box edge).
+        If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
+        If a feature has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+      required: false
+      schema:
+        type: array
+        oneOf:
+          - minItems: 4
+            maxItems: 4
+          - minItems: 6
+            maxItems: 6
+        items:
+          type: number
+          format: double
+      style: form
+      explode: false
+    bbox-crs:
+      name: bbox-crs
+      in: query
+      description: crs for the specified bbox
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
     subset:
       name: subset
       in: query
@@ -1367,6 +1495,15 @@ components:
         type: array
         items:
           type: string
+    subset-crs:
+      name: subset-crs
+      in: query
+      description: crs for the specified subset
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
     properties:
       name: properties
       in: query
@@ -1385,16 +1522,35 @@ components:
         ```
 
         The field name must be one of the id defined in the RangeType DataRecord fields or feature properties schema.
+
+        Complex expressions may also be supported instead of fields to define derived fields, potentially also
+        including the possibility to use aggregation functons.
       required: false
       schema:
         type: string
+    sortby:
+      name: sortby
+      in: query
+      description: |-
+        Specifies a comma-separated list of property names by which the response shall
+        be sorted.  If the property name is preceded by a plus (+) sign it indicates
+        an ascending sort for that property.  If the property name is preceded by a
+        minus (-) sign it indicates a descending sort for that property.  If the
+        property is not preceded by a plus or minus, then the default sort order
+        implied is ascending (+).
+      required: false
+      schema:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          pattern: '[+|-]?[A-Za-z_].*'
+      explode: false
+      style: form
     filter:
       name: filter
       in: query
-      description: The filter parameter specifies an expression in a query language
-        (e.g. CQL2) for which an entire feature will be returned if the filter predicate
-        is matched. The language of the filter is specified by the `filter-lang` query
-        parameter.
+      description: The filter parameter specifies an expression in a query language (e.g. CQL2) for which an entire feature will be returned if the filter predicate is matched. The language of the filter is specified by the `filter-lang` query parameter.
       required: false
       schema:
         type: string
@@ -1403,63 +1559,61 @@ components:
     filter-lang:
       name: filter-lang
       in: query
-      description: The `filter-lang` parameter specifies the query language for the
-        `filter` query parameter.
+      description: The `filter-lang` parameter specifies the query language for the `filter` query parameter.
       required: false
       schema:
         type: string
       style: form
       explode: false
-    query:
-      name: query
-      in: query
-      description: The query parameter specifies an expression in a query language
-        (e.g. a generalized query language based on CQL2) which may return e.g. a
-        geometry, coverage, summation, or aggregation. The language of the query is
-        specified by the `query-lang` query parameter.
-      required: false
+    dggsId:
+      name: dggsId
+      in: path
+      description: Identifier for a supported Discrete Global Grid System
+      required: true
+      allowEmptyValue: false
       schema:
-        type: string
-      style: form
-      explode: false
-    query-lang:
-      name: query-lang
-      in: query
-      description: The `query-lang` parameter specifies the query language for the
-        `query` query parameter.
-      required: false
-      schema:
-        type: string
-      style: form
-      explode: false
+        $ref: '#/components/schemas/all-dggs'
     zoneId:
       name: zoneId
       in: path
-      description: Identifier for a specific zone of a Discrete Global Grid Systems.
-        This identifier usually includes a component corresponding to a hierarchy
-        level / scale / resolution, components identifying a spatial region, and a
-        optionally a temporal component.
+      description: Identifier for a specific zone of a Discrete Global Grid Systems. This identifier usually includes a component corresponding to a hierarchy level / scale / resolution, components identifying a spatial region, and a optionally a temporal component.
       required: true
       schema:
         type: string
-      example: 7-10-59
-    zones:
+      example: 3-4-F
+    zone-level:
       name: compact-zones
       in: query
-      description: If set to true (default), when the list of DGGS zones to be returned
-        at the requested resolution (zone-level) includes all children of a parent
-        zone, the parent zone will be returned as a shorthand for that list of children
-        zone. If set to false, all zones returned will be of the requested zone level.
+      description: If set to true (default), when the list of DGGS zones to be returned at the requested resolution (zone-level) includes all children of a parent zone, the parent zone will be returned as a shorthand for that list of children zone. If set to false, all zones returned will be of the requested zone level.
       required: false
       schema:
         type: boolean
         default: true
       style: form
       explode: false
-    zone-level:
-      "$ref": "#/components/parameters/zones"
+    zone-depth:
+      name: zone-depth
+      in: query
+      description: |-
+        The DGGS resolution levels beyond the requested DGGS zone’s hierarchy level to include in the response, when retrieving data for that zone. This can be either: • A single positive integer value — representing a specific zone depth to return (e.g., `zone-depth=5`); • A range of positive integer values in the form “{low}-{high}” — representing a
+          continuous range of zone depths to return (e.g., `zone-depth=1-8`); or,
+        • A comma separated list of at least two (2) positive integer values — representing a
+          set of specific zone depths to return (e.g., `zone-depth=1,3,7`). Some or all of
+          these forms of the zone-depth parameter may not be supported with particular
+          data packet encodings (the data encoding may support a fixed depth, a range of
+          depths, and/or an arbitrary selection of depths).
+        When this parameter is omitted, the default value specified in the `defaultDepth` property of the `.../dggs/{dggsId}` DGGRS description is used.
+      required: false
+      schema:
+        oneOf:
+          - type: integer
+            minimum: 0
+          - type: string
+            description: A comma separated list of positive integers, or a {min}-{max} range of relative zone depths
+      style: form
+      explode: false
     compact-zones:
-      "$ref": "#/components/parameters/zones"
+      $ref: '#/components/parameters/zone-level'
     limit:
       name: limit
       in: query
@@ -1474,14 +1628,15 @@ components:
         default: 1000
       style: form
       explode: false
-    dggsId:
-      name: dggsId
-      in: path
-      description: Identifier for a supported Discrete Global Grid System
-      required: true
-      allowEmptyValue: false
+    parent-zone:
+      name: parent-zone
+      in: query
+      description: The optional parent zone parameter restricts a zone query to only return zones within that parent zone. Used together with `zone-level`, it allows to explore the response for a large zone query in a hierarchical manner.
+      required: false
       schema:
-        "$ref": "#/components/schemas/all-dggs"
+        type: string
+      style: form
+      explode: false
     f-zoneData:
       name: f
       in: query
@@ -1490,29 +1645,43 @@ components:
       schema:
         type: string
         enum:
-        - geotiff
-        - geojson
+          - geotiff
+          - geojson
+          - png
+      style: form
+      explode: false
+    f-zoneQueries:
+      name: f
+      in: query
+      description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json', 'html', 'geojson', 'geotiff' or 'uint64'.
+      required: false
+      schema:
+        type: string
+        enum:
+          - json
+          - html
+          - geojson
+          - geotiff
+          - png
+          - uint64
       style: form
       explode: false
   responses:
     NotFound:
-      description: The requested resource does not exist on the server. For example,
-        a path parameter had an incorrect value.
+      description: The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/exception"
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
     NotAcceptable:
-      description: Content negotiation failed. For example, the `Accept` header submitted
-        in the request did not support any of the media types supported by the server
-        for the requested resource.
+      description: Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/exception"
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -1521,7 +1690,7 @@ components:
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/exception"
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -1530,7 +1699,7 @@ components:
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/exception"
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -1539,7 +1708,7 @@ components:
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/exception"
+            $ref: '#/components/schemas/exception'
         text/html:
           schema:
             type: string
@@ -1550,36 +1719,35 @@ components:
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/landingPage"
+            $ref: '#/components/schemas/landingPage'
           example:
             title: Buildings in Bonn
-            description: Access to data about buildings in the city of Bonn via a
-              Web API that conforms to the OGC API - DGGS specification.
+            description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API - DGGS specification.
             links:
-            - href: http://data.example.org/
-              rel: self
-              type: application/json
-              title: this document
-            - href: http://data.example.org/api
-              rel: service-desc
-              type: application/vnd.oai.openapi+json;version=3.0
-              title: the API definition
-            - href: http://data.example.org/api.html
-              rel: service-doc
-              type: text/html
-              title: the API documentation
-            - href: http://data.example.org/conformance
-              rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
-              type: application/json
-              title: OGC API conformance classes implemented by this service
-            - href: http://data.example.org/collections
-              rel: http://www.opengis.net/def/rel/ogc/1.0/data
-              type: application/json
-              title: Information about the collections
-            - href: http://data.example.org/dggs
-              rel: http://www.opengis.net/def/rel/ogc/1.0/dggs-list
-              type: application/json
-              title: List of DGGS implemented by this service
+              - href: http://data.example.org/
+                rel: self
+                type: application/json
+                title: this document
+              - href: http://data.example.org/api
+                rel: service-desc
+                type: application/vnd.oai.openapi+json;version=3.0
+                title: the API definition
+              - href: http://data.example.org/api.html
+                rel: service-doc
+                type: text/html
+                title: the API documentation
+              - href: http://data.example.org/conformance
+                rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+                type: application/json
+                title: OGC API conformance classes implemented by this service
+              - href: http://data.example.org/collections
+                rel: http://www.opengis.net/def/rel/ogc/1.0/data
+                type: application/json
+                title: Information about the collections
+              - href: http://data.example.org/dggs
+                rel: http://www.opengis.net/def/rel/ogc/1.0/dggs-list
+                type: application/json
+                title: List of DGGS implemented by this service
         text/html:
           schema:
             type: string
@@ -1589,26 +1757,26 @@ components:
         application/json:
           schema:
             allOf:
-            - "$ref": "#/components/schemas/confClasses"
+              - $ref: '#/components/schemas/confClasses'
             example:
               conformsTo:
-              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
-              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
-              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
-              - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
-              - http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/core
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tileset
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tilesets-list
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/dataset-tilesets
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-selection
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/jpeg
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/png
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/mvt
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff
-              - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf
+                - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+                - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
+                - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
+                - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
+                - http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/core
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tileset
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tilesets-list
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/dataset-tilesets
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-selection
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/jpeg
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/png
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/mvt
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff
+                - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf
     API:
       description: The OpenAPI definition of the API.
       content:
@@ -1623,7 +1791,7 @@ components:
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/enumeration"
+            $ref: '#/components/schemas/enumeration'
         text/html:
           schema:
             type: string
@@ -1638,42 +1806,89 @@ components:
       content:
         application/json:
           schema:
-            "$ref": "#/components/schemas/collections"
+            $ref: '#/components/schemas/collections'
           example:
             links:
-            - href: http://data.example.org/collections.json
-              rel: self
-              type: application/json
-              title: this document
-            - href: http://data.example.org/collections.html
-              rel: alternate
-              type: text/html
-              title: this document as HTML
-            - href: http://schemas.example.org/1.0/buildings.xsd
-              rel: describedby
-              type: application/xml
-              title: GML application schema for Acme Corporation building data
-            - href: http://download.example.org/buildings.gpkg
-              rel: enclosure
-              type: application/geopackage+sqlite3
-              title: Bulk download (GeoPackage)
-              length: 472546
+              - href: http://data.example.org/collections.json
+                rel: self
+                type: application/json
+                title: this document
+              - href: http://data.example.org/collections.html
+                rel: alternate
+                type: text/html
+                title: this document as HTML
+              - href: http://schemas.example.org/1.0/buildings.xsd
+                rel: describedby
+                type: application/xml
+                title: GML application schema for Acme Corporation building data
+              - href: http://download.example.org/buildings.gpkg
+                rel: enclosure
+                type: application/geopackage+sqlite3
+                title: Bulk download (GeoPackage)
+                length: 472546
             collections:
-            - id: buildings
-              title: Buildings
-              description: Buildings in the city of Bonn.
-              extent:
-                spatial:
-                  bbox:
+              - id: buildings
+                title: Buildings
+                description: Buildings in the city of Bonn.
+                extent:
+                  spatial:
+                    bbox:
+                      - - 7.01
+                        - 50.63
+                        - 7.22
+                        - 50.78
+                  temporal:
+                    interval:
+                      - - '2010-02-15T12:34:56Z'
+                        - null
+                links:
+                  - href: http://data.example.org/collections/buildings/items
+                    rel: items
+                    type: application/geo+json
+                    title: Buildings
+                  - href: http://data.example.org/collections/buildings/items.html
+                    rel: items
+                    type: text/html
+                    title: Buildings
+                  - href: https://creativecommons.org/publicdomain/zero/1.0/
+                    rel: license
+                    type: text/html
+                    title: CC0-1.0
+                  - href: https://creativecommons.org/publicdomain/zero/1.0/rdf
+                    rel: license
+                    type: application/rdf+xml
+                    title: CC0-1.0
+        text/html:
+          schema:
+            type: string
+    Collection:
+      description: |-
+        Information about a particular collection of (mostly geospatial) data available from this API. The collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is contained in the response, with the corresponding relation type, as well as key information about the collection. This information includes:
+        * a local identifier for the collection that is unique for the dataset;
+        * a list of coordinate reference systems (CRS) in which data may be returned by the server. The first CRS is the default coordinate reference system (the default is always WGS 84 with axis order longitude/latitude);
+        * an optional title and description for the collection;
+        * an optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data;
+        * for collections accessible via the Features or Records API, an optional indicator about the type of the items in the collection (the default value, if the indicator is not provided, is 'feature').
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/collectionInfo'
+          example:
+            id: buildings
+            title: Buildings
+            description: Buildings in the city of Bonn.
+            extent:
+              spatial:
+                bbox:
                   - - 7.01
                     - 50.63
                     - 7.22
                     - 50.78
-                temporal:
-                  interval:
+              temporal:
+                interval:
                   - - '2010-02-15T12:34:56Z'
-                    -
-              links:
+                    - null
+            links:
               - href: http://data.example.org/collections/buildings/items
                 rel: items
                 type: application/geo+json
@@ -1693,90 +1908,42 @@ components:
         text/html:
           schema:
             type: string
-    Collection:
-      description: |-
-        Information about a particular collection of (mostly geospatial) data available from this API. The collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is contained in the response, with the corresponding relation type, as well as key information about the collection. This information includes:
-        * a local identifier for the collection that is unique for the dataset;
-        * a list of coordinate reference systems (CRS) in which data may be returned by the server. The first CRS is the default coordinate reference system (the default is always WGS 84 with axis order longitude/latitude);
-        * an optional title and description for the collection;
-        * an optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data;
-        * for collections accessible via the Features or Records API, an optional indicator about the type of the items in the collection (the default value, if the indicator is not provided, is 'feature').
-      content:
-        application/json:
-          schema:
-            "$ref": "#/components/schemas/collectionInfo"
-          example:
-            id: buildings
-            title: Buildings
-            description: Buildings in the city of Bonn.
-            extent:
-              spatial:
-                bbox:
-                - - 7.01
-                  - 50.63
-                  - 7.22
-                  - 50.78
-              temporal:
-                interval:
-                - - '2010-02-15T12:34:56Z'
-                  -
-            links:
-            - href: http://data.example.org/collections/buildings/items
-              rel: items
-              type: application/geo+json
-              title: Buildings
-            - href: http://data.example.org/collections/buildings/items.html
-              rel: items
-              type: text/html
-              title: Buildings
-            - href: https://creativecommons.org/publicdomain/zero/1.0/
-              rel: license
-              type: text/html
-              title: CC0-1.0
-            - href: https://creativecommons.org/publicdomain/zero/1.0/rdf
-              rel: license
-              type: application/rdf+xml
-              title: CC0-1.0
-        text/html:
-          schema:
-            type: string
     DGGSList:
-      description: List of available Discrete Global Grid Systems.
+      description: List of available Discrete Global Grid Reference Systems.
       content:
         application/json:
           schema:
             type: object
             required:
-            - dggs
+              - dggs
             properties:
               links:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/link"
+                  $ref: '#/components/schemas/link'
               dggs:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/dggs-item"
+                  $ref: '#/components/schemas/dggs-item'
         text/html:
           schema:
             type: string
     DGGS:
-      description: List of Discrete Global Grid Systems.
+      description: Description for a specific Discrete Global Grid Reference System.
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              dggs:
-                type: array
-                items:
-                  "$ref": "#/components/schemas/dggs-item"
+            $ref: '#/components/schemas/dggs'
         text/html:
           schema:
             type: string
     ZoneData:
       description: DGGS zone data returned as a response.
       content:
+        image/png:
+          schema:
+            type: string
+            format: binary
         image/tiff; application=geotiff:
           schema:
             type: string
@@ -1784,8 +1951,8 @@ components:
         application/geo+json:
           schema:
             allOf:
-            - format: geojson-feature-collection
-            - "$ref": "#/components/schemas/FeatureCollection"
+              - format: geojson-feature-collection
+              - $ref: '#/components/schemas/FeatureCollection'
     EmptyData:
       description: No data available for this zone.
     ZonesList:
@@ -1797,7 +1964,7 @@ components:
           schema:
             type: object
             required:
-            - zones
+              - zones
             properties:
               zones:
                 type: array
@@ -1806,12 +1973,16 @@ components:
               links:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/link"
+                  $ref: '#/components/schemas/link'
+        image/png:
+          schema:
+            type: string
+            format: binary
         application/geo+json:
           schema:
             allOf:
-            - format: geojson-feature-collection
-            - "$ref": "#/components/schemas/FeatureCollection"
+              - format: geojson-feature-collection
+              - $ref: '#/components/schemas/FeatureCollection'
         image/tiff; application=geotiff:
           schema:
             type: string
