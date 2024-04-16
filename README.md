@@ -6,7 +6,7 @@ This repository hosts the source of the OGC Developer Website https://developer.
 Currently, the website is served from the [gh-pages](https://github.com/opengeospatial/developer-website/tree/gh-pages) branch.
 
 ## Version 2.0
-At same point, this will become the main version.
+This is now the main version.
 
 Install:
 
@@ -27,6 +27,14 @@ Publish to GitHub Pages with:
 Forced update:
 
 `git push origin `git subtree split --prefix dist master`:gh-pages-v2 --force`
+
+If you just want to copy static files to the `api` folder, copy them to the `api` root folder and then run:
+
+`npm run build`
+
+`git subtree push --prefix dist origin gh-pages-v2`
+
+(don't forget to commit/push the changes to the master branchs, as well)
 
 ## Intellectual Property Rights
 
