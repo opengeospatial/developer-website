@@ -7,14 +7,14 @@ This repository hosts static code for version 2.0 of the OGC Developer Website. 
 
 This project uses `git subtree`. **Do not attempt to update it directly!** Do the changes on the source repository first, for instance [dev-ogc-org-sprint-landing-15](https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git) and add it here:
 
-` git subtree add --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash` 
+` git subtree add --prefix dist/sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash` 
 
 Keep it in sync with:
-` git subtree pull --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash` 
+` git subtree pull --prefix dist/sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash` 
 
 For the [sponsoring page](https://github.com/doublebyte1/sponsoring.git) first and update it with:
 
-`git subtree pull --prefix sprints/sponsoring https://github.com/opengeospatial/dev-sprint-sponsoring.git gh-pages --squash`
+`git subtree pull --prefix dist/sprints/sponsoring https://github.com/opengeospatial/dev-sprint-sponsoring.git gh-pages --squash`
 
 Don't forget to commit & push the results.
 
