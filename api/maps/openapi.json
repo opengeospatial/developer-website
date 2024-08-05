@@ -16,7 +16,7 @@
   "servers": [
     {
       "description": "Example OGC API - Maps server",
-      "url": "https://maps.gnosis.earth/ogcapi"
+      "url": "https://example.org/ogcapi"
     }
   ],
   "paths": {
