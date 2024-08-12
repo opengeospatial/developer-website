@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0",
-    "title": "OGC API - Maps",
-    "description": "Example API Definition for OGC API - Maps - Part 1: Core",
+    "version": "1.0.0",
+    "title": "Building Blocks specified in the OGC API - Maps - Part 1: Core Standard",
+    "description": "Example API Definition for OGC API - Maps - Part 1: Core Standard.\n\nOGC API - Maps - Part 1: Core 1.0 is an OGC Standard.\n\nCopyright (c) 2024 Open Geospatial Consortium. To obtain additional rights of use, visit https://www.ogc.org/legal/ .\n\nThis document is also available in the [OGC Schema Repository](https://schemas.opengis.net/ogcapi/maps/part1/1.0/openapi).",
     "contact": {
       "name": "Open Geospatial Consortium",
       "email": "info@ogc.org"
