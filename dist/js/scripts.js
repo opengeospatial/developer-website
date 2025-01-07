@@ -1,6 +1,6 @@
 /*!
 * Start Bootstrap - OGC Developer Website v0.1 (https://developer.ogc.org/)
-* Copyright 2013-2024 Joana Simoes
+* Copyright 2013-2025 Joana Simoes
 * Licensed under MIT (https://github.com/StartBootstrap/developer-website/blob/master/LICENSE)
 */
 //
