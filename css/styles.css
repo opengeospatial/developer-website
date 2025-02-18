@@ -10868,6 +10868,29 @@ body {
   overflow-x: hidden;
 }
 
+#announcement-bar {
+  background-color: #ffcc00;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.announcement-bar a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.announcement-bar a:hover {
+  text-decoration: underline;
+}
+
 p {
   line-height: 1.75;
 }
