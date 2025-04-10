@@ -1,7 +1,7 @@
 # OGC Developer Website
 
 ## Introduction
-This repository hosts static code for version 2.0 of the OGC Developer Website. **Do not edit this code directly!** Checkout the source code on the `master` branch instead, and generate the static build from there, following the instructions on the ` README` file. 
+This repository hosts static code for version 2.0 of the OGC Developer Website. **Do not edit this code directly!** Checkout the source code on the `master` branch instead, and generate the static build from there, following the instructions on the `README` file. 
 
 ## Install the gh-pages-v2 branch
 

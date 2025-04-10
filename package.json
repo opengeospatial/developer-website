@@ -1,7 +1,7 @@
 {
     "title": "OGC Developer Website",
     "name": "developer-website",
-    "version": "0.1",
+    "version": "2.0.0",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
         "build:assets": "node scripts/build-assets.js",
@@ -12,18 +12,20 @@
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js"
     },
-    "description": "Agency is a one page HTML theme for Bootstrap.",
+    "description": "OGC Developer Website provides resources and documentation for OGC standards and APIs.",
     "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
+        "geospatial",
+        "gis",
+        "ogc",
+        "standards",
+        "api",
+        "documentation",
+        "developer",
+        "devrel"
     ],
     "homepage": "https://developer.ogc.org/",
     "bugs": {
-        "url": "https://github.com/doublebyte1/developer-website-v2",
+        "url": "https://github.com/opengeospatial/developer-website/issues",
         "email": "devrel@ogc.org"
     },
     "license": "MIT",
@@ -33,7 +35,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/doublebyte1/developer-website-v2.git"
+        "url": "https://github.com/opengeospatial/developer-website.git"
     },
     "dependencies": {
         "bootstrap": "5.0.2"
