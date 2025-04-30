@@ -26,7 +26,7 @@ Publish to GitHub Pages with:
 
 Forced update:
 
-`git push origin `git subtree split --prefix dist master`:gh-pages-v2 --force`
+`git push origin` git subtree split --prefix dist master`:gh-pages-v2 --force`
 
 If you just want to copy static files to the `api` folder, copy them to the `api` root folder and then run:
 
@@ -34,7 +34,7 @@ If you just want to copy static files to the `api` folder, copy them to the `api
 
 `git subtree push --prefix dist origin gh-pages-v2`
 
-(don't forget to commit/push the changes to the master branchs, as well)
+(don't forget to commit/push the changes to the master branches, as well)
 
 ## Intellectual Property Rights
 
