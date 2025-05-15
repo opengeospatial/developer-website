@@ -1,0 +1,51 @@
+name:  build website # ThankYou @tomkralidis!
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # continue-on-error: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      pages: 'write'
+      actions: 'write'
+      checks: 'write'
+      deployments: 'write'
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: setup NodeJS
+        uses: actions/setup-node@v4
+
+      - name: install dependencies
+        run: |
+          npm install
+ 
+      - name: build website
+        run: |
+          npm run build
+ 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload build directory content
+          path: 'dist/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        env:  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
