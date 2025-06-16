@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0",
-    "title": "OGC API - Discrete Global Grid Systems",
+    "title": "Building Blocks specified in the OGC API - Discrete Global Grid Systems Standard",
     "description": "Example API Definition for OGC API - DGGS - Part 1: Core",
     "contact": {
       "name": "Open Geospatial Consortium",
