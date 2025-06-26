@@ -114,6 +114,7 @@ html(lang='en')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='4' aria-label='Slide 5')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='5' aria-label='Slide 6')
                             button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='6' aria-label='Slide 7')
+                            button(type='button' data-bs-target='#carouselExampleControls' data-bs-slide-to='7' aria-label='Slide 8')
 
                         .carousel-inner
                             .carousel-item.active
@@ -165,14 +166,14 @@ html(lang='en')
                                     .testimonials-title 
                                         p - Núria Julià Selvas, Senior GIS Developer at CREAF - MiraMon
                                 img.rounded-circle(src='assets/img/nuria.jpeg' alt='Nuria')
+                            .carousel-item
+                                .carousel-caption.d-none.d-md-block
+                                    .testimonials-text                             
+                                        p "In terms of data handling, the OGC API is easier because we can use it as if it were a REST API. It increases interoperability between GIS and non-GIS software. It allows for better data load management."
+                                    .testimonials-title 
+                                        p - João Filipe Gaspar, GIS Specialist at the Navigator Company
+                                img.rounded-circle(src='assets/img/joao.jpeg' alt='Nuria')
 
-                            //- .carousel-item
-                            //-     .carousel-caption.d-none.d-md-block
-                            //-         .testimonials-text                             
-                            //-             p "An ideal ecosystem would see most data stored in cloud-native geospatial formats, and then a wide array of services on top of those, with most of them implementing OGC API interfaces."
-                            //-         .testimonials-title 
-                            //-             p - Chris Holmes, Product Architect at Planet and Technical Fellow at Radiant.Earth
-                            //-     img.rounded-circle(src='assets/img/chris.jpeg' alt='Chris')
                         button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev')
                             span.carousel-control-prev-icon(aria-hidden='true')
                             span.visually-hidden Previous
