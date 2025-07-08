@@ -3,9 +3,9 @@
 ## Introduction
 This repository hosts the source of the OGC Developer Website https://developer.ogc.org
 
-Currently, the website is served from the [gh-pages](https://github.com/opengeospatial/developer-website/tree/gh-pages) branch.
+Currently, the website is served from the [gh-pages](https://github.com/opengeospatial/developer-website/tree/gh-pages) branch. Read [this note](#note-about-publishing-the-website), to understand how the website is generated. 
 
-## Version 2.0
+## Version 3.0
 This is now the main version.
 
 Install:
@@ -16,25 +16,18 @@ Run locally (includes development server):
 
 `npm start`
 
-Generate static build:
+### Note about Publishing the Website
 
-`npm run build`
+Commit all your changes to the `master` branch. **The `gh-pages` branch will be wiped each time, and generated dynamically from [GitHub actions](https://github.com/opengeospatial/developer-website/actions/)**. Apart from copying the static build, the action will copy the `api` folder and pull remote repos that live under `developer.ogc.org`. If you need to add anything else, just edit the [workflow file](https://github.com/opengeospatial/developer-website/blob/master/.github/workflows/main.yml) directly.
 
-Publish to GitHub Pages with:
+## Contributing 🤝
 
-`git subtree push --prefix dist origin gh-pages-v2`
+This website is a live project and we welcome contributions from the community! If you have suggestions for improvements, found a bug, or want to add new features, feel free to:
 
-Forced update:
+* Open an [issue](https://github.com/opengeospatial/developer-website/issues) to start a discussion
+* Submit a [pull request](https://github.com/opengeospatial/developer-website/pulls) with your proposed changes
 
-`git push origin `git subtree split --prefix dist master`:gh-pages-v2 --force`
-
-If you just want to copy static files to the `api` folder, copy them to the `api` root folder and then run:
-
-`npm run build`
-
-`git subtree push --prefix dist origin gh-pages-v2`
-
-(don't forget to commit/push the changes to the master branchs, as well)
+We appreciate your support in making this website better!
 
 ## Intellectual Property Rights
 
