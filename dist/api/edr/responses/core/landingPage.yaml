@@ -1,8 +1,0 @@
-description: links to the API capabilities
-content:
-  application/json:
-    schema:
-      $ref: ../../schemas/core/landingPage.yaml
-  text/html:
-    schema:
-      type: string
