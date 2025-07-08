@@ -1,55 +1,107 @@
-name:  build website # ThankYou @tomkralidis!
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+    branches:
+      - master
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    # continue-on-error: true
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-      pages: 'write'
-      actions: 'write'
-      checks: 'write'
-      deployments: 'write'
 
     steps:
-      - name: checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: setup NodeJS
+      - name: Setup Node.js
         uses: actions/setup-node@v4
-
-      - name: install dependencies
-        run: |
-          npm install
- 
-      - name: build website
-        run: |
-          npm run build
- 
-      - name: copy api folder
-        run: |
-          cp -r api/ dist/
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
         with:
-          # Upload build directory content
-          path: 'dist/'
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Copy sprints.html to sprints/index.html
+        run: |
+          mkdir -p dist/sprints
+          cp dist/sprints.html dist/sprints/index.html
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        env:  
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
+  add-subtrees:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy  # Ensures build runs first
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          persist-credentials: true
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add subtree 15
+        run: |
+          git subtree add --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash || echo "Adding sprints/15"
+
+      - name: Add subtree 16
+        run: |
+          git subtree add --prefix sprints/16 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-16.git gh-pages --squash || echo "Adding sprints/16"
+
+      - name: Add subtree 17
+        run: |
+          git subtree add --prefix sprints/17 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-17.git gh-pages --squash || echo "Adding sprints/17"
+
+      - name: Add subtree 18
+        run: |
+          git subtree add --prefix sprints/18 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-18.git gh-pages --squash || echo "Adding sprints/18"
+
+      - name: Add subtree 17
+        run: |
+          git subtree add --prefix sprints/19 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-19.git gh-pages --squash || echo "Adding sprints/19"
+
+      - name: Add subtree 20
+        run: |
+          git subtree add --prefix sprints/20 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-20.git gh-pages --squash || echo "Adding sprints/20"
+
+      - name: Add subtree 21
+        run: |
+          git subtree add --prefix sprints/21 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-21.git gh-pages --squash || echo "Adding sprints/21"
+
+      - name: Add subtree 22
+        run: |
+          git subtree add --prefix sprints/22 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-22.git gh-pages --squash || echo "Adding sprints/22"
+
+      - name: Add subtree 23
+        run: |
+          git subtree add --prefix sprints/23 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-23.git gh-pages --squash || echo "Adding sprints/23"
+
+      - name: Add subtree 24
+        run: |
+          git subtree add --prefix sprints/24 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-24.git gh-pages --squash || echo "Adding sprints/24"
+
+      - name: Add subtree 25
+        run: |
+          git subtree add --prefix sprints/25 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-25.git gh-pages --squash || echo "Adding sprints/25"
+
+      - name: Add subtree sponsoring
+        run: |
+          git subtree add --prefix sprints/sponsoring https://github.com/opengeospatial/dev-sprint-sponsoring.git gh-pages --squash || echo "Adding sprints/sponsoring"
+
+      - name: Add subtree nodes
+        run: |
+          git subtree add --prefix sprints/nodes https://github.com/ogcincubator/code-sprint-nodes.git gh-pages --squash || echo "Adding sprints/nodes"
+    
+      - name: Push changes
+        run: |
+          git push origin gh-pages    
