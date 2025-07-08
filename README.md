@@ -5,16 +5,30 @@ This repository hosts the source of the OGC Developer Website https://developer.
 
 Currently, the website is served from the [gh-pages](https://github.com/opengeospatial/developer-website/tree/gh-pages) branch. Read [this note](#note-about-publishing-the-website), to understand how the website is generated. 
 
-## Version 3.0
-This is now the main version.
+## Quick Start :rocket:
 
-Install:
+Clone this repository with:
+
+`git clone https://github.com/opengeospatial/developer-website.git`
+
+Then enter the folder:
+
+`cd developer-website`
+
+Install dependencies:
 
 `npm install`
 
-Run locally (includes development server):
+Start development server:
 
 `npm start`
+
+Once you start the development server, the site will be available at:
+
+`http://localhost:3000`
+
+The hot reload will ensure that the changes you do on the code will be reflected on the browser.
+
 
 ### Note about Publishing the Website
 
