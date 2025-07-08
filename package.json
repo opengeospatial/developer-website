@@ -12,18 +12,18 @@
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js"
     },
-    "description": "Agency is a one page HTML theme for Bootstrap.",
+    "description": "Source code for the OGC Developer Website.",
     "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
+        "OGC",
+        "OGCAPI",
+        "Standards",
+        "OpenAPI",
+        "Developer",
+        "API"
     ],
     "homepage": "https://developer.ogc.org/",
     "bugs": {
-        "url": "https://github.com/doublebyte1/developer-website-v2",
+        "url": "https://github.com/opengeospatial/developer-website",
         "email": "devrel@ogc.org"
     },
     "license": "MIT",
@@ -33,7 +33,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/doublebyte1/developer-website-v2.git"
+        "url": "https://github.com/opengeospatial/developer-website.git"
     },
     "dependencies": {
         "bootstrap": "5.0.2"
