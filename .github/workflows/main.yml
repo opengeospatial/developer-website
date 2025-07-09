@@ -54,7 +54,9 @@ jobs:
 
       - name: Clean subtrees
         run: |
-          rm -rf sprints/ || echo "Cleaning subtrees"
+          rm -rf sprints/15 &&  rm -rf sprints/16 && rm -rf sprints/17 &&
+          rm -rf sprints/nodes &&
+          || echo "Cleaning subtrees"
 
       - name: Add subtree 15
         run: |
