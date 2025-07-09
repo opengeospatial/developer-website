@@ -27,6 +27,7 @@ jobs:
 
       - name: Copy sprints.html to sprints/index.html
         run: |
+          rm -rf dist/sprints
           mkdir -p dist/sprints
           cp dist/sprints.html dist/sprints/index.html
 
@@ -51,13 +52,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Clean subtrees
-        run: |
-          rm -rf sprints/15 
-          rm -rf sprints/16
-          rm -rf sprints/17
-          rm -rf sprints/nodes || echo "Cleaning subtrees"
           
       - name: Add subtree 15
         run: |
