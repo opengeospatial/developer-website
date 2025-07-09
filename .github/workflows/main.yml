@@ -52,6 +52,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Clean subtrees
+        run: |
+          rm -rf sprints/ || echo "Cleaning subtrees"
+
       - name: Add subtree 15
         run: |
           git subtree add --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash || echo "Adding sprints/15"
