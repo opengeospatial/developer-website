@@ -27,7 +27,6 @@ jobs:
 
       - name: Copy sprints.html to sprints/index.html
         run: |
-          rm -rf dist/sprints
           mkdir -p dist/sprints
           cp dist/sprints.html dist/sprints/index.html
 
@@ -103,6 +102,7 @@ jobs:
 
       - name: Add subtree nodes
         run: |
+          rm -rf sprints/nodes
           git subtree add --prefix sprints/nodes https://github.com/ogcincubator/code-sprint-nodes.git gh-pages --squash || echo "Adding sprints/nodes"
     
       - name: Push changes
