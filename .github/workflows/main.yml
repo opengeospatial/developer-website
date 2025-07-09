@@ -103,7 +103,7 @@ jobs:
       - name: Add subtree nodes
         run: |
           rm -rf sprints/nodes
-          git subtree add --prefix sprints/nodes https://github.com/ogcincubator/code-sprint-nodes.git gh-pages --squash || echo "Adding sprints/nodes"
+          git subtree add --prefix sprints/nodes https://github.com/ogcincubator/nodes.git gh-pages --squash || echo "Adding sprints/nodes"
     
       - name: Push changes
         run: |
