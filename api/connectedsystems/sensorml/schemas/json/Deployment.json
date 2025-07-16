@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "DescribedObject.json" },
+    {
+      "properties": {
+        "type": {
+          "const": "Deployment"
+        },
+        "definition": {
+          "description": "Type of deployment (semantic link)",
+          "type": "string",
+          "format": "uri"
+        },
+        "location": {
+          "description": "The deployment location or area",
+          "$ref": "https://geojson.org/schema/Geometry.json"
+        },
+        "platform": {
+          "description": "The platform that the systems are deployed on",
+          "$ref": "DeployedSystem.json"
+        },
+        "deployedSystems": {
+          "description": "The list of deployed systems",
+          "type": "array",
+          "items": {
+            "allOf": [
+              { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
+              { "$ref": "DeployedSystem.json" }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

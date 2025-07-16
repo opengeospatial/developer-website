@@ -1,0 +1,18 @@
+description: A single `CommandSchema` resource
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandSchema.json
+    examples:
+      ptz-json:
+        summary: PTZ Control - Command JSON
+        value:
+          $ref: ../examples/schemas/commandSchema-ptz-json.json
+      ptz-swejson:
+        summary: PTZ Control - SWE JSON
+        value:
+          $ref: ../examples/schemas/commandSchema-ptz-swejson.json
+      ptz-swecsv:
+        summary: PTZ Control - SWE CSV
+        value:
+          $ref: ../examples/schemas/commandSchema-ptz-swecsv.json

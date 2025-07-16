@@ -1,0 +1,17 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/command.json
+      properties:
+        links:
+          description: Links to related resources
+          $ref: ../schemas/common/commonDefs.json#/$defs/Links
+    examples:
+      ptz:
+        summary: PTZ Command
+        value:
+          $ref: ../examples/commands/command-ptz.json
+        
+  application/swe+csv:
+    example: '2021-03-15T04:53:34.248Z,-10,23,0.4'

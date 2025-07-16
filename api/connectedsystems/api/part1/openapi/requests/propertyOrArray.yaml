@@ -1,0 +1,10 @@
+description: One or more procedure resources
+required: true
+content:
+  application/sml+json:
+    schema:
+      oneOf:
+      - title: Single Property
+        $ref: ../schemas/sensorml/property.json
+      - title: List of Properties
+        $ref: ../schemas/sensorml/propertyArray.json

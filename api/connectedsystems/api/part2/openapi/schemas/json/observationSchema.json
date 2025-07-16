@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "title": "JSON",
+      "$ref": "observationSchemaJson.json"
+    },
+    {
+      "title": "SWE Common",
+      "$ref": "observationSchemaSwe.json"
+    },
+    {
+      "title": "Protobuf",
+      "$ref": "observationSchemaProtobuf.json"
+    },
+    {
+      "title": "Other format",
+      "$ref": "observationSchemaAnyOther.json"
+    }
+  ],
+  "required": [
+    "obsFormat"
+  ]
+}
