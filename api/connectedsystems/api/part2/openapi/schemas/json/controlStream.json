@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "baseStream.json"
+    },
+    {
+      "properties": {
+        "system@link": {
+          "description": "Link to the system receiving the commands",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
+        },
+        "inputName": {
+          "description": "Name of the system control input receiving data from this control stream",
+          "type": "string"
+        },
+        "procedure@link": {
+          "description": "Link to the procedure used to execute commands (only provided if all commands in the control stream share the same procedure)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "deployment@link": {
+          "description": "Link to the deployment during which the commands are/were received (only provided if all commands in the control stream share the same deployment)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "featureOfInterest@link": {
+          "description": "Link to the ultimate feature of interest (only provided if all commands in the control stream share the same feature of interest)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "samplingFeature@link": {
+          "description": "Link to the sampling feature (only provided if all commands in the control stream share the same sampling feature)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "controlledProperties": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "List of properties that are controllable through this control stream",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "readOnly": true
+        },
+        "issueTime": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all issue times of commands in this control stream",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
+              "readOnly": true
+            }
+          ]
+        },
+        "executionTime": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all execution times of commands in this control stream",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
+              "readOnly": true
+            }
+          ]
+        },
+        "live": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Flag indicating if the command channel can currently accept commands",
+              "type": "boolean",
+              "readOnly": true
+            }
+          ]
+        },
+        "async": {
+          "description": "Flag indicating if the command channel processes commands asynchronously",
+          "type": "boolean"
+        },
+        "schema": {
+          "description": "Schema describing the content of commands in this control stream. The exact syntax of the schema depends on the encoding format.",
+          "$ref": "commandSchema.json",
+          "writeOnly": true
+        },
+        "links": {
+          "description": "Links to related resources",
+          "$ref": "../common/commonDefs.json#/$defs/Links"
+        }
+      }
+    }
+  ],
+  "required": [
+    "name",
+    "system@link",
+    "controlledProperties",
+    "issueTime",
+    "executionTime",
+    "live",
+    "async"
+  ]
+}

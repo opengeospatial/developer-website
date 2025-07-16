@@ -1,0 +1,51 @@
+parameters:
+  - $ref: ../../../part1/openapi/parameters/systemId.yaml
+
+get:
+  summary: List events of a specific system
+  description: |-
+    List or search events about the parent system.
+  tags:
+    - System Events
+  parameters:
+    - $ref: ../parameters/eventTime.yaml
+    - $ref: ../parameters/eventTypeList.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
+    - $ref: ../../../part1/openapi/parameters/systemIdList.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/systemEventCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Publish a system event
+  description: |-
+    Publish a new event about a specific system.
+  tags:
+    - System Events
+  requestBody:
+    $ref: ../requests/systemEventOrArray.yaml
+  responses:
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
