@@ -1,0 +1,52 @@
+parameters:
+  - $ref: ../parameters/dataStreamId.yaml
+
+get:
+  summary: Get the observation schema
+  description: |-
+    Get the observation schema for a given format.
+
+    The type of observation schema returned depends on the observation encoding format selected using the `obsFormat` parameter.
+  tags:
+    - Data Streams
+  parameters:
+    - $ref: ../parameters/obsFormat.yaml
+  responses:
+    '200':
+      $ref: ../responses/observationSchema.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update the observation schema
+  description: |-
+    After a datastream has been created and observations have been associated to it, the server may
+    reject certain updates to the schema (e.g., adding or removing result fields, changing UoM, etc.).
+    In this case, the `409` response code is used.
+  tags:
+    - Data Streams
+  requestBody:
+    $ref: ../requests/observationSchema.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_PUT
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
