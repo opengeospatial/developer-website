@@ -1,0 +1,17 @@
+description: One or more system resources
+required: true
+content:
+  application/geo+json:
+    schema:
+      oneOf:
+      - title: Single System
+        $ref: ../schemas/geojson/system.json
+      - title: List of Systems
+        $ref: ../schemas/geojson/systemArray.json
+  application/sml+json:
+    schema:
+      oneOf:
+      - title: Single System
+        $ref: ../schemas/sensorml/system.json
+      - title: List of Systems
+        $ref: ../schemas/sensorml/systemArray.json

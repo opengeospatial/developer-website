@@ -1,0 +1,22 @@
+name: datetime
+in: query
+description: |-
+  Either a date-time or an interval. Date and time expressions adhere to RFC 3339. 
+  Intervals may be bounded or half-bounded (double-dots at start or end).
+
+  Only features that have a `validTime` property that intersects the value of
+  `datetime` are selected.
+
+  If history is supported for a feature type, the following also applies:
+  - if `datetime` is a time instant or `now`, only the description valid at the specified time is selected
+  - if `datetime` is a time period, only the latest description valid during the period is selected
+  - The response can never include more that one description of the same feature
+
+required: false
+schema:
+  $ref: datetimeSchema.yaml
+style: form
+explode: false
+
+examples:
+  $ref: datetimeExamples.yaml

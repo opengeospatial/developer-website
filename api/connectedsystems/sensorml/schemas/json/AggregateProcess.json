@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "AbstractProcess.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "AggregateProcess"
+        },
+        "components": {
+          "description": "The list of sub-processes",
+          "$ref": "#/$defs/ComponentList"
+        },
+        "connections": {
+          "description": "The explicit definition of data links between outputs, inputs, and parameters of the components within an aggregate process.",
+          "$ref": "#/$defs/ConnectionList"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "ComponentList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "allOf": [
+          { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
+          {
+            "oneOf": [
+              { "$ref": "SimpleProcess.json" },
+              { "$ref": "AggregateProcess.json" },
+              { "$ref": "PhysicalComponent.json" },
+              { "$ref": "PhysicalSystem.json" },
+              {
+                "$ref": "commonDefs.json#/$defs/XLink",
+                "properties": {
+                  "type": {
+                    "const": "Link"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ConnectionList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "$ref": "commonDefs.json#/$defs/PathRef"
+          },
+          "destination": {
+            "$ref": "commonDefs.json#/$defs/PathRef"
+          }
+        },
+        "required": ["source", "destination"]
+      }
+    }
+  }
+}

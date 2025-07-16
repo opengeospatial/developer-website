@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "XLink": {
+      "$ref": "../../../common/link.json"
+    },
+    "TimeInstant": {
+      "$ref": "../../../common/timeInstant.json"
+    },
+    "TimePeriod": {
+      "$ref": "../../../common/timePeriod.json"
+    },
+    "TimeInstantOrPeriod": {
+      "oneOf": [
+        { "$ref": "../../../common/timeInstant.json" },
+        { "$ref": "../../../common/timePeriod.json" }
+      ]
+    },
+    "ObservableProperty": {
+      "description": "A physical property that can be observed and possibly measured (e.g., temperature, color, position). An ObservableProperty has unambiguous definition, but does not have units of measure.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "ObservableProperty"
+            },
+            "definition": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "type",
+            "definition"
+          ]
+        }
+      ]
+    },
+    "Term": {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "description": "Type of identifier/classifier (semantic link)",
+          "type": "string",
+          "format": "uri"
+        },
+        "label": {
+          "description": "Human readable label for this identifier/classifier",
+          "type": "string",
+          "minLength": 1
+        },
+        "codeSpace": {
+          "description": "URI of codespace defining the possible values for this identifier/classifier",
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "description": "Actual identifier/classifier value",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "unevaluatedProperties": false
+    },
+    "AnyProperty": {
+      "oneOf": [
+        { "$ref": "sweCommonDefs.json#/$defs/AnySimpleComponent" },
+        { "$ref": "sweCommonDefs.json#/$defs/Vector" },
+        { "$ref": "sweCommonDefs.json#/$defs/DataArray" },
+        { "$ref": "sweCommonDefs.json#/$defs/Matrix" }
+      ]
+    },
+    "PathRef": {
+      "type": "string",
+      "pattern": "^(components|inputs|outputs|parameters|modes)/([A-Za-z][A-Za-z0-9_\\-]*/)*[A-Za-z][A-Za-z0-9_\\-]*$"
+    }
+  }
+}
