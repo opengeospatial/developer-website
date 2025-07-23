@@ -1,0 +1,164 @@
+{
+  "type": "PhysicalSystem",
+  "id": "INS001",
+  "definition": "http://www.w3.org/ns/ssn-system/SensorKind",
+  "uniqueId": "urn:x-vectornav:sensor:vn200",
+  "label": "VectorNav VN-200",
+  "description": "Datasheet of VN-200 GNSS-aided inertial navigation system",
+  "identifiers": [
+    {
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "VN-200"
+    }
+  ],
+  "classifiers": [
+    {
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "Inertial Navigation System"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "VectorNav"
+    }
+  ],
+  "capabilities": [
+    {
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Heading Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "deg"
+          },
+          "value": [-180.0,180.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "deg"
+          },
+          "value": 0.001
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy (1σ)",
+          "uom": {
+            "code": "deg"
+          },
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Pitch Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "deg"
+          },
+          "value": [-90.0,90.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "deg"
+          },
+          "value": 0.001
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy (1σ)",
+          "uom": {
+            "code": "deg"
+          },
+          "value": 0.03
+        }
+      ]
+    },
+    {
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Roll Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "deg"
+          },
+          "value": [-180.0,180.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "deg"
+          },
+          "value": 0.001
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy (1σ)",
+          "uom": {
+            "code": "deg"
+          },
+          "value": 0.03
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "accel",
+      "type": "PhysicalSystem",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "uniqueId": "urn:x-vectornav:sensor:vn200:accel",
+      "label": "Accelerometer",
+      "description": "3-axis accelerometer"
+    },
+    {
+      "name": "gyro",
+      "type": "PhysicalSystem",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "uniqueId": "urn:x-vectornav:sensor:vn200:gyro",
+      "label": "Gyroscope",
+      "description": "3-axis gyroscope"
+    },
+    {
+      "name": "mag",
+      "type": "PhysicalSystem",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "uniqueId": "urn:x-vectornav:sensor:vn200:mag",
+      "label": "Magnetometer",
+      "description": "3-axis magnetometer"
+    }
+  ]
+}

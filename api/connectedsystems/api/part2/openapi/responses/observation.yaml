@@ -1,0 +1,41 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/observation.json
+      properties:
+        links:
+          description: Links to related resources
+          $ref: ../schemas/common/commonDefs.json#/$defs/Links
+    examples:
+      simple:
+        summary: Scalar Observation (Measure)
+        value:
+          $ref: ../examples/observations/obs-simple.json
+      location:
+        summary: Vector Observation (Location)
+        value:
+          $ref: ../examples/observations/obs-location.json
+      geopose:
+        summary: GeoPose Observation
+        value:
+          $ref: ../examples/observations/obs-geopose.json
+      profile:
+        summary: Profile Observation
+        value:
+          $ref: ../examples/observations/obs-profile.json
+      link:
+        summary: Observation with link to external result
+        value:
+          $ref: ../examples/observations/obs-link.json
+      inline-image:
+        summary: Observation with an PNG image encoded using the data URI schema
+        value:
+          $ref: ../examples/observations/obs-link-inline-image.json
+        
+  application/swe+json:
+    schema:
+      type: object
+        
+  application/swe+csv:
+    example: '2023-04-03T12:45:56Z,20.3,1013.25'

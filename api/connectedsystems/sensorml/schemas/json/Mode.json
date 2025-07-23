@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "DescribedObject.json"
+    },
+    {
+      "properties": {
+        "configuration": {
+          "description": "Value settings that further constrain the properties of the base process in this mode.",
+          "$ref": "Settings.json"
+        }
+      }
+    }
+  ]
+}

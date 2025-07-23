@@ -1,0 +1,47 @@
+{
+  "id": "958tf25kjm2f6",
+  "name": "Indoor Thermometer 001 - Living Room Temperature",
+  "outputName": "temp",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/123",
+    "uid": "urn:x-ogc:systems:001"
+  },
+  "featureOfInterest@link": {
+    "href": "https://data.example.org/api/collections/buildings/items/754",
+    "title": "My House"
+  },
+  "samplingFeature@link": {
+    "href": "https://data.example.org/api/samplingFeatures/4478",
+    "title": "Thermometer Sampling Point"
+  },
+  "phenomenonTime": [
+    "2020-06-29T14:32:00Z",
+    "2022-06-29T19:37:00Z"
+  ],
+  "resultTime": [
+    "2020-06-29T14:32:00Z",
+    "2012-06-29T19:37:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Room Temperature",
+      "description": "Ambient air temperature measured inside the room"
+    }
+  ],
+  "resultType": "measure",
+  "formats": [
+    "application/json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/x-protobuf"
+  ],
+  "live": true,
+  "links": [
+    {
+      "rel" : "observations",
+      "href" : "https://data.example.org/api/datastreams/958tf25kjm2f6/observations",
+      "type" : "application/json"
+    }
+  ]
+}
