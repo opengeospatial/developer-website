@@ -96,9 +96,9 @@ jobs:
         run: |
           git subtree add --prefix sprints/25 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-25.git gh-pages --squash || echo "Adding sprints/25"
 
-      - name: Add subtree 26
-        run: |
-          git subtree add --prefix sprints/26 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-26.git gh-pages --squash || echo "Adding sprints/26"
+      # - name: Add subtree 26
+      #   run: |
+      #     git subtree add --prefix sprints/26 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-26.git gh-pages --squash || echo "Adding sprints/26"
 
       - name: Add subtree sponsoring
         run: |
