@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/sprints/nodes/static/css/main.54b78d9d.css",
+    "main.js": "/sprints/nodes/static/js/main.a4ea9c40.js",
+    "static/js/453.02cc1549.chunk.js": "/sprints/nodes/static/js/453.02cc1549.chunk.js",
+    "static/media/marker-icon-grey.png": "/sprints/nodes/static/media/marker-icon-grey.53546594aaf5f264f982.png",
+    "index.html": "/sprints/nodes/index.html",
+    "main.54b78d9d.css.map": "/sprints/nodes/static/css/main.54b78d9d.css.map",
+    "main.a4ea9c40.js.map": "/sprints/nodes/static/js/main.a4ea9c40.js.map",
+    "453.02cc1549.chunk.js.map": "/sprints/nodes/static/js/453.02cc1549.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54b78d9d.css",
+    "static/js/main.a4ea9c40.js"
+  ]
+}
