@@ -1,0 +1,49 @@
+Here are the two best ways to do this in HTML. You can copy and paste either code block into an .html file.
+
+Option 1: The Meta Refresh Method (Standard)
+
+This is the most common HTML-only method. It tells the browser to refresh the page after 0 seconds and load the new URL.
+
+code
+Html
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Replace the URL below with your destination -->
+    <meta http-equiv="refresh" content="0; url=https://www.example.com">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <!-- The body is empty, so the page appears blank -->
+</body>
+</html>
+Option 2: The "Bulletproof" Method (Meta + JavaScript + Fallback)
+
+This is the most robust version. It tries to redirect immediately using JavaScript (which is faster). If that fails, it uses the Meta tag. If both fail (very rare), it provides a clickable link so the user isn't stuck.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    
+    <meta http-equiv="refresh" content="0; url=https://events.ogc.org/5JointOGC-OSGeo-ASFCodeSprint">
+    
+    <script>
+        window.location.replace("https://events.ogc.org/5JointOGC-OSGeo-ASFCodeSprint");
+    </script>
+</head>
+<body>
+    <p>If you are not redirected automatically, <a href="https://events.ogc.org/5JointOGC-OSGeo-ASFCodeSprint">click here</a>.</p>
+</body>
+</html>
