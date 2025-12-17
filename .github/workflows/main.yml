@@ -30,6 +30,11 @@ jobs:
           mkdir -p dist/sprints
           cp dist/sprints.html dist/sprints/index.html
 
+      - name: Copy 27.html to sprints/27/index.html
+        run: |
+          mkdir -p dist/sprints/27
+          cp 27.html dist/sprints/27/index.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
