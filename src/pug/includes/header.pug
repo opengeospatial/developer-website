@@ -1,0 +1,19 @@
+//- Mixin: site header / navigation
+//- Usage: mixin header('testimonials')  — pass active section or omit
+
+mixin header(activeSection)
+  header.site-header
+    .nav-row
+      a.logo(href="index.html")
+        img(src="assets/images/logo.png" alt="Open Geospatial Consortium")
+      nav.main-nav
+        ul
+          li(class=activeSection === 'testimonials' ? 'active' : '')
+            a(href=activeSection ? 'index.html#testimonials' : '#testimonials') Testimonials
+          li(class=activeSection === 'get-started' ? 'active' : '')
+            a(href=activeSection ? 'index.html#get-started' : '#get-started') Get Started
+          li(class=activeSection === 'learn' ? 'active' : '')
+            a(href=activeSection ? 'index.html#learn' : '#learn') Learn
+          li(class=activeSection === 'community' ? 'active' : '')
+            a(href=activeSection ? 'index.html#community' : '#community') Community
+      .nav-cta

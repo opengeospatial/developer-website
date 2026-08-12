@@ -1,0 +1,20 @@
+//- Base layout mixin
+//- Usage: include pug/_layout.pug then call mixin page(title, description, bodyClass, navActive)
+
+mixin page(title, description, bodyClass, navActive)
+  doctype html
+  html(lang="en")
+    head
+      meta(charset="UTF-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+      title!= title
+      meta(name="description" content=description)
+      link(rel="stylesheet" href="assets/style.css")
+      if bodyClass
+        body(class=bodyClass)
+          block
+        block footerBlock
+      else
+        body
+          block
+          block footerBlock

@@ -1,0 +1,16 @@
+{
+  "name": "ogc-developer-site",
+  "version": "1.0.0",
+  "description": "OGC Developer website built with Pug",
+  "scripts": {
+    "build": "node scripts/render-pug.js",
+    "watch": "node scripts/render-pug.js --watch",
+    "serve": "npx serve dist -s -l 3000"
+  },
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "pug": "^3.0.0",
+    "sass": "^1.99.0",
+    "serve": "^14.2.6"
+  }
+}

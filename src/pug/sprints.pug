@@ -1,0 +1,97 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title OGC Code Sprints | OGC Developer
+    meta(name="description" content="Landing page for OGC code sprints — current and past hybrid and virtual events where developers come together to build on OGC Standards.")
+    link(rel="stylesheet" href="assets/style.css")
+  body
+
+    include ./includes/corner-ribbon
+    include ./includes/header
+    +header()
+
+    section.hero.hero-page
+      .inner
+        div
+          .breadcrumb
+            a(href="index.html") Developers
+            |  / Code Sprints
+          h1 Code Sprints
+          p.lead
+            | Here you can find current and past sprints. For more information about developer events and Standards, please check the
+            a(style="color:#fff;text-decoration:underline;" href="https://github.com/opengeospatial/developer-events/wiki" target="_blank" rel="noopener") wiki page
+            |  and the
+            a(style="color:#fff;text-decoration:underline;" href="https://developer.ogc.org/" target="_blank" rel="noopener") developer website
+            | .
+
+    section
+      .wrap
+        .sprint-grid
+          a.sprint-card(href="https://events.ogc.org/OGCBuilderDaysCodeSprint" target="_blank" rel="noopener")
+            .thumb-wrap
+              span.badge-latest Latest
+              img(src="assets/images/sprints/sprint-28.png" alt="OGC Builder Days Code Sprint")
+            .date-label May 2026
+          a.sprint-card(href="https://events.ogc.org/5JointOGC-OSGeo-ASFCodeSprint" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-27b.png" alt="5th Joint OGC-OSGeo-ASF Code Sprint")
+            .date-label January 2026
+          a.sprint-card(href="https://developer.ogc.org/sprints/26/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-26b.png" alt="OGC Code Sprint October 2025")
+            .date-label October 2025
+          a.sprint-card(href="https://developer.ogc.org/sprints/25/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-25.png" alt="OGC Code Sprint March 2025")
+            .date-label March 2025
+          a.sprint-card(href="https://developer.ogc.org/sprints/24/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-24.png" alt="OGC Code Sprint July 2024")
+            .date-label July 2024
+          a.sprint-card(href="https://developer.ogc.org/sprints/23/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-23.png" alt="OGC Code Sprint February 2024")
+            .date-label February 2024
+          a.sprint-card(href="https://developer.ogc.org/sprints/22/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-22.png" alt="OGC Code Sprint October 2023")
+            .date-label October 2023
+          a.sprint-card(href="https://developer.ogc.org/sprints/21/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-21.png" alt="OGC Code Sprint June 2023")
+            .date-label June 2023
+          a.sprint-card(href="https://developer.ogc.org/sprints/20/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-20.png" alt="OGC Code Sprint April 2023")
+            .date-label April 2023
+          a.sprint-card(href="https://developer.ogc.org/sprints/19/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-19.png" alt="OGC Code Sprint November 2022")
+            .date-label November 2022
+          a.sprint-card(href="https://developer.ogc.org/sprints/18/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-18.png" alt="OGC Code Sprint September 2022")
+            .date-label September 2022
+          a.sprint-card(href="https://developer.ogc.org/sprints/17/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-17.png" alt="OGC Code Sprint July 2022")
+            .date-label July 2022
+          a.sprint-card(href="https://developer.ogc.org/sprints/16/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-16.png" alt="OGC Code Sprint May 2022")
+            .date-label May 2022
+          a.sprint-card(href="https://developer.ogc.org/sprints/15/" target="_blank" rel="noopener")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-15.png" alt="OGC Code Sprint March 2022")
+            .date-label March 2022
+          .sprint-card(style="cursor:default;")
+            .thumb-wrap
+              img(src="assets/images/sprints/sprint-14.png" alt="OGC Code Sprint November 2021")
+            .date-label November 2021
+
+    include ./includes/cta
+    +ctaBox()
+
+    include ./includes/footer

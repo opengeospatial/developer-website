@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title OGC Developer Blogs | Community Posts on OGC APIs &amp; Standards
+    meta(name="description" content="Community blog posts from developers working with OGC APIs and Standards.")
+    link(rel="stylesheet" href="assets/style.css")
+  body
+
+    include ./includes/corner-ribbon
+    include ./includes/header
+    +header('community')
+
+    section.hero.hero-page
+      .inner
+        div
+          .breadcrumb
+            a(href="index.html") Developers
+            |  / Blogs
+          h1 Developer Blogs
+          p.lead A collection of community blog posts from developers working with OGC APIs and Standards.
+
+    section
+      .wrap
+        .article-list
+          .article-row
+            .thumb
+            div
+              .meta Dev.to · #OGCAPI
+              h3 Getting Started with OGC API – Features in 10 Minutes
+          .article-row
+            .thumb
+            div
+              .meta Community Post
+              h3 Building a Map Client on Top of OGC API – Tiles
+          .article-row
+            .thumb
+            div
+              .meta Community Post
+              h3 From WFS to OGC API – Features: A Migration Story
+          .article-row
+            .thumb
+            div
+              .meta Code Sprint Recap
+              h3 Notes from the Latest OGC Code Sprint
+        p(style="text-align:center;color:var(--gray-600);margin-top:32px;")
+          | More posts on
+          a(style="color:var(--navy);font-weight:700;" href="https://dev.to/doublebyte") Dev.to
+          |  and the
+          a(style="color:var(--navy);font-weight:700;" href="https://agora.ogc.org/c/developers/") Agora developer space
+
+    include ./includes/cta
+    +ctaBox()
+
+    include ./includes/footer

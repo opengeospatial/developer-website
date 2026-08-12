@@ -1,0 +1,496 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title OGC Developers | Build Interoperable Geospatial Solutions with OGC Standards
+    meta(name="description" content="The OGC developer hub — OGC APIs, encodings, code sprints, workshops, and community resources for building interoperable geospatial solutions.")
+    link(rel="stylesheet" href="assets/style.css")
+  body
+
+    include ./includes/corner-ribbon
+
+    include ./includes/header
+    +header()
+
+    // HERO
+    section.hero
+      .hero-split
+        .col-text
+          h1 Build interoperable geospatial solutions with OGC Standards
+          .hero-bullets
+            div
+              span.dot ✓
+              |  Providing a consistent way for different systems to interoperate and share geospatial data.
+            div
+              span.dot ✓
+              |  Enabling applications to more easily access and use geospatial data from a wide variety of sources.
+            div
+              span.dot ✓
+              |  Made by developers, for developers.
+          .btn-row(style="justify-content:flex-start;margin-top:30px;")
+            a.btn.btn-hero-outline(href="#learn") Learn
+            a.btn.btn-hero-white(href="#get-started") Get Started
+        .col-code
+          .hero-code
+            pre.code-panel(id="curl-snippet")
+              | curl -X <span class="k">'GET'</span> \
+              | 'https://demo.pygeoapi.io/master/collections/lakes/items?limit=10&skipGeometry=false&offset=0' \
+              | -H <span class="s">'accept: application/geo+json'</span>
+            button.btn-copy(onclick="navigator.clipboard.writeText(document.getElementById('curl-snippet').innerText); this.textContent='Copied ✓'; setTimeout(()=>this.textContent='Copy',1500);") Copy
+
+    // TESTIMONIALS
+    section#testimonials.dark-section
+      .wrap
+        .section-head
+          p.eyebrow Testimonials
+          h2 What Developers Say
+          p Voices from the community building on OGC APIs and Standards.
+        .testi-carousel
+          button.testi-arrow.left(onclick="testiMove(-1)" aria-label="Previous") ‹
+          button.testi-arrow.right(onclick="testiMove(1)" aria-label="Next") ›
+          .testi-track
+            .testi-slide.active(data-initials="IS")
+              p.testi-quote "So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won't make everybody happy, but we can try to make nobody hate the APIs."
+              p.testi-attr — Ivan Sanchez Ortega, Freelance GIS+JS developer, OSGeo charter member
+            .testi-slide(data-initials="TK")
+              p.testi-quote "Exciting times for international weather/climate/water data exchange, using open Standards and open source reference implementations."
+              p.testi-attr — Tom Kralidis, OSGeo Board Member, key contributor of FOSS4G projects
+            .testi-slide(data-initials="SM")
+              p.testi-quote "Using industry tools, you can take these specifications (OGC APIs) as is and easily generate service and client implementations…"
+              p.testi-attr — Steve McDaniel, Software Scientist at Hexagon
+            .testi-slide(data-initials="MG")
+              p.testi-quote "The next generation of OGC API Standards make it easy for data publishers to create modern, developer friendly APIs to access geospatial data…"
+              p.testi-attr — Michael Gordon, Strategic Product Manager at Ordnance Survey
+            .testi-slide(data-initials="AA")
+              p.testi-quote "The new OGC-APIs allow you to access the features of the SDI datasets of Spain (hydrography, land use and cover, transport networks…) in a simple and friendly way…"
+              p.testi-attr — Aure Aragón Velasco, Technical Land Surveyor, Spanish SDI (IDEE IGN/CNIG)
+            .testi-slide(data-initials="SL")
+              p.testi-quote "OGC Standards underpin the transfer of geospatial datasets, and the OGC APIs reflect the use of cloud-hosted computing alongside being easier to understand…"
+              p.testi-attr — Samantha Lavender, EO Scientist and Director at Pixalytics
+          .testi-media
+            .testi-ticks
+              button.active(onclick="testiGoto(0)" aria-label="Slide 1")
+              button(onclick="testiGoto(1)" aria-label="Slide 2")
+              button(onclick="testiGoto(2)" aria-label="Slide 3")
+              button(onclick="testiGoto(3)" aria-label="Slide 4")
+              button(onclick="testiGoto(4)" aria-label="Slide 5")
+              button(onclick="testiGoto(5)" aria-label="Slide 6")
+            .testi-avatar#testi-avatar IS
+
+    script.
+      (function(){
+        var slides = document.querySelectorAll('.testi-slide');
+        var ticks = document.querySelectorAll('.testi-ticks button');
+        var avatar = document.getElementById('testi-avatar');
+        var idx = 0, timer;
+        function show(i){
+          idx = (i + slides.length) % slides.length;
+          slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
+          ticks.forEach(function(t, n){ t.classList.toggle('active', n === idx); });
+          avatar.textContent = slides[idx].getAttribute('data-initials');
+        }
+        window.testiMove = function(dir){ show(idx + dir); restart(); };
+        window.testiGoto = function(i){ show(i); restart(); };
+        function restart(){ clearInterval(timer); timer = setInterval(function(){ show(idx + 1); }, 7000); }
+        show(0);
+        restart();
+      })();
+
+    // GET STARTED
+    section.alt#get-started
+      .wrap
+        .section-head
+          p.eyebrow Get Started
+          h2 Interfaces &amp; Encodings
+          p Explore the OGC APIs (interfaces) and data formats (encodings) you can start building with today.
+
+        h3.subgroup-title Interfaces
+        p(style="color:var(--gray-600);font-size:15.5px;max-width:820px;margin:-8px 0 28px;")
+          | Interface Standards provide rules that determine the operations in a server–client architecture. For instance, web mapping applications, or
+          strong Web GIS
+          | , fit into this pattern, where an interface is used to request maps from a map service provider.
+        .std-grid-cards
+          //- Tiles
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Tiles
+            p Interface for tiles of geospatial information (e.g. vector data, maps, or coverages).
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/tiles/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-tiles" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Features
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Features
+            p Interface for feature data.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/features/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-features" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- SensorThings
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC SensorThings API
+            p Interface for spatially enabled IoT devices, data, and applications.
+            .std-icons
+              a.icon-btn(href="https://www.ogc.org/standard/sensorthings/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/sensorthings" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Maps
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Maps
+            p Interface for maps, customized using parameters (dimensions, background, CRS).
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/maps/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-maps" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- EDR
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – EDR
+            p Interface for sampling data about the natural or built environment using a spatio-temporal query pattern.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/edr/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-environmental-data-retrieval" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- GeoParquet
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – GeoParquet
+            p Interface for geospatial data in the GeoParquet format.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/geoparquet/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/geoparquet" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- DGGS
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – DGGS
+            p Interface for global grid systems and their associated data.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/dggs/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogc-dggs-api" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Connected Systems
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Connected Systems
+            p Interface for interacting with connected systems (sensors, drones, robots) and associated resources.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/connectedsystems/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-connected-systems" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Styles
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Styles
+            p Interface for styles used to render geospatial data.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/styles/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-styles" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- 3D GeoVolumes
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – 3D GeoVolumes
+            p Interface for 3D geospatial data.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/geovolumes/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/geovolumes" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Coverages
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Coverages
+            p Interface for accessing homogeneous collections of values located in space/time — a satellite image is an example.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/coverages/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-coverages" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Routes
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Routes
+            p Interface to request routes independent of the underlying routing data set, engine, or algorithm.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/routes/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-routes" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- Joins
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 OGC API – Joins
+            p Interface to join data from input files with tabular data from other sources.
+            .std-icons
+              a.icon-btn(href="https://ogcapi.ogc.org/joins/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogcapi-joins" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+
+        h3.subgroup-title Encodings
+        .std-grid-cards
+          //- JSON-FG
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 JSON-FG
+            p OGC Features and Geometries JSON extends GeoJSON to overcome some of its limitations.
+            .std-icons
+              a.icon-btn(href="https://www.ogc.org/standard/json-fg/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/ogc-feat-geo-json" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- COG
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 Cloud Optimized GeoTIFF
+            p For imagery and grid coverage data on the web — backwards compatible with GeoTIFF.
+            .std-icons
+              a.icon-btn(href="https://www.ogc.org/standard/cog/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/cogeotiff/cog-spec" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- GeoPackage
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 GeoPackage
+            p Store different types of geospatial information (vector data, attributes, metadata, styles) in a single container.
+            .std-icons
+              a.icon-btn(href="https://www.ogc.org/standard/geopackage/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/geopackage" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- CoverageJSON
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 CoverageJSON
+            p Simple, efficient, machine- and human-readable JSON for publishing spatio-temporal data to the Web.
+            .std-icons
+              a.icon-btn(href="https://www.ogc.org/standard/coveragejson/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/covjson/specification" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+          //- GeoParquet encoding
+          .std-card
+            .std-thumb
+              span.ribbon Published
+            h4 GeoParquet
+            p Columnar geospatial format based on Apache Parquet, enabling interoperability between cloud data warehouses.
+            .std-icons
+              a.icon-btn(href="https://geoparquet.org/" title="Specification")
+                svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71")
+                  path(d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71")
+              a.icon-btn(href="https://github.com/opengeospatial/geoparquet" title="GitHub")
+                svg(viewBox="0 0 16 16" fill="currentColor")
+                  path(d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z")
+
+        h3.subgroup-title Try it
+        .code-panel
+          | curl -X <span class="k">'GET'</span> \
+          | 'https://demo.pygeoapi.io/master/collections/lakes/items?limit=10&skipGeometry=false&offset=0' \
+          | -H <span class="s">'accept: application/geo+json'</span>
+
+    // LEARN
+    section#learn
+      .wrap
+        .section-head
+          p.eyebrow Learn
+          h2 Level Up Your OGC Knowledge
+        .grid.grid-2
+          .card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z")
+                path(d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z")
+            h3(style="font-size:22px;") OGC API Workshop
+            p(style="font-size:15.5px;") This workshop provides a combination of concepts, presentations, and exercises on OGC APIs in support of discovery, access, visualization, and processing — in support of FAIR data principles.
+            a.learn(href="https://ogcapi-workshop.ogc.org/") Visit workshop →
+          .card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                circle(cx="12" cy="8" r="7")
+                path(d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12")
+            h3(style="font-size:22px;") Location Innovation Academy
+            p(style="font-size:15.5px;") This learning platform offers different courses, mostly focused on Spatial Data Infrastructures.
+            a.learn(href="https://academy.ogc.org/") Visit academy →
+
+    // MORE RESOURCES
+    section.alt
+      .wrap
+        .section-head
+          p.eyebrow More Resources
+          h2 You May Also Want to Check
+        .grid.grid-3
+          .card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20")
+                path(d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z")
+            h3 Definitions Server
+            p A web-accessible source of information about things ("Concepts") the OGC defines or that communities ask the OGC to host, such as technical terms from application schemas.
+            a.learn(href="https://defs.opengis.net/vocprez/") Explore →
+          .card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z")
+                polyline(points="3.27 6.96 12 12.01 20.73 6.96")
+                line(x1="12" y1="22.08" x2="12" y2="12")
+            h3 Location Building Blocks
+            p Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs. OGC APIs are developed in discrete building blocks you can mix &amp; match to spatially enable your existing APIs.
+            a.learn(href="https://blocks.ogc.org/") Explore →
+          .card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M22 11.08V12a10 10 0 1 1-5.93-9.14")
+                polyline(points="22 4 12 14.01 9 11.01")
+            h3 Compliance &amp; Certification
+            p The OGC Compliance program provides tools to test your implementation and confirm it's compliant to the Standard. Take your application further by applying for a compliance certification.
+            a.learn(href="https://www.ogc.org/how-our-compliance-program-works/") Explore →
+
+    // COMMUNITY
+    section#community
+      .wrap
+        .section-head
+          p.eyebrow Community
+          h2 Join the Conversation
+          p Connect with the developers building the future of open geospatial standards.
+        .community-grid
+          .community-card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                polyline(points="16 18 22 12 16 6")
+                polyline(points="8 6 2 12 8 18")
+            h3 Code Sprints
+            p Collaborative and inclusive events supporting the development of open geospatial Standards, and projects that implement those Standards.
+            a.go(href="sprints.html") Learn more →
+          .community-card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                line(x1="4" y1="9" x2="20" y2="9")
+                line(x1="4" y1="15" x2="20" y2="15")
+                line(x1="10" y1="3" x2="8" y2="21")
+                line(x1="16" y1="3" x2="14" y2="21")
+            h3 Dev.to
+            p #OGCAPI related content in a constructive and inclusive social network for software developers.
+            a.go(href="https://dev.to/doublebyte") Read posts →
+          .community-card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z")
+            h3 Discord
+            p Chat with other developers and take an active part in the code sprints in the OGC Community channel.
+            a.go(href="https://discord.gg/3uyaZZuXr3") Join server →
+          .community-card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M12 20h9")
+                path(d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z")
+            h3 Blogs
+            p A collection of community blog posts from developers working with OGC Standards.
+            a.go(href="blogs.html") Read blogs →
+          .community-card
+            .icon-badge
+              svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2")
+                circle(cx="9" cy="7" r="4")
+                path(d="M23 21v-2a4 4 0 0 0-3-3.87")
+                path(d="M16 3.13a4 4 0 0 1 0 7.75")
+            h3 Agora
+            p Ask questions and interact with other developers in the "Developers" space of Agora.
+            a.go(href="https://agora.ogc.org/c/developers/") Visit Agora →
+
+    // FINAL CTA
+    section.alt
+      .wrap
+        .cta-box
+          h2 Who is behind the OGC Standards?
+          p(style="font-size:18px;color:var(--gray-600);max-width:680px;margin:0;")
+            | OGC Standards are developed through a member-driven consensus process, which creates royalty free, publicly available, open geospatial standards. The
+            a(style="color:var(--navy);font-weight:700;" href="https://www.ogc.org/") Open Geospatial Consortium (OGC)
+            |  is the organisation which drives this process. It is supported by an active community of members, with involvement from a large range of organizations, as well as smaller ones.
+          a.btn.btn-navy(href="https://www.ogc.org/about/members/") Join OGC today!
+
+    include ./includes/footer
