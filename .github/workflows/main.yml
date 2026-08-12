@@ -29,7 +29,7 @@ jobs:
       - name: Copy sprints.html to sprints/index.html
         run: |
           mkdir -p dist/sprints
-          cp dist/sprints.html dist/sprints/index.htmll
+          cp dist/sprints.html dist/sprints/index.html
 
       - name: Copy 28.html to sprints/28/index.html
         run: |
