@@ -3,6 +3,22 @@ const sass = require('sass');
 const fs = require('fs');
 const path = require('path');
 const chokidar = require('chokidar');
+const http = require('http');
+const mime = {
+  '.html': 'text/html',
+  '.css':  'text/css',
+  '.js':   'application/javascript',
+  '.png':  'image/png',
+  '.jpg':  'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif':  'image/gif',
+  '.svg':  'image/svg+xml',
+  '.ico':  'image/x-icon',
+  '.woff2':'font/woff2',
+  '.woff': 'font/woff',
+  '.ttf':  'font/ttf',
+  '.json': 'application/json',
+};
 
 const srcDir  = path.resolve(__dirname, '..', 'src');
 const distDir = path.resolve(__dirname, '..', 'dist');
@@ -113,6 +129,30 @@ function build() {
   console.log('\n✅ Done\n');
 }
 
+
+// ── Static file server ──────────────────────────────────────
+function startServer() {
+  const server = http.createServer((req, res) => {
+    let filePath = path.join(distDir, req.url === '/' ? 'index.html' : req.url);
+    const ext = path.extname(filePath).toLowerCase();
+    const mimeType = mime[ext] || 'application/octet-stream';
+
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(404, {'Content-Type': 'text/html'});
+        res.end('<h1>404 Not Found</h1>');
+        return;
+      }
+      res.writeHead(200, {'Content-Type': mimeType});
+      res.end(data);
+    });
+  });
+
+  server.listen(3000, () => {
+    console.log('🌐  Serving dist/ on http://localhost:3000');
+  });
+}
+
 // ── CLI ──────────────────────────────────────────────────
 const args = process.argv.slice(2);
 if (args.includes('--watch') || args.includes('-w')) {
@@ -128,6 +168,7 @@ if (args.includes('--watch') || args.includes('-w')) {
     clearTimeout(timer);
     timer = setTimeout(() => { console.log(`\n🔄 ${ev} ${p}`); build(); }, 300);
   });
+  startServer();
 } else {
   build();
 }
