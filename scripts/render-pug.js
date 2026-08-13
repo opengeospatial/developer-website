@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const chokidar = require('chokidar');
 const http = require('http');
+
 const mime = {
   '.html': 'text/html',
   '.css':  'text/css',
@@ -27,14 +28,6 @@ function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
-// ── Clean dist ────────────────────────────────────────────
-function cleanDist() {
-  if (fs.existsSync(distDir)) {
-    fs.rmSync(distDir, { recursive: true, force: true });
-  }
-  console.log('🧹 Cleaned dist/');
-}
-
 // ── Pug compilation ──────────────────────────────────────
 const pugPages = [
   { from: 'pug/index.pug',    to: 'index.html' },
@@ -43,10 +36,11 @@ const pugPages = [
   { from: 'pug/ows.pug',      to: 'ows.html' },
 ];
 
-function compilePug() {
-  console.log('\n📝 Compiling Pug → HTML\n');
+function compilePug(fileMatch) {
   ensureDir(distDir);
+  let compiled = 0;
   pugPages.forEach(({ from, to }) => {
+    if (fileMatch && !from.includes(path.basename(fileMatch, '.pug'))) return;
     const pugFile   = path.join(srcDir, from);
     const outFile   = path.join(distDir, to);
     try {
@@ -58,23 +52,27 @@ function compilePug() {
       ensureDir(path.dirname(outFile));
       fs.writeFileSync(outFile, fn({}), 'utf8');
       console.log(`  ✓ ${to}`);
+      compiled++;
     } catch (e) {
       console.error(`  ✗ ${from}:`, e.message);
     }
   });
+  return compiled;
 }
 
 // ── SCSS compilation ─────────────────────────────────────
-function compileScss() {
-  console.log('\n🎨 Compiling SCSS → CSS\n');
+function compileScss(fileMatch) {
   const scssDir = path.join(srcDir, 'scss');
   ensureDir(path.join(distDir, 'assets'));
-
   if (!fs.existsSync(scssDir)) { console.log('  ℹ No src/scss/'); return; }
-  fs.readdirSync(scssDir).filter(f => f.endsWith('.scss')).forEach(entry => {
+  
+  const files = fs.readdirSync(scssDir).filter(f => f.endsWith('.scss'));
+  files.forEach(entry => {
+    if (fileMatch && !entry.includes(path.basename(fileMatch, '.scss'))) return;
     try {
       const result = sass.compile(path.join(scssDir, entry));
-      fs.writeFileSync(path.join(distDir, 'assets', entry.replace('.scss', '.css')), result.css, 'utf8');
+      const css = result.css;
+      fs.writeFileSync(path.join(distDir, 'assets', entry.replace('.scss', '.css')), css, 'utf8');
       console.log(`  ✓ assets/${entry.replace('.scss', '.css')}`);
     } catch (e) {
       console.error(`  ✗ ${entry}:`, e.message);
@@ -83,45 +81,49 @@ function compileScss() {
 }
 
 // ── Copy static assets ───────────────────────────────────
+function copyFile(src, dst) {
+  ensureDir(path.dirname(dst));
+  const srcStat = fs.statSync(src);
+  if (!fs.existsSync(dst) || srcStat.mtime > fs.statSync(dst).mtime) {
+    fs.copyFileSync(src, dst);
+  }
+}
+
 function copyDir(src, dst) {
   ensureDir(dst);
   fs.readdirSync(src).forEach(entry => {
     const sp = path.join(src, entry);
     const dp = path.join(dst, entry);
-    fs.statSync(sp).isDirectory() ? copyDir(sp, dp) : (ensureDir(path.dirname(dp)), fs.copyFileSync(sp, dp));
+    fs.statSync(sp).isDirectory() ? copyDir(sp, dp) : copyFile(sp, dp);
   });
 }
 
 function copyAssets() {
-  console.log('\n📦 Copying assets\n');
   const srcAssets = path.join(srcDir, 'assets');
   const dstAssets = path.join(distDir, 'assets');
   if (fs.existsSync(srcAssets)) {
     copyDir(srcAssets, dstAssets);
     console.log('  ✓ assets/');
-  } else {
-    console.log('  ℹ No src/assets/');
   }
 }
 
 function copyJs() {
-  console.log('📜 Copying JS\n');
   const jsSrc = path.join(srcDir, 'js');
   const jsDst = path.join(distDir, 'assets', 'js');
   if (fs.existsSync(jsSrc)) {
     ensureDir(jsDst);
     fs.readdirSync(jsSrc).filter(f => f.endsWith('.js')).forEach(f => {
-      fs.copyFileSync(path.join(jsSrc, f), path.join(jsDst, f));
-      console.log(`  ✓ assets/js/${f}`);
+      copyFile(path.join(jsSrc, f), path.join(jsDst, f));
     });
-  } else {
-    console.log('  ℹ No src/js/');
   }
 }
 
-// ── Build ────────────────────────────────────────────────
+// ── Full build (initial) ─────────────────────────────────
 function build() {
-  cleanDist();
+  if (fs.existsSync(distDir)) {
+    fs.rmSync(distDir, { recursive: true, force: true });
+  }
+  console.log('🧹 Cleaned dist/');
   compileScss();
   compilePug();
   copyAssets();
@@ -129,6 +131,20 @@ function build() {
   console.log('\n✅ Done\n');
 }
 
+// ── Incremental rebuild ──────────────────────────────────
+function rebuild(type, filePath) {
+  if (type === 'pug') {
+    console.log('\n📝 Compiling Pug → HTML\n');
+    compilePug(filePath);
+  } else if (type === 'scss') {
+    console.log('\n🎨 Compiling SCSS → CSS\n');
+    compileScss(filePath);
+  } else {
+    console.log('\n📦 Copying assets\n');
+    copyAssets();
+    copyJs();
+  }
+}
 
 // ── Static file server ──────────────────────────────────────
 function startServer() {
@@ -159,15 +175,25 @@ if (args.includes('--watch') || args.includes('-w')) {
   console.log('👀 Watching for changes...\n');
   build();
   let timer;
-  chokidar.watch([
-    path.join(srcDir, '**/*.pug'),
-    path.join(srcDir, '**/*.scss'),
-    path.join(srcDir, 'assets/**/*'),
-    path.join(srcDir, 'js/**/*'),
-  ], { ignored: /node_modules/ }).on('all', (ev, p) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { console.log(`\n🔄 ${ev} ${p}`); build(); }, 300);
-  });
+  chokidar.watch('src', { ignored: /node_modules/, awaitWriteFinish: true })
+    .on('change', (p) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        console.log(`\n🔄 change ${p}`);
+        if (p.endsWith('.pug')) rebuild('pug', p);
+        else if (p.endsWith('.scss')) rebuild('scss', p);
+        else rebuild('assets');
+      }, 300);
+    })
+    .on('add', (p) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        console.log(`\n🔄 add ${p}`);
+        if (p.endsWith('.pug')) rebuild('pug', p);
+        else if (p.endsWith('.scss')) rebuild('scss', p);
+        else rebuild('assets');
+      }, 300);
+    });
   startServer();
 } else {
   build();
