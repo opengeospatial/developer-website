@@ -80,6 +80,10 @@
               <p class="testi-quote">"OGC Standards underpin the transfer of geospatial datasets, and the OGC APIs reflect the use of cloud-hosted computing alongside being easier to understand…"</p>
               <p class="testi-attr">— Samantha Lavender, EO Scientist and Director at Pixalytics</p>
             </div>
+            <div class="testi-slide" data-initials="JG">
+              <p class="testi-quote">"In terms of data handling, the OGC API is easier because we can use it as if it were a REST API. It increases interoperability between GIS and non-GIS software. It allows for better data load management."</p>
+              <p class="testi-attr">— João Filipe Gaspar, GIS Developer</p>
+            </div>
           </div>
           <div class="testi-media">
             <div class="testi-ticks">
@@ -89,6 +93,7 @@
               <button onclick="testiGoto(3)" aria-label="Slide 4"></button>
               <button onclick="testiGoto(4)" aria-label="Slide 5"></button>
               <button onclick="testiGoto(5)" aria-label="Slide 6"></button>
+              <button onclick="testiGoto(6)" aria-label="Slide 7"></button>
             </div>
             <div class="testi-avatar" id="testi-avatar">IS</div>
           </div>
@@ -105,7 +110,8 @@
           idx = (i + slides.length) % slides.length;
           slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
           ticks.forEach(function(t, n){ t.classList.toggle('active', n === idx); });
-          avatar.textContent = slides[idx].getAttribute('data-initials');
+          var avatars = { IS:'assets/images/ivan.png', TK:'assets/images/tom.jpeg', SM:'assets/images/Steve_McDaniel_Head_Shot.png', MG:'assets/images/michael-os.png', AA:'assets/images/aure.jpg', SL: 'assets/images/slavender.jpeg', JG: 'assets/images/joao.jpeg'};
+          var initials = slides[idx].getAttribute('data-initials'); avatar.innerHTML = avatars[initials] ? '<img src="' + avatars[initials] + '" alt="' + initials + '">' : initials;
         }
         window.testiMove = function(dir){ show(idx + dir); restart(); };
         window.testiGoto = function(i){ show(i); restart(); };
