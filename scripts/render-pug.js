@@ -148,6 +148,16 @@ function rebuild(type, filePath) {
 
 // ── Static file server ──────────────────────────────────────
 function startServer() {
+  const PORT = 3000;
+  
+  // Kill any existing process on this port first
+  try {
+    const { execSync } = require('child_process');
+    execSync(`lsof -ti:${PORT}`, { stdio: 'pipe' }).trim().split('\n').filter(Boolean).forEach(pid => {
+      try { process.kill(Number(pid), 'SIGKILL'); } catch(e) {}
+    });
+  } catch(e) {} // no process on port
+
   const server = http.createServer((req, res) => {
     let filePath = path.join(distDir, req.url === '/' ? 'index.html' : req.url);
     const ext = path.extname(filePath).toLowerCase();
@@ -164,8 +174,8 @@ function startServer() {
     });
   });
 
-  server.listen(3000, () => {
-    console.log('🌐  Serving dist/ on http://localhost:3000');
+  server.listen(PORT, () => {
+    console.log(`🌐  Serving dist/ on http://localhost:${PORT}`);
   });
 }
 
