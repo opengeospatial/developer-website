@@ -1430,6 +1430,13 @@ footer.site-footer {
   margin-bottom: 14px;
 }
 
+.std-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
 .std-thumb .ribbon {
   position: absolute;
   top: 16px;

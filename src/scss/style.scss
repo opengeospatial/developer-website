@@ -620,6 +620,10 @@ footer.site-footer { background: var(--dark); color: #fff; padding: 48px 60px 0;
   border-radius: var(--radius); background: linear-gradient(135deg, var(--navy), var(--dark));
   margin-bottom: 14px;
 }
+.std-thumb-img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: var(--radius);
+}
 .std-thumb .ribbon {
   position: absolute; top: 16px; left: -38px; width: 160px;
   transform: rotate(-45deg); background: var(--navy); color: #fff;
