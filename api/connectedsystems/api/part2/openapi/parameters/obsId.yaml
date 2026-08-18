@@ -1,7 +1,0 @@
-name: obsId
-in: path
-description: Local identifier of an Observation
-required: true
-schema:
-  type: string
-  minLength: 1

@@ -1,4 +1,0 @@
-description: Local identifier of a System
-schema:
-  type: string
-  minLength: 1
