@@ -6,9 +6,14 @@ on:
       - full-refactor
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
 
     steps:
       - name: Checkout code
@@ -49,6 +54,9 @@ jobs:
   add-subtrees:
     runs-on: ubuntu-latest
     needs: build-and-deploy  # Ensures build runs first
+
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout gh-pages branch
