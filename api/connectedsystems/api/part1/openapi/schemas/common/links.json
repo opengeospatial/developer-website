@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Link Collection",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "$ref": "commonDefs.json#/$defs/Link"
+  }
+}

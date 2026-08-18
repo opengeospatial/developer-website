@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "role": {
+      "description": "Role of the contact",
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "description": "Name of the contact",
+      "type": "string"
+    },
+    "link": {
+      "description": "Link to complete contact information",
+      "$ref": "commonDefs.json#/$defs/XLink"
+    }
+  },
+  "unevaluatedProperties": false,
+  "required": [ "name", "link" ]
+}

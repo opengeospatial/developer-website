@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
+    },
+    {
+      "properties": {
+        "uniqueId": {
+          "description": "Unique identifier of the property",
+          "type": "string",
+          "format": "uri",
+          "example": "urn:example:property:avg-cpu-temp"
+        },
+        "label": {
+          "example": "Average CPU Temp"
+        },
+        "description": {
+          "example": "Hourly average of the CPU temperature"
+        },
+        "baseProperty": {
+          "description": "URI pointing to the definition of the base property this property is derived from",
+          "type": "string",
+          "format": "uri",
+          "example": "https://qudt.org/vocab/quantitykind/Temperature"
+        },
+        "objectType": {
+          "description": "URI pointing to the type of entity that the base property applies to",
+          "type": "string",
+          "format": "uri",
+          "example": "http://dbpedia.org/resource/Central_processing_unit"
+        },
+        "statistic": {
+          "description": "URI pointing to the definition of the statistic applied to the base property values",
+          "type": "string",
+          "format": "uri",
+          "example": "http://sensorml.com/ont/x-stats/HourlyMean"
+        },
+        "qualifiers": {
+          "description": "Additional qualifiers for the property (e.g., frequency range, measurement height, medium, etc.)",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "sweCommonDefs.json#/$defs/AnySimpleComponent"
+          }
+        }
+      },
+      "required": [
+        "label", "baseProperty"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "CombustionTemp",
+  "label": "Combustion Temp",
+  "description": "Temperature measured inside the combustion chamber",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
+  "objectType": "http://dbpedia.org/resource/Combustion_chamber"
+}

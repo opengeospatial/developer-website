@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Link",
+  "description": "Link object following standard Web Linking conventions (see RFC5988 and RFC6690)",
+  "type": "object",
+  "required": ["href"],
+  "properties": {
+    "href": {
+      "description": "URL of target resource",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://data.example.com/link/to/resource"
+      ]
+    },
+    "rel": {
+      "description": "Link relation type",
+      "type": "string",
+      "examples": [
+        "alternate",
+        "self",
+        "http://www.opengis.net/def/rel/ogc/1.0/conformance"
+      ]
+    },
+    "type": {
+      "description": "Media type of target resource",
+      "type": "string",
+      "examples": [
+        "application/json",
+        "image/tiff; application=geotiff"
+      ]
+    },
+    "hreflang": {
+      "description": "Language tag of target resource (2-letter language code, followed by optional 2-letter region code)",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^([a-z]{2}(-[A-Z]{2})?)|x-default$",
+      "examples": [
+        "en-US",
+        "fr-FR",
+        "de"
+      ]
+    },
+    "title": {
+      "description": "Title of target resource",
+      "type": "string",
+      "minLength": 1,
+      "examples": [
+        "Resource Name"
+      ]
+    },
+    "uid": {
+      "description": "Unique identifier of target resource",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "urn:x-org:resourceType:0001"
+      ]
+    },
+    "rt": {
+      "description": "Semantic type of target resource (RFC 6690)",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "http://www.example.org/uri/of/concept"
+      ]
+    },
+    "if": {
+      "description": "Interface used to access target resource (RFC 6690)",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "http://www.opengis.net/spec/spec-id/version"
+      ]
+    }
+  }
+}

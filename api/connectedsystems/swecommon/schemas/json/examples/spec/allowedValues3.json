@@ -1,0 +1,10 @@
+{
+  "type": "Quantity",
+  "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+  "label": "Latitude",
+  "uom": { "code": "deg" },
+  "constraint": {
+    "intervals": [[-90, 90]],
+    "significantFigures": 6
+  }
+}

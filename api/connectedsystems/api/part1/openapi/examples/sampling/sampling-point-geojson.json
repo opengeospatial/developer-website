@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "SP001",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [ 12.31, -86.98, -21]
+  },
+  "properties": {
+    "uid": "urn:x-usgs:sites:301244087575701:sf:bottom",
+    "name": "Bottom of Well - USGS Site #301244087575701",
+    "description": "Sampling point is 2-4 inches above the bottom of the well",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "sampledFeature@link": {
+      "href": "https://api.usgs.gov/collections/hydrological_features/items/112TRRC?f=json",
+      "type" : "application/geo+json",
+      "title": "Aquifer 112TRRC"
+    }
+  }
+}

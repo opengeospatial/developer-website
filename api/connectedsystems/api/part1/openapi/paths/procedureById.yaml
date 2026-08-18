@@ -1,0 +1,68 @@
+get:
+  summary: Get a procedure by ID
+  tags:
+    - Procedures
+  parameters:
+    - $ref: ../parameters/procedureId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      $ref: ../responses/procedure.yaml
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a procedure
+  description: |-
+    This will completely replace the existing description of the procedure with the provided content.
+  tags:
+    - Procedures
+  parameters:
+    - $ref: ../parameters/procedureId.yaml
+  requestBody:
+    $ref: ../requests/procedure.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a procedure
+  description: |-
+    This will delete the procedure and remove it from all collections it is associated to.
+  tags:
+    - Procedures
+  parameters:
+    - $ref: ../parameters/procedureId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

@@ -1,0 +1,70 @@
+{
+  "collections": [
+    {
+      "id": "all_systems",
+      "title": "All Connected Systems",
+      "description": "All systems registered on this server (e.g., platforms, sensors, actuators, processes)",
+      "itemType": "feature",
+      "featureType": "ssn:System",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/all_systems/items?f=json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "all_procedures",
+      "title": "All Procedures and System Datasheets",
+      "description": "All procedures (e.g., system datasheets) implemented by systems registered on this server",
+      "itemType": "feature",
+      "featureType": "sosa:Procedure",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/all_procedures/items?f=json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "all_deployments",
+      "title": "All System Deployments",
+      "description": "All deployments involving systems registered on this server",
+      "itemType": "feature",
+      "featureType": "ssn:Deployment",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/all_deployments?f=json",
+          "type": "application/json"
+        },
+        {
+          "rel": "describedby",
+          "title": "Schema for features in the collection",
+          "anchor": "https://data.example.org/api/collections/all_deployments?f=json",
+          "href": "https://data.example.org/api/schemas/deployments?f=json",
+          "type": "application/schema+json"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "title": "This document",
+      "href": "https://data.example.org/api/collections?f=json",
+      "type": "application/json"
+    },
+    {
+      "rel": "alternate",
+      "title": "This document as HTML",
+      "href": "https://data.example.org/api/collections?f=html",
+      "type": "text/html"
+    }
+  ]
+}

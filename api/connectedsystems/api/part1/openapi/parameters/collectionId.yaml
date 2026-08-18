@@ -1,0 +1,7 @@
+name: collectionId
+in: path
+description: Local identifier of a collection
+required: true
+schema:
+  type: string
+  minLength: 1
