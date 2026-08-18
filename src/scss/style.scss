@@ -795,3 +795,28 @@ footer.site-footer { background: var(--dark); color: #fff; padding: 48px 60px 0;
     font-size: 15px;
   }
 }
+
+/* ---------- OWS page: info box ---------- */
+.ows-info-box {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  max-width: 900px;
+  margin: 0 auto 56px;
+}
+.ows-info-box p {
+  margin: 0;
+  color: var(--gray-700);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+.ows-info-box a {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ---------- OWS page: page title ---------- */
+.page-title {
+  font-size: 28px;
+}
