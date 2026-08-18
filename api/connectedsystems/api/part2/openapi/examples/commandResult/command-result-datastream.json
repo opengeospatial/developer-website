@@ -1,7 +1,0 @@
-{
-  "datastream@link": {
-    "href": "https://data.example.org/api/datastreams/445ssdf55",
-    "title": "Plume Simulation Data",
-    "type": "application/json"
-  }
-}

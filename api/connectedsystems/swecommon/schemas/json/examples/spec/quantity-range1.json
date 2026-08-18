@@ -1,8 +1,0 @@
-{
-  "type": "QuantityRange",
-  "definition": "http://mmisw.org/ont/mmi/device/OperationalRange",
-  "label": "Operational Range",
-  "description": "Operational temperature range of the cryogenic thermometer",
-  "uom": { "code": "K" },
-  "value": [10, 300]
-}

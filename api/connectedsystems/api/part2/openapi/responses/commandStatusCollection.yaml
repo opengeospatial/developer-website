@@ -1,5 +1,0 @@
-description: OK. Successful request
-content:
-  application/json:
-    schema:
-      $ref: ../schemas/json/commandStatusCollection.json

@@ -1,5 +1,0 @@
-description: OK. Successful request
-content:
-  application/geo+json:
-    schema: 
-      $ref: ../schemas/geojson/samplingFeatureCollection.json
