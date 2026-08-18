@@ -1,0 +1,21 @@
+{
+  "$schema": "../PhysicalComponent.json",
+  "type": "PhysicalComponent",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-org:sensors:001",
+  "label": "Sensor with GeoPose",
+  "position": {
+    "type": "GeoPose",
+    "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+    "position": {
+      "lat": 47.7,
+      "lon": -122.3,
+      "h": 11.5
+    },
+    "angles": {
+      "yaw": 5.946590591427664,
+      "pitch": -0.4683537318018044,
+      "roll": 0.0
+    }
+  }
+}

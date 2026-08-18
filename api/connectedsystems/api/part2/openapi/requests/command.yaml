@@ -1,0 +1,13 @@
+description: A single `Command` resource
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/command.json
+    examples:
+      ptz:
+        summary: PTZ Command
+        value:
+          $ref: ../examples/commands/command-ptz-create.json
+        
+  application/swe+csv:
+    example: '2021-03-15T04:53:34.023Z,-10,23,0.4'

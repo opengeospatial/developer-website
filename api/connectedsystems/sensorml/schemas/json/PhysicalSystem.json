@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "AbstractPhysicalProcess.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "PhysicalSystem"
+        },
+        "components": {
+          "description": "The list of sub-components",
+          "$ref": "AggregateProcess.json#/$defs/ComponentList"
+        },
+        "connections": {
+          "$ref": "AggregateProcess.json#/$defs/ConnectionList"
+        }
+      }
+    }
+  ]
+}

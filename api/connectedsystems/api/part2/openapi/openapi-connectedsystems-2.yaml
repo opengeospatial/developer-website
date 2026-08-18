@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: "OGC API - Connected Systems - Part 2: Dynamic Data"
+  version: 1.0.0
+  description: |-
+    Example OpenAPI specification for part 2 of [OGC API - Connected Systems](https://github.com/opengeospatial/connected_systems).
+  contact:
+    name: OGC API Support
+    url: "https://www.ogc.org/contact"
+    email: info@ogc.org
+
+  license:
+    name: OGC License
+    url: "https://www.ogc.org/ogc/Document"
+  x-logo:
+    url: "https://www.ogc.org/wp-content/uploads/2023/03/OGC-1.svg"
+    backgroundColor: "#FFFFFF"
+    altText: "OGC logo"
+    href: "https://www.ogc.org"
+
+servers:
+  - url: 'https://api.georobotix.io/ogc/t18/api'
+    description: OGC Testbed Demo Server
+  - url: 'http://localhost:8181/sensorhub/api'
+    description: Local test server
+
+tags:
+  - name: Data Streams
+    description: |-
+      Datastreams allow access to observations produced by systems, in various formats.
+      They also provide metadata describing the exact meaning of properties included in the observations.
+
+      API clients can act both as sender of receiver of observations.
+
+  - name: Observations
+    description: |-
+      Access to historical and real-time observations.
+
+  - name: Control Streams
+    description: |-
+      Control channels (or control streams) allow sending commands to systems, in various formats.
+      They also provide metadata describing the exact meaning and content of command messages.
+
+      API clients can act both as sender or receiver of commands.
+
+  - name: Commands
+    description: |-
+      Access to historical and real-time commands.
+
+  - name: System Events
+    description: |-
+      System events are used to notify users of changes to one or more systems.
+
+  - name: System History
+    description: |-
+      Advanced access to historical system descriptions.
+      
+
+paths:
+  
+  # Datastreams
+  /datastreams:
+    $ref: paths/dataStreams.yaml
+
+  /systems/{systemId}/datastreams:
+    $ref: paths/systemDataStreams.yaml
+
+  /datastreams/{dataStreamId}:
+    $ref: paths/dataStreamById.yaml
+
+  /datastreams/{dataStreamId}/schema:
+    $ref: paths/dataStreamSchemas.yaml
+
+  # Observations
+  /observations:
+     $ref: paths/observations.yaml
+
+  /datastreams/{dataStreamId}/observations:
+     $ref: paths/dataStreamObservations.yaml
+
+  /observations/{obsId}:
+     $ref: paths/observationById.yaml
+
+  # Control Streams
+  /controlstreams:
+    $ref: paths/controlStreams.yaml
+
+  /systems/{systemId}/controlstreams:
+    $ref: paths/systemControlStreams.yaml
+
+  /controlstreams/{controlStreamId}:
+    $ref: paths/controlStreamById.yaml
+
+  /controlstreams/{controlStreamId}/schema:
+    $ref: paths/controlStreamSchemas.yaml
+
+  # Commands
+  /commands:
+    $ref: paths/commands.yaml
+
+  /controlstreams/{controlStreamId}/commands:
+    $ref: paths/controlStreamCommands.yaml
+
+  /commands/{cmdId}:
+    $ref: paths/commandById.yaml
+
+  /commands/{cmdId}/status:
+    $ref: paths/commandStatuses.yaml
+
+  /commands/{cmdId}/status/{statusId}:
+    $ref: paths/commandStatusById.yaml
+
+  /commands/{cmdId}/result:
+    $ref: paths/commandResults.yaml
+
+  /commands/{cmdId}/result/{resultId}:
+    $ref: paths/commandResultById.yaml
+
+  # System Events
+  /systemEvents:
+    $ref: paths/systemEventsAll.yaml
+
+  /systems/{systemId}/events:
+    $ref: paths/systemEvents.yaml
+
+  /systems/{systemId}/events/{eventId}:
+    $ref: paths/systemEventById.yaml
+
+  # System History
+  /systems/{systemId}/history:
+    $ref: paths/systemHistory.yaml
+
+  /systems/{systemId}/history/{revId}:
+    $ref: paths/systemHistoryById.yaml

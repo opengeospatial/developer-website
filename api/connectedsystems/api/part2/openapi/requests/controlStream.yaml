@@ -1,0 +1,10 @@
+description: A single `ControlStream` resource
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/controlStream.json
+    examples:
+      simple:
+        summary: PTZ Control
+        value:
+          $ref: ../examples/controlstreams/controlstream-ptz-create.json

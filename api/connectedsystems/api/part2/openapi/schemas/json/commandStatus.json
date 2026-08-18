@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Local identifier of the status report",
+      "type": "string",
+      "minLength": 1,
+      "readOnly": true
+    },
+    "command@id": {
+      "description": "Local identifier of the command that this report applies to",
+      "type": "string",
+      "minLength": 1,
+      "readOnly": true
+    },
+    "reportTime": {
+      "description": "Time at which this report was generated. If omitted on creation, the server sets it to the time the request was received.",
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant",
+      "readOnly": true
+    },
+    "statusCode": {
+      "description": "Current status code",
+      "$ref": "commandStatusCode.json"
+    },
+    "percentCompletion": {
+      "description": "Current progress expressed as a percentage of total task execution",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "executionTime": {
+      "description": "Time period during which the command was executed or is scheduled to be executed (depending on status code)",
+      "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
+    },
+    "message": {
+      "description": "Human readable message providing more details on the current status (can be both an error or information message depending on the status code)",
+      "type": "string",
+      "minLength": 1
+    },
+    "results": {
+      "description": "New result(s) of the command available at the time of the progress report (can be a partial result)",
+      "type": "array",
+      "items": {
+        "$ref": "commandResult.json"
+      }
+    }
+  },
+  "required": [
+    "id", "command@id", "reportTime", "statusCode"
+  ]
+}

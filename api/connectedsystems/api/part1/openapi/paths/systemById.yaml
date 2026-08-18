@@ -1,0 +1,84 @@
+get:
+  summary: Get a system by ID
+  description: |-
+    This will return the latest description of the system valid before or at the current time, by default.
+
+    If system history is supported by the server, descriptions of the system valid at past (or future) time
+    can be accessed using the `datetime` parameter or through the `history` sub-collection.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/datetime.yaml # should be only time instant if history supported
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      $ref: ../responses/system.yaml
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a system
+  description: |-
+    This will completely replace the existing description of the system with the provided content.
+    
+    If system history is supported and the `validTime` property starts after the time of the previous description,
+    the provided description becomes the current one and all previous descriptions are made available via the
+    `history` sub collection.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+  requestBody:
+    $ref: ../requests/system.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a system
+  description: |-
+    This will delete the system and remove it from all collections it is associated to.
+
+    If the `cascade` parameter is used, all associated sub-resources hosted by the same server
+    (sampling features, datastreams, command streams, observations, and commmands) are also deleted.
+
+    If system history is supported, all historical descriptions are deleted as well.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/cascade.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

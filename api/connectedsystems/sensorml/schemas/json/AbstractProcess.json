@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "DescribedObject.json"
+    },
+    {
+      "properties": {
+        "definition": {
+          "description": "The type of process or system as a reference to a concept in an online ontology or dictionary. The value of the property must be a resolvable URI.",
+          "type": "string",
+          "format": "uri"
+        },
+        "typeOf": {
+          "description": "A reference to a base process from which this process inherits properties and constraints (e.g., original equipment manufacturer's model description, generic equation, etc.).",
+          "$ref": "commonDefs.json#/$defs/XLink"
+        },
+        "configuration": {
+          "description": "Value settings that further constrain the properties of the base process.",
+          "$ref": "Settings.json"
+        },
+        "featuresOfInterest": {
+          "description": "A collection of sampling features or domain features relevant to the process (e.g., the Gulf of Mexico, the White House, the Atmosphere, a vehicle, etc.).",
+          "$ref": "#/$defs/FeatureList"
+        },
+        "inputs": {
+          "description": "The list of process or system inputs.",
+          "$ref": "#/$defs/InputList"
+        },
+        "outputs": {
+          "description": "The list of process or system outputs.",
+          "$ref": "#/$defs/OutputList"
+        },
+        "parameters": {
+          "description": "The list of process or system parameters.",
+          "$ref": "#/$defs/ParameterList"
+        },
+        "modes": {
+          "description": "A collection of parameters that can be set at once through the selection of a particular predefined mode.",
+          "type": "array",
+          "items": {
+            "$ref": "Mode.json"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "FeatureList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "commonDefs.json#/$defs/XLink"
+      }
+    },
+    "InputList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/IOComponentChoice"
+      }
+    },
+    "OutputList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/IOComponentChoice"
+      }
+    },
+    "ParameterList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/IOComponentChoice"
+      }
+    },
+    "ModeChoice": {
+      "type": "object",
+      "properties": {
+        "modes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "Mode.json"
+          }
+        }
+      }
+    },
+    "IOComponentChoice": {
+      "oneOf": [
+        {
+          "title": "DataComponent",
+          "allOf": [
+            { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
+            { "$ref": "sweCommonDefs.json#/$defs/AnyComponent" }
+          ]
+        },
+        {
+          "title": "ObservableProperty",
+          "allOf": [
+            { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
+            { "$ref": "commonDefs.json#/$defs/ObservableProperty" }
+          ]
+        }
+      ]
+    }
+  }
+}

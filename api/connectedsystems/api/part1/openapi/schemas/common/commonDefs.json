@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "TimeInstant": {
+      "$ref": "../../../../../common/timeInstant.json"
+    },
+    "TimePeriod": {
+      "$ref": "../../../../../common/timePeriod.json"
+    },
+    "Link": {
+      "$ref": "../../../../../common/link.json"
+    },
+    "Links": {
+      "$ref": "links.json"
+    }
+  }
+}

@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: "OGC API - Connected Systems - Part 1: Feature Resources"
+  version: 1.0.0
+  description: |-
+    Example OpenAPI specification for part 1 of [OGC API - Connected Systems](https://github.com/opengeospatial/connected_systems).  
+    This Standard also conforms to [OGC API - Features](https://ogcapi.ogc.org/features/).
+  contact:
+    name: OGC API Support
+    url: "https://www.ogc.org/contact"
+    email: info@ogc.org
+
+  license:
+    name: OGC License
+    url: "https://www.ogc.org/ogc/Document"
+  x-logo:
+    url: "https://www.ogc.org/wp-content/uploads/2023/03/OGC-1.svg"
+    backgroundColor: "#FFFFFF"
+    altText: "OGC logo"
+    href: "https://www.ogc.org"
+
+servers:
+  - url: 'https://api.georobotix.io/ogc/t18/api'
+    description: OGC Testbed Demo Server
+  - url: 'http://localhost:8181/sensorhub/api'
+    description: Local test server
+
+tags:
+  - name: Capabilities
+    description: Essential characteristics of the information available from the API.
+  - name: Collections
+    description: |-
+      Collections allow a client to discover available resources in a way that is conformant with OGC API Features
+      and OGC API Common.
+      
+      All Connected Systems resource types are always available through their canonical collections at the service root,
+      but OGC API Collections provide an additional way of grouping and accessing these resources.
+      In particular, Collections allow a service provider to group resources logically according to any criteria.
+      
+      For example, collections can be used to:
+        - Group all `Systems` of the same type (e.g., all UAV platforms, all hydrological sensors, etc.).
+        - Group all `Procedures` of the same type (e.g., all platform types, all CBRNE sensor models, etc.).
+        - Group resources by project (e.g., all `Deployments`, `Systems`, `Datastreams` and `Sampling Features` relevant to a given data acquisition campaign)
+
+  - name: Systems
+    description: |-
+      Systems are entities that can produce data feeds and/or receive commands (e.g., sensors and sensor networks, platforms, actuators,
+      processing components, etc.). Many systems can be classified as 'observing systems' that produce observations of one or more
+      features of interest.
+  - name: Deployments
+    description: |-
+      Deployments describe how systems are being deployed at a particular place and time.
+  - name: Procedures
+    description: |-
+      Procedures provide information about the behavior of a system to accomplish its task(s).
+      Procedures include descriptions of system kinds (e.g., a hardware device's datasheet), as well as methodologies or specific
+      configurations of these systems (e.g., steps followed by an operator to accomplish a sensing or sampling task).
+  - name: Sampling Features
+    description: |-
+      Sampling Features link Systems with ultimate features of interest, describing exactly what part of a larger feature is being
+      interacted with.
+  - name: Properties
+    description: |-
+      Property resources provide the definitions of derived properties that are used throughout the API.
+      
+      Derived properties are specific to a type of feature, a type of system, or even to a particular organization, project or deployment.
+      Property definitions are referenced by feature schemas, system and deployment descriptions, datastream and control stream schemas, etc.
+      
+      Depending on the context they are used in, they can represent properties that are asserted (e.g., system characteristic), observed
+      (observed or observable property) or controlled (controlled or controllable property).
+
+paths:
+  /:
+    get:
+      summary: Landing Page
+      description: The landing page provides links to the API definition, the conformance statements and to the feature collections in this dataset.
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          $ref: responses/landingPage.yaml
+
+  /conformance:
+    get:
+      summary: Conformance
+      description: A list of all conformance classes specified in a standard that the server conforms to.
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          $ref: responses/conformance.yaml
+
+
+  # Collections  
+  /collections:
+    $ref: paths/collections.yaml
+
+  /collections/{collectionId}:
+    $ref: paths/collectionById.yaml    
+
+  /collections/{collectionId}/items:
+    $ref: paths/collectionItems.yaml
+
+  /collections/{collectionId}/items/{resourceId}:
+    $ref: paths/collectionItemById.yaml
+
+
+  # Systems
+  /systems:
+    $ref: paths/systems.yaml
+
+  /systems/{systemId}:
+    $ref: paths/systemById.yaml
+
+  /systems/{systemId}/subsystems:
+    $ref: paths/subsystems.yaml
+
+  #/systems/{systemId}/subsystems/{subsystemId}:
+  #  $ref: paths/subsystemById.yaml
+
+  # Deployments
+  /deployments:
+    $ref: paths/deployments.yaml
+
+  /deployments/{deploymentId}:
+    $ref: paths/deploymentById.yaml
+
+  /deployments/{deploymentId}/subdeployments:
+    $ref: paths/subdeployments.yaml
+
+  /systems/{systemId}/deployments:
+    $ref: paths/systemDeployments.yaml
+
+
+  # Procedures
+  /procedures:
+    $ref: paths/procedures.yaml
+
+  /procedures/{procedureId}:
+    $ref: paths/procedureById.yaml
+    
+
+  # Sampling Features
+  /samplingFeatures:
+    $ref: paths/samplingFeatures.yaml
+
+  /systems/{systemId}/samplingFeatures:
+    $ref: paths/systemSamplingFeatures.yaml
+
+  /samplingFeatures/{featureId}:
+    $ref: paths/samplingFeatureById.yaml
+
+
+  # Properties
+  /properties:
+    $ref: paths/properties.yaml
+
+  /properties/{propId}:
+    $ref: paths/propertyById.yaml

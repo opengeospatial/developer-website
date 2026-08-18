@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "https://raw.githubusercontent.com/opengeospatial/ogcapi-connected-systems/master/api/part2/openapi/schemas/json/observation.json" },
+    {
+      "properties": {
+        "result": {
+          "type": "number",
+          "title": "Room Temperature",
+          "description": "Ambient air temperature measured inside the room",
+          "@swe.definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+          "@swe.uomCode": "Cel"
+        }
+      },
+      "required": [ "result" ]
+    }
+  ]
+}
