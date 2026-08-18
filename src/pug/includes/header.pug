@@ -16,4 +16,8 @@ mixin header(activeSection)
             a(href=activeSection ? 'index.html#learn' : '#learn') Learn
           li(class=activeSection === 'community' ? 'active' : '')
             a(href=activeSection ? 'index.html#community' : '#community') Community
+      button.hamburger(onclick="this.parentElement.querySelector('.main-nav').classList.toggle('open')" aria-label="Toggle menu")
+        span
+        span
+        span
       .nav-cta
