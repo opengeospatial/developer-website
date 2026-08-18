@@ -1,622 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Google tag-->
-        <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-5KGJV26');
-        </script>
-        <!-- End Google Tag Manager-->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>OGC Developer Website</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/3d_emblem_lockup.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <!-- prims.js-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-bash.min.js" integrity="sha512-35RBtvuCKWANuRid6RXP2gYm4D5RMieVL/xbp6KiMXlIqgNrI7XRUh9HurE8lKHW4aRpC0TZU3ZfqG8qmQ35zA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-funky.min.css" integrity="sha512-KaCkQvJ0dQIhdJ0Am5LM3sgXA+Y0LWpbxkfKACZnlOqDvk54lZaWYk/sQiJGNRuSyFpe24jpjwJ4q+u3Rbez5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="./"><img src="assets/img/ogc-logo-white.svg" alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#get_started">Get Started</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#learn">Learn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
-                    </ul>
-                </div>
-                <a href="https://github.com/opengeospatial/developer-website.git"><img style="position: absolute; top: 0; right: 0; border: 0" src="./assets/img/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-9">
-                        <div class="masthead-heading">Build interoperable geospatial solutions with OGC Standards</div>
-                        <div class="masthead-subheading">
-                            <div class="li">
-                                <div class="ul">
-                                    <svg width="12" height="10" viewbox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z" fill="white" fill-opacity="0.87"></path></svg>
-                                    Providing a consistent way for different systems to interoperate and share geospatial data.
-                                </div>
-                                <div class="ul">
-                                    <svg width="12" height="10" viewbox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z" fill="white" fill-opacity="0.87"></path></svg>
-                                    Enabling applications to more easily access and use geospatial data from a wide variety of sources.
-                                </div>
-                                <div class="ul">
-                                    <svg width="12" height="10" viewbox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8519 0.52594L3.89189 7.10404L1.14811 4.51081L0 5.59592L3.89189 9.27426L12 1.61105L10.8519 0.52594Z" fill="white" fill-opacity="0.87"></path></svg>
-                                    Made by developers, for developers.
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary btn-xl text-uppercase" href="#learn">Learn</a>
-                        <a class="btn btn-secondary btn-xl text-uppercase" href="#get_started">Get Started</a>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="box" id="code-box">
-                            <pre><code class="language-bash">curl -X 'GET' \
-'https://demo.pygeoapi.io/master/collections/lakes/items?limit=10&skipGeometry=false&offset=0' \
--H 'accept: application/geo+json'</code></pre>
-                        </div>
-                        <a class="btn btn-light" onclick="copyToClipboard(this)">Copy</a>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OGC Developers | Build Interoperable Geospatial Solutions with OGC Standards</title>
+    <meta name="description" content="The OGC developer hub — OGC APIs, encodings, code sprints, workshops, and community resources for building interoperable geospatial solutions.">
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Google tag-->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5KGJV26');
+    </script>
+    <!-- End Google Tag Manager-->
+  </head>
+  <body>
+    <div class="corner-ribbon"><a href="https://github.com/opengeospatial/developer-website" target="_blank" rel="noopener">Fork me on GitHub</a></div>
+        <header class="site-header">
+          <div class="nav-row"><a class="logo" href="index.html"><img src="assets/images/logo.png" alt="Open Geospatial Consortium"></a>
+            <nav class="main-nav">
+              <ul>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#get-started">Get Started</a></li>
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#community">Community</a></li>
+              </ul>
+            </nav>
+            <button class="hamburger" onclick="this.parentElement.querySelector('.main-nav').classList.toggle('open')" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-cta"></div>
+          </div>
         </header>
-        <!-- Testimonials-->
-        <section class="page-section bg-dark" id="testimonials">
-            <div class="container">
-                <div class="text-center">
-                    <div class="carousel slide" id="carouselExampleControls" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button class="active" type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="7" aria-label="Slide 8"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won’t make everybody happy, but we can try to make nobody hate the APIs."</p></div>
-                                    <div class="testimonials-title"><p>- Ivan Sanchez Ortega, Freelance GIS+JS developer and OSGeo charter member</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/ivan.png" alt="Ivan" height="200" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"Exciting times for international weather/climate/water data exchange, using open Standards and open source reference implementations."</p></div>
-                                    <div class="testimonials-title"><p>- Tom Kralidis, OSGeo Board Member and Key Contributor of FOSS4G projects</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/tom.jpeg" alt="Tom" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"Using industry tools, you can take these specifications (OGC APIs) as is and easily generate service and client implementations. APIs are now programmatically ingestible to create implementation and documentation! Huge step forward!"</p></div>
-                                    <div class="testimonials-title"><p>- Steve McDaniel, Software Scientist at Hexagon</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/Steve_McDaniel_Head_Shot.png" alt="Steve" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"The next generation of OGC API Standards make it easy for data publishers to create modern, developer friendly APIs to access geospatial data. Being involved in the development of this next generation of API Standards has enabled Ordnance Survey to significantly modernise how our customers access authoritative geospatial data."</p></div>
-                                    <div class="testimonials-title"><p>- Michael Gordon, Strategic Product Manager at Ordnance Survey</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/michael-os.png" alt="Michael" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"The new OGC-APIs allow you to access the features of the SDI datasets of Spain (hydrography, land use and cover, transport networks…) in a simple and friendly way . Open source knowledge is becoming more accessible and competitive and this new Standard is great proof of that."</p></div>
-                                    <div class="testimonials-title"><p>- Aure Aragón Velasco, Tecnical Land Surveyor engineer of the Spanish SDI (IDEE IGN/CNIG)</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/aure.jpg" alt="Aure" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"OGC Standards underpin the transfer of geospatial datasets, and the OGC APIs reflect the use of cloud-hosted computing alongside being easier to understand due to supporting code repositories."</p></div>
-                                    <div class="testimonials-title"><p>- Samantha Lavender, EO Scientist and Director at Pixalytics</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/slavender.jpeg" alt="Samantha" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"Participating in the development and implementation of the new OGC APIs is very intense and exciting. It's amazing to see everyone working together towards the same goal, Standards and interoperability, no matter who you are or where you come from."</p></div>
-                                    <div class="testimonials-title"><p>- Núria Julià Selvas, Senior GIS Developer at CREAF - MiraMon</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/nuria.jpeg" alt="Nuria" />
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="testimonials-text"><p>"In terms of data handling, the OGC API is easier because we can use it as if it were a REST API. It increases interoperability between GIS and non-GIS software. It allows for better data load management."</p></div>
-                                    <div class="testimonials-title"><p>- João Filipe Gaspar, GIS Developer</p></div>
-                                </div>
-                                <img class="rounded-circle" src="assets/img/joao.jpeg" alt="Joao" />
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Get Started-->
-        <section class="page-section bg-light" id="get_started">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Get Started</h2>
-                    <p class="text-muted">
-                        Each Standard addresses a specific type of geospatial data or associated resources.
-                        <i>Interfaces</i>
-                        define how services can access the data, while
-                        <i>encodings</i>
-                        define the structure and organisation of data formats and messaging protocols. Browse the list bellow to find the one that matches your needs.
-                    </p>
-                </div>
-                <h3 class="text-uppercase">Interfaces</h3>
-                <p class="text-muted">
-                    Interface Standards provide rules that determine the operations in a server client architecture. For instance web mapping applications, or
-                    <i>Web GIS,</i>
-                    fit into this pattern where an interface is used to request maps to a map service provider.
-                </p>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/tile-thumb.jpg" alt="..." />
-                                <h4>OGC API - Tiles</h4>
-                                <p class="text-muted">Interface for tiles of geospatial information (e.g.: vector data, maps or coverages).</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://tiles.developer.ogc.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-tiles" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/feat-full.jpg" alt="..." />
-                                <h4>OGC API - Features</h4>
-                                <p class="text-muted">Interface for feature data.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://features.developer.ogc.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-features" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/sensorthings.jpg" alt="..." />
-                                <h4>OGC SensorThings API</h4>
-                                <p class="text-muted">Interface for spatially enabled IoT devices, data and applications.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/sensorthings" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/map-thumb.jpg" alt="..." />
-                                <h4>OGC API - Maps</h4>
-                                <p class="text-muted">Interface for maps, customized using parameters (e.g.: dimensions, background, coordinate reference system).</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-maps" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/edr-thumb.jpg" alt="..." />
-                                <h4>OGC API - Environmental Data Retrieval (EDR)</h4>
-                                <p class="text-muted">Interface for sampling data about the natural or built environment, using a spatio-temporal query pattern.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-environmental-data-retrieval" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/movingfeatures-thumb.jpg" alt="..." />
-                                <h4>OGC API - Moving Features</h4>
-                                <p class="text-muted">Interface to access representations of Moving Features.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-movingfeatures" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/process-thumb.jpg" alt="..." />
-                                <h4>OGC API - Processes</h4>
-                                <p class="text-muted">Interface for wrapping computational tasks into executable processes. Processes include well-defined algorithms that ingest vector and/or coverage data to produce new datasets.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-processes" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/records-thumb.jpg" alt="..." />
-                                <h4>OGC API - Records</h4>
-                                <p class="text-muted">Interface for discovering and querying metadata about geospatial resources (e.g.: catalogue).</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://records.developer.ogc.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-records" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/dggs.png" alt="..." />
-                                <h4>OGC API - Discrete Global Grid Systems (DGGS)</h4>
-                                <p class="text-muted">Interface for data organised according to a hierarchical tessellation of zones to partition and address the globe.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://dggs-info.web.app/#/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-discrete-global-grid-systems" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/oacs.png" alt="..." />
-                                <h4>OGC API - Connected Systems</h4>
-                                <p class="text-muted">Interface for interacting with Connected Systems (e.g.: sensors, drones, robots) and associated resources.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://csapi.developer.ogc.org" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-connected-systems" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/stylesimage-thumb.jpg" alt="..." />
-                            <h4>OGC API - Styles</h4>
-                            <p class="text-muted">Interface for styles for rendering geospatial data.</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-styles" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/geovolumes-thumb.jpg" alt="..." />
-                            <h4>OGC API - 3D GeoVolumes</h4>
-                            <p class="text-muted">Interface for 3D geospatial data.</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-3d-geovolumes" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/cube-coverages-thumb.jpg" alt="..." />
-                            <h4>OGC API - Coverages</h4>
-                            <p class="text-muted">Interface for accessing homogeneous collections of values located in space/time (e.g.: coverages). A satellite image is an example of a gridded coverage.</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-coverages" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/routes-thumb.jpg" alt="..." />
-                            <h4>OGC API - Routes</h4>
-                            <p class="text-muted">Interface to request routes in a manner independent of the underlying routing data set, routing engine or algorithm.</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-routes" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/joins-thumb.jpg" alt="..." />
-                            <h4>OGC API - Joins</h4>
-                            <p class="text-muted">Interface to join data from input files with tabular data from other sources.</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogcapi-joins" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/xml.jpeg" alt="..." />
-                            <h4>OWS</h4>
-                            <p class="text-muted">Looking for the previous generation of OGC Web Services (e.g.: WFS, WMTS, WMS)?</p>
-                            <a class="btn btn-dark btn-social mx-2" href="ows.html" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-muted">
-                    Still don't find what you are looking for?Try the
-                    <a href="https://api-config.developer.ogc.org/">
-                        OGC API configurator.
-                        <br />
-                    </a>
-                </p>
-                <h3 class="text-uppercase">Encodings</h3>
-                <p class="text-muted">Data Encoding Standards provide the rules for structuring and organising geospatial data for use in a given context.They apply to binary formats (e.g.: GeoTIFF), as well as human-readable formats (e.g.: JSON).</p>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/polyhedron-mathematics-geometry-rhombicosidodecahedron-archimedean-solid-mathematics-3f454e0ef2cb96cf4e83cca8e7c9c0df.png" alt="..." />
-                                <h4>JSON-FG</h4>
-                                <p class="text-muted">If you are using GeoJSON, but your data is not in WGS84, be sure to check this encoding. OGC Features and Geometries JSON extends GeoJSON, in order to overcome some of its limitations.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/ogc-feat-geo-json" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/COG_Alt_Logo.png" alt="..." />
-                                <h4>Cloud Optimized GeoTIFF (COG)</h4>
-                                <p class="text-muted">If you work with imagery and grid coverage data on the web, you could check out this format; backwards compatible with GeoTIFF.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://www.cogeo.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/CloudOptimizedGeoTIFF" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/geopkg.png" alt="..." />
-                                <h4>GeoPackage</h4>
-                                <p class="text-muted">GeoPackage lets you store different types of geospatial information (e.g.: vector data, attributes, metadata, styles) in a single container.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://www.geopackage.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/geopackage" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <div class="ribbon-holder">
-                                <div class="ribbon ribbon-holder">Published</div>
-                                <img class="mx-auto rounded-circle" src="assets/img/playground_temperature_coverage_with_values_.png" alt="..." />
-                                <h4>CoverageJSON</h4>
-                                <p class="text-muted">CoverageJSON is simple, efficient, machine and human readable JSON for publishing spatio-temporal data to the Web.</p>
-                                <a class="btn btn-dark btn-social mx-2" href="https://covjson.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/CoverageJSON" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/geoparquet-logo.png" alt="..." />
-                            <h4>GeoParquet</h4>
-                            <p class="text-muted">Columnar geospatial format, based on Apache Parquet. It enables interoperability between cloud data warehouses.</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://geoparquet.org/" title="Website" target="_blank"><i class="fa fa-link"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/opengeospatial/geoparquet" title="GitHub repo" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Learn-->
-        <section class="page-section bg-light" id="learn">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Learn</h2>
-                    <h3 class="section-subheading text-muted">If you want learn more about the conceptual part of OGC API, try these learning resources.</h3>
-                </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image">
-                            <a href="https://ogcapi-workshop.ogc.org/" title="OGC API Workshop" target="_blank"><img class="rounded-circle img-fluid" src="assets/img/ogcapi.png" alt="..." /></a>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading"><h4 class="subheading">OGC API Workshop</h4></div>
-                            <div class="timeline-body"><p class="text-muted">This workshop provides a combination of concepts, presentation and exercises of OGC APIs in support of discovery, access, visualization and processing in support of FAIR data principles.</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <a href="https://academy.ogc.org/" title="E-learning" target="_blank"><img class="rounded-circle img-fluid" src="assets/img/location_innovation_academy_logo.png" alt="..." /></a>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading"><h4 class="subheading">Location Innovation Academy</h4></div>
-                            <div class="timeline-body"><p class="text-muted">This learning platform offers different courses, mostly focused on Spatial Data Infrastructures.</p></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center"><h2 class="section-heading text-uppercase">You may also want to check</h2></div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-file-signature fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Definitions Server</h4>
-                        <p class="text-muted">
-                            The
-                            <a href="https://defs.opengis.net/vocprez/">OGC Definitions Server</a>
-                            is a web accessible source of information about things ("Concepts") the OGC defines or that communities ask the OGC to host on their behalf (e.g.: technical terms from application schemas).
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-cube fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Location building blocks</h4>
-                        <p class="text-muted">
-                            Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs. The OGC APIs are developed in
-                            <a href="https://blocks.ogc.org/">discrete building blocks</a>
-                            , which you can mix & match to spatially enable your existing APIs.
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-check fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Compliance and Certification</h4>
-                        <p class="text-muted">
-                            The
-                            <a href="https://www.ogc.org/how-our-compliance-program-works/">OGC Compliance program</a>
-                            provides the tools to test your implementation and make sure it is compliant to the Standard. If you want to take your application to the next level, you can apply for a compliance certification.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Community-->
-        <section class="page-section" id="community">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Community</h2>
-                    <h3 class="section-subheading text-muted">Be part of the #OGCAPI comunity. Tell us what’s working well, what you want to see added or improved, and find out about new updates.</h3>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <a href="https://developer.ogc.org/sprints/" title="Events">
-                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa-solid fa-users fa-stack-1x fa-inverse"></i>
-                            </a>
-                        </span>
-                        <h4 class="my-3">Code Sprints</h4>
-                        <p class="text-muted">Collaborative and inclusive events to support the development of open geospatial Standards, and projects that implement those Standards.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <a href="https://dev.to/doublebyte" title="Dev.to">
-                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa-brands fa-dev fa-stack-1x fa-inverse"></i>
-                            </a>
-                        </span>
-                        <h4 class="my-3">Dev.to</h4>
-                        <p class="text-muted">#OGCAPI related content in a constructive and inclusive social network for software developers.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <a href="https://discord.gg/3uyaZZuXr3" title="Discord">
-                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fab fa-discord fa-stack-1x fa-inverse"></i>
-                            </a>
-                        </span>
-                        <h4 class="my-3">Discord</h4>
-                        <p class="text-muted">Chat with other developers and take active part in the code sprints in the OGC Community channel.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <a href="blogs.html" title="Blogs" target="_blank">
-                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa-solid fa-blog fa-stack-1x fa-inverse"></i>
-                            </a>
-                        </span>
-                        <h4 class="my-3">Blogs</h4>
-                        <p class="text-muted">Blogs from the community.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <a href="https://agora.ogc.org/c/developers/" title="Agora">
-                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fas fa-code fa-stack-1x fa-inverse"></i>
-                            </a>
-                        </span>
-                        <h4 class="my-3">Agora</h4>
-                        <p class="text-muted">Ask questions and interact with other developers in the "Developers" Space of Agora.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="page-section" id="adopters">
-            <div class="container">
-                <div class="text-center"><h2 class="section-heading text-uppercase">Who is behind the OGC Standards?</h2></div>
-                <p class="text-muted">
-                    OGC Standards are developed through a member-driven consensus process, which creates royalty free, publicly available, open geospatial standards. The
-                    <a href="https://www.ogc.org/">Open Geospatial Consortium (OGC)</a>
-                    is the organisation which drives this process. It is supported by an active community of members, with involvement from a large range of organizations, as well as smaller ones.
-                    <a href="https://www.ogc.org/about/members/">Join OGC today!</a>
-                </p>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer py-4 bg-light">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; 2022. Open Geospatial Consortium all rights reserved</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="https://noc.social/@doublebyte"><i class="fa-brands fa-mastodon"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="mailto:devrel@ogc.org"><i class="fa fa-envelope"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end"><a class="link-dark text-decoration-none me-3" href="https://www.ogc.org/about/policies/privacy-policy/" target="_blank">Privacy Policy</a></div>
-                </div>
-            </div>
-        </footer>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio item 1 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Privacy Policy</h2>
-                                    <p class="item-intro text-muted">OGC API Features does not log or share your personal information.</p>
-                                    <p>We don't track you. We don't profile you. Period</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- HERO-->
+    <section class="hero">
+      <div class="hero-split">
+        <div class="col-text">
+          <h1>Build interoperable geospatial solutions with OGC Standards</h1>
+          <div class="hero-bullets">
+            <div><span class="dot">✓</span> Providing a consistent way for different systems to interoperate and share geospatial data.</div>
+            <div><span class="dot">✓</span> Enabling applications to more easily access and use geospatial data from a wide variety of sources.</div>
+            <div><span class="dot">✓</span> Made by developers, for developers.</div>
+          </div>
+          <div class="btn-row" style="justify-content:flex-start;margin-top:30px;"><a class="btn btn-hero-outline" href="#learn">Learn</a><a class="btn btn-hero-white" href="#get-started">Get Started</a></div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Jquery-->
-        <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!--script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')-->
-    </body>
+        <div class="col-code">
+          <div class="hero-code">
+            <pre class="code-panel" id="curl-snippet">curl -X <span class="k">'GET'</span> \
+'https://demo.pygeoapi.io/master/collections/lakes/items?limit=10&skipGeometry=false&offset=0' \
+-H <span class="s">'accept: application/geo+json'</span></pre>
+            <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('curl-snippet').innerText); this.textContent='Copied ✓'; setTimeout(()=&gt;this.textContent='Copy',1500);">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIALS-->
+    <section class="dark-section" id="testimonials">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Testimonials</p>
+          <h2>What Developers Say</h2>
+          <p>Voices from the community on building with OGC Standards.</p>
+        </div>
+        <div class="testi-carousel">
+          <button class="testi-arrow left" onclick="testiMove(-1)" aria-label="Previous">‹</button>
+          <button class="testi-arrow right" onclick="testiMove(1)" aria-label="Next">›</button>
+          <div class="testi-track">
+            <div class="testi-slide active" data-initials="IS">
+              <p class="testi-quote">"So these OGC codesprints put the potential users together, so that we all try and make these APIs palatable for all. We won't make everybody happy, but we can try to make nobody hate the APIs."</p>
+              <p class="testi-attr">— Ivan Sanchez Ortega, Freelance GIS+JS developer, OSGeo charter member</p>
+            </div>
+            <div class="testi-slide" data-initials="TK">
+              <p class="testi-quote">"Exciting times for international weather/climate/water data exchange, using open Standards and open source reference implementations."</p>
+              <p class="testi-attr">— Tom Kralidis, OSGeo Board Member, key contributor of FOSS4G projects</p>
+            </div>
+            <div class="testi-slide" data-initials="SM">
+              <p class="testi-quote">"Using industry tools, you can take these specifications (OGC APIs) as is and easily generate service and client implementations…"</p>
+              <p class="testi-attr">— Steve McDaniel, Software Scientist at Hexagon</p>
+            </div>
+            <div class="testi-slide" data-initials="MG">
+              <p class="testi-quote">"The next generation of OGC API Standards make it easy for data publishers to create modern, developer friendly APIs to access geospatial data…"</p>
+              <p class="testi-attr">— Michael Gordon, Strategic Product Manager at Ordnance Survey</p>
+            </div>
+            <div class="testi-slide" data-initials="AA">
+              <p class="testi-quote">"The new OGC-APIs allow you to access the features of the SDI datasets of Spain (hydrography, land use and cover, transport networks…) in a simple and friendly way…"</p>
+              <p class="testi-attr">— Aure Aragón Velasco, Technical Land Surveyor, Spanish SDI (IDEE IGN/CNIG)</p>
+            </div>
+            <div class="testi-slide" data-initials="SL">
+              <p class="testi-quote">"OGC Standards underpin the transfer of geospatial datasets, and the OGC APIs reflect the use of cloud-hosted computing alongside being easier to understand…"</p>
+              <p class="testi-attr">— Samantha Lavender, EO Scientist and Director at Pixalytics</p>
+            </div>
+            <div class="testi-slide" data-initials="JG">
+              <p class="testi-quote">"In terms of data handling, the OGC API is easier because we can use it as if it were a REST API. It increases interoperability between GIS and non-GIS software. It allows for better data load management."</p>
+              <p class="testi-attr">— João Filipe Gaspar, GIS Developer</p>
+            </div>
+          </div>
+          <div class="testi-media">
+            <div class="testi-ticks">
+              <button class="active" onclick="testiGoto(0)" aria-label="Slide 1"></button>
+              <button onclick="testiGoto(1)" aria-label="Slide 2"></button>
+              <button onclick="testiGoto(2)" aria-label="Slide 3"></button>
+              <button onclick="testiGoto(3)" aria-label="Slide 4"></button>
+              <button onclick="testiGoto(4)" aria-label="Slide 5"></button>
+              <button onclick="testiGoto(5)" aria-label="Slide 6"></button>
+              <button onclick="testiGoto(6)" aria-label="Slide 7"></button>
+            </div>
+            <div class="testi-avatar" id="testi-avatar">IS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function(){
+        var slides = document.querySelectorAll('.testi-slide');
+        var ticks = document.querySelectorAll('.testi-ticks button');
+        var avatar = document.getElementById('testi-avatar');
+        var idx = 0, timer;
+        function show(i){
+          idx = (i + slides.length) % slides.length;
+          slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
+          ticks.forEach(function(t, n){ t.classList.toggle('active', n === idx); });
+          var avatars = { IS:'assets/images/ivan.png', TK:'assets/images/tom.jpeg', SM:'assets/images/Steve_McDaniel_Head_Shot.png', MG:'assets/images/michael-os.png', AA:'assets/images/aure.jpg', SL: 'assets/images/slavender.jpeg', JG: 'assets/images/joao.jpeg'};
+          var initials = slides[idx].getAttribute('data-initials'); avatar.innerHTML = avatars[initials] ? '<img src="' + avatars[initials] + '" alt="' + initials + '">' : initials;
+        }
+        window.testiMove = function(dir){ show(idx + dir); restart(); };
+        window.testiGoto = function(i){ show(i); restart(); };
+        function restart(){ clearInterval(timer); timer = setInterval(function(){ show(idx + 1); }, 7000); }
+        show(0);
+        restart();
+      })();
+      
+    </script>
+    <!-- GET STARTED-->
+    <section class="alt" id="get-started">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Get Started</p>
+          <p>Each Standard addresses a specific type of geospatial data or associated resources. <em>Interfaces</em> define how services can access the data, while <em>encodings</em> define the structure and organisation of data formats and messaging protocols. Browse the list bellow to find the one that matches your needs.</p>
+        </div>
+        <h3 class="subgroup-title">Interfaces</h3>
+        <p style="color:var(--gray-600);font-size:15.5px;max-width:820px;margin:-8px 0 28px;">Interface Standards provide rules that determine the operations in a server–client architecture. For instance, web mapping applications, or<strong>Web GIS</strong>, fit into this pattern, where an interface is used to request maps from a map service provider.</p>
+        <div class="std-grid-cards">
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/tile-thumb.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Tiles</h4>
+            <p>Interface for tiles of geospatial information (e.g. vector data, maps, or coverages).</p>
+            <div class="std-icons"><a class="icon-btn" href="https://tiles.developer.ogc.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-tiles" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/feat-full.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Features</h4>
+            <p>Interface for feature data.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://features.developer.ogc.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-features" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/sensorthings.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC SensorThings API</h4>
+            <p>Interface for spatially enabled IoT devices, data, and applications.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://www.ogc.org/standard/sensorthings/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/sensorthings" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/map-thumb.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Maps</h4>
+            <p>Interface for maps, customized using parameters (dimensions, background, CRS).</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/maps/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-maps" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/edr-thumb.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – EDR</h4>
+            <p>Interface for sampling data about the natural or built environment using a spatio-temporal query pattern.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/edr/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-environmental-data-retrieval" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/movingfeatures-thumb.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Moving Features</h4>
+            <p>Interface to access representations of Moving Features.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/movingfeatures/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-movingfeatures" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/process-thumb.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Processes</h4>
+            <p>Interface for wrapping computational tasks into executable processes. Processes include well-defined algorithms that ingest vector and/or coverage data to produce new datasets.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/processes/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-processes" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/records-thumb.jpg" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Records</h4>
+            <p>Interface for global grid systems and their associated data.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://records.developer.ogc.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-records" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/dggs.png" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – DGGS</h4>
+            <p>Interface for global grid systems and their associated data.</p>
+            <div class="std-icons"><a class="icon-btn" href="ttps://dggs-info.web.app/#/'" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogc-dggs-api" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/oacs.png" alt=""><span class="ribbon">Published</span></div>
+            <h4>OGC API – Connected Systems</h4>
+            <p>Interface for interacting with connected systems (sensors, drones, robots) and associated resources.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://csapi.developer.ogc.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-connected-systems" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/stylesimage-thumb.jpg" alt=""></div>
+            <h4>OGC API – Styles</h4>
+            <p>Interface for styles used to render geospatial data.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/styles/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-styles" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/geovolumes-thumb.jpg" alt=""></div>
+            <h4>OGC API – 3D GeoVolumes</h4>
+            <p>Interface for 3D geospatial data.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/geovolumes/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/geovolumes" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/cube-coverages-thumb.jpg" alt=""></div>
+            <h4>OGC API – Coverages</h4>
+            <p>Interface for accessing homogeneous collections of values located in space/time — a satellite image is an example.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/coverages/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-coverages" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/routes-thumb.jpg" alt=""></div>
+            <h4>OGC API – Routes</h4>
+            <p>Interface to request routes independent of the underlying routing data set, engine, or algorithm.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/routes/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-routes" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/joins-thumb.jpg" alt=""></div>
+            <h4>OGC API – Joins</h4>
+            <p>Interface to join data from input files with tabular data from other sources.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://ogcapi.ogc.org/joins/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogcapi-joins" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/xml.jpeg" alt=""></div>
+            <h4>OWS</h4>
+            <p>Looking for the previous generation of OGC Web Services (e.g.: WFS, WMTS, WMS)?</p>
+            <div class="std-icons"><a class="icon-btn" href="ows.html" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a></div>
+          </div>
+        </div>
+        <h3 class="subgroup-title">Encodings</h3>
+        <div class="std-grid-cards">
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/polyhedron-mathematics-geometry-rhombicosidodecahedron-archimedean-solid-mathematics-3f454e0ef2cb96cf4e83cca8e7c9c0df.png" alt=""><span class="ribbon">Published</span></div>
+            <h4>JSON-FG</h4>
+            <p>OGC Features and Geometries JSON extends GeoJSON to overcome some of its limitations.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://www.ogc.org/standards/json-fg/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/ogc-feat-geo-json" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/COG_Alt_Logo.png" alt=""><span class="ribbon">Published</span></div>
+            <h4>Cloud Optimized GeoTIFF</h4>
+            <p>For imagery and grid coverage data on the web — backwards compatible with GeoTIFF.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://www.cogeo.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/CloudOptimizedGeoTIFF" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/geopkg.png" alt=""><span class="ribbon">Published</span></div>
+            <h4>GeoPackage</h4>
+            <p>Store different types of geospatial information (vector data, attributes, metadata, styles) in a single container.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://www.geopackage.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/geopackage" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/playground_temperature_coverage_with_values_.png" alt=""><span class="ribbon">Published</span></div>
+            <h4>CoverageJSON</h4>
+            <p>Simple, efficient, machine- and human-readable JSON for publishing spatio-temporal data to the Web.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://www.ogc.org/standard/coveragejson/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/CoverageJSON" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+          <div class="std-card">
+            <div class="std-thumb"><img class="std-thumb-img" src="assets/images/geoparquet-logo-white.png" alt=""></div>
+            <h4>GeoParquet</h4>
+            <p>Columnar geospatial format based on Apache Parquet, enabling interoperability between cloud data warehouses.</p>
+            <div class="std-icons"><a class="icon-btn" href="https://geoparquet.org/" title="Website" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg></a><a class="icon-btn" href="https://github.com/opengeospatial/geoparquet" title="GitHub" target="_blank">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- LEARN-->
+    <section id="learn">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Learn</p>
+          <h2>Level Up Your OGC Knowledge</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 style="font-size:22px;">OGC API Workshop</h3>
+            <p style="font-size:15.5px;">This workshop provides a combination of concepts, presentations, and exercises on OGC APIs in support of discovery, access, visualization, and processing — in support of FAIR data principles.</p><a class="learn" href="https://ogcapi-workshop.ogc.org/" target="_blank">Visit workshop →</a>
+          </div>
+          <div class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"></path>
+              </svg>
+            </div>
+            <h3 style="font-size:22px;">Location Innovation Academy</h3>
+            <p style="font-size:15.5px;">This learning platform offers different courses, mostly focused on Spatial Data Infrastructures.</p><a class="learn" href="https://academy.ogc.org/" target="_blank">Visit academy →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- MORE RESOURCES-->
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">More Resources</p>
+          <h2>You May Also Want to Check</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <h3>Definitions Server</h3>
+            <p>A web-accessible source of information about things ("Concepts") the OGC defines or that communities ask the OGC to host, such as technical terms from application schemas.</p><a class="learn" href="https://defs.opengis.net/vocprez/" target="_blank">Explore →</a>
+          </div>
+          <div class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3>Location Building Blocks</h3>
+            <p>Maybe you don't need a complete OGC API, or you need to mix multiple OGC APIs. OGC APIs are developed in discrete building blocks you can mix &amp; match to spatially enable your existing APIs.</p><a class="learn" href="https://blocks.ogc.org/" target="_blank">Explore →</a>
+          </div>
+          <div class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3>Compliance &amp; Certification</h3>
+            <p>The OGC Compliance program provides tools to test your implementation and confirm it's compliant to the Standard. Take your application further by applying for a compliance certification.</p><a class="learn" href="https://www.ogc.org/how-our-compliance-program-works/" target="_blank">Explore →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- COMMUNITY-->
+    <section id="community">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Community</p>
+          <h2>Join the Conversation</h2>
+          <p>Connect with the developers building the future of open geospatial standards.</p>
+        </div>
+        <div class="community-grid">
+          <div class="community-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3>Code Sprints</h3>
+            <p>Collaborative and inclusive events supporting the development of open geospatial Standards, and projects that implement those Standards.</p><a class="go" href="sprints.html" target="_blank">Learn more →</a>
+          </div>
+          <div class="community-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="9" x2="20" y2="9"></line>
+                <line x1="4" y1="15" x2="20" y2="15"></line>
+                <line x1="10" y1="3" x2="8" y2="21"></line>
+                <line x1="16" y1="3" x2="14" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Dev.to</h3>
+            <p>#OGCAPI related content in a constructive and inclusive social network for software developers.</p><a class="go" href="https://dev.to/doublebyte" target="_blank">Read posts →</a>
+          </div>
+          <div class="community-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </div>
+            <h3>Discord</h3>
+            <p>Chat with other developers and take an active part in the code sprints in the OGC Community channel.</p><a class="go" href="https://discord.gg/3uyaZZuXr3" target="_blank">Join server →</a>
+          </div>
+          <div class="community-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+              </svg>
+            </div>
+            <h3>Blogs</h3>
+            <p>A collection of community blog posts from developers working with OGC Standards.</p><a class="go" href="blogs.html" target="_blank">Read blogs →</a>
+          </div>
+          <div class="community-card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Agora</h3>
+            <p>Ask questions and interact with other developers in the "Developers" space of Agora.</p><a class="go" href="https://agora.ogc.org/c/developers/" target="_blank">Visit Agora →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FINAL CTA-->
+    <section class="alt">
+      <div class="wrap">
+        <div class="cta-box">
+          <h2>Who is behind the OGC Standards?</h2>
+          <p style="font-size:18px;color:var(--gray-600);max-width:680px;margin:0;">OGC Standards are developed through a member-driven consensus process, which creates royalty free, publicly available, open geospatial standards. The<a style="color:var(--navy);font-weight:700;" href="https://www.ogc.org/"> Open Geospatial Consortium (OGC)</a> is the organisation which drives this process. It is supported by an active community of members, with involvement from a large range of organizations, as well as smaller ones.</p><a class="btn btn-navy" href="https://www.ogc.org/about/members/">Join OGC today!</a>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-bottom"><a class="logo" href="index.html"><img src="assets/images/logo.png" alt="Open Geospatial Consortium"></a>
+          <div class="copy">Copyright © 2026 Open Geospatial Consortium. All Rights Reserved. &nbsp;·&nbsp;<a href="https://www.ogc.org/about/policies/privacy-policy/">Privacy Policy</a></div>
+          <div class="social-row"><a href="https://noc.social/@doublebyte" title="Mastodon">M</a><a href="mailto:devrel@ogc.org" title="Email">@</a></div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
