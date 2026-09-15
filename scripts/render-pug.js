@@ -119,10 +119,10 @@ function copyJs() {
 }
 
 function copyCNAME() {
-  const rootSrc = path.join(srcDir, 'js');
-  const rootDst = path.join(distDir, '/', '/');
-  copyFile(path.join(jsSrc, 'CNAME'), path.join(jsDst, f));
-
+  const rootSrc = path.join(srcDir, '/');
+  const rootDst = path.join(distDir, '/');
+  f = 'CNAME'
+  copyFile(path.join(rootSrc, f), path.join(rootDst, f));
 }
 
 // ── Full build (initial) ─────────────────────────────────
