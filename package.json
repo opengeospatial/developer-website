@@ -8,6 +8,7 @@
     "serve": "npx serve dist -s -l 3000"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.4",
     "chokidar": "^4.0.3",
     "pug": "^3.0.0",
     "sass": "^1.99.0",
