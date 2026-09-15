@@ -1,0 +1,107 @@
+{
+	"urls" : {
+		"/pet" : {
+			"POST" : {
+				"description" : "Add a new pet to the store",
+				"payloads" : {
+					"body" : {
+						"flags" : "REQUIRED",
+						"description" : "Pet object that needs to be added to the store",
+						"data" : {
+							"id": 0,
+								"category": {
+									"id": 0,
+									"name": "string"
+								},
+								"name": "doggie",
+								"photoUrls": [
+									"string"
+								],
+								"tags": [
+									{
+										"id": 0,
+										"name": "string"
+									}
+								],
+								"status": "available"
+							},
+						"responses" : {
+							"405" : {
+								"description" : "Invalid input"
+							}
+						}
+					}
+				}
+			},
+			"PUT" : {
+				"description" : "Update an existing pet"
+			},
+			"urls" : {
+				"/pet/findByStatus" : {
+					"GET" : {
+						"description" : "Finds Pets by status",
+						"payloads" : {
+							"tags" : {
+								"flags" : "OPTIONAL",
+								"data" : "?status=[available, pending, sold]",
+								"description" : "Status values that need to be considered for filter",
+								"responses" : {
+									"200" : {
+										"description" : "Successful operation",
+										"example" : [
+											{
+												"id": 0,
+												"category": {
+													"id": 0,
+													"name": "string"
+												},
+												"name": "doggie",
+												"photoUrls": [
+													"string"
+												],
+												"tags": [
+													{
+														"id": 0,
+														"name": "string"
+													}
+												],
+												"status": "available"
+											}
+										]
+									},
+									"400" : {
+										"description" : "Invalid status filter"
+									}
+								}
+							}
+						}
+					}
+				},
+				"/pet/findByTags" : {
+					"GET" : {
+						"description" : "Finds Pets by tags",
+						"flags" : "DEPRECATED"
+					}
+				},
+				"/pet/{petId}" : {
+					"GET" : {
+						"description" : "Find pet by ID"
+					},
+					"UPDATE" : {
+						"description" : "Updates a pet in teh store with form data"
+					},
+					"DELETE" : {
+						"description" : "Deletes a pet"
+					},
+					"urls" : {
+						"/pet/{petId}/uploadImage" : {
+							"POST" : {
+								"description" : "Uploads an image"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
