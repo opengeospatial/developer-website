@@ -118,6 +118,13 @@ function copyJs() {
   }
 }
 
+function copyCNAME() {
+  const rootSrc = path.join(srcDir, 'js');
+  const rootDst = path.join(distDir, '/', '/');
+  copyFile(path.join(jsSrc, 'CNAME'), path.join(jsDst, f));
+
+}
+
 // ── Full build (initial) ─────────────────────────────────
 function build() {
   if (fs.existsSync(distDir)) {
@@ -128,6 +135,7 @@ function build() {
   compilePug();
   copyAssets();
   copyJs();
+  copyCNAME()
   console.log('\n✅ Done\n');
 }
 
