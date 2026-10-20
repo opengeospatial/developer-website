@@ -1,0 +1,7 @@
+name: deploymentId
+in: path
+description: Local identifier of a Deployment
+required: true
+schema:
+  type: string
+  minLength: 1

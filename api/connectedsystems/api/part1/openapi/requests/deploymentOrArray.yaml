@@ -1,0 +1,17 @@
+description: One or more deployment resources
+required: true
+content:
+  application/geo+json:
+    schema:
+      oneOf:
+      - title: Single Deployment
+        $ref: ../schemas/geojson/deployment.json
+      - title: List of Deployments
+        $ref: ../schemas/geojson/deploymentArray.json
+  application/sml+json:
+    schema:
+      oneOf:
+      - title: Single Deployment
+        $ref: ../schemas/sensorml/deployment.json
+      - title: List of Deployments
+        $ref: ../schemas/sensorml/deploymentArray.json

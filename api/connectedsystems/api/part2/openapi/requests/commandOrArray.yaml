@@ -1,0 +1,18 @@
+description: One or more command resources
+required: true
+content:
+  application/json:
+    schema:
+      oneOf:
+      - title: Single Command
+        $ref: ../schemas/json/command.json
+      - title: Multiple Commands
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/json/command.json
+    examples:
+      ptz:
+        summary: PTZ Commands
+        value:
+          $ref: ../examples/commands/command-ptz-post.json

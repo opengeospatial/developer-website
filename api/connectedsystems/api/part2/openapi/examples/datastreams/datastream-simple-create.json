@@ -1,0 +1,30 @@
+{
+  "name": "Indoor Thermometer 001 - Living Room Temperature",
+  "description": "Indoor temperature measured on the south wall of the living room at 1.5m above the floor",
+  "featureOfInterest@link": {
+    "href": "https://data.example.org/api/collections/buildings/items/754",
+    "title": "My House"
+  },
+  "samplingFeature@link": {
+    "href": "https://data.example.org/api/samplingFeatures/4478",
+    "title": "Thermometer Sampling Point"
+  },
+  "schema": {
+    "obsFormat": "application/json",
+    "resultSchema": {
+      "name": "temp",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Room Temperature",
+      "description": "Ambient air temperature measured inside the room",
+      "uom": {
+        "code": "Cel"
+      },
+      "nilValues": [
+        { "reason": "http://www.opengis.net/def/nil/OGC/0/missing", "value": "NaN" },
+        { "reason": "http://www.opengis.net/def/nil/OGC/0/BelowDetectionRange", "value": "-Infinity" },
+        { "reason": "http://www.opengis.net/def/nil/OGC/0/AboveDetectionRange", "value": "+Infinity" }
+      ]
+    }
+  }
+}

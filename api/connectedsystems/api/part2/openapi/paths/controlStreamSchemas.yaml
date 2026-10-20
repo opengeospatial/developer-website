@@ -1,0 +1,52 @@
+parameters:
+  - $ref: ../parameters/controlStreamId.yaml
+
+get:
+  summary: Get the command schema
+  description: |-
+    Get the command schema for a given format.
+
+    The type of command schema returned depends on the command encoding format selected using the `commandFormat` parameter.
+  tags:
+    - Control Streams
+  parameters:
+    - $ref: ../parameters/cmdFormat.yaml
+  responses:
+    '200':
+      $ref: ../responses/commandSchema.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update the command schema
+  description: |-
+    After a control stream has been created and commands have been issued through it, the server may
+    reject certain updates to the schema (e.g., adding or removing parameters, changing UoM, etc.).
+    In this case, the `409` response code is used.
+  tags:
+    - Control Streams
+  requestBody:
+    $ref: ../requests/commandSchema.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_PUT
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

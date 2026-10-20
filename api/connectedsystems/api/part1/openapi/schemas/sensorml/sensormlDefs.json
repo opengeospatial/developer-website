@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "DescribedObject": {
+      "$ref": "../../../../../sensorml/schemas/json/DescribedObject.json"
+    },
+    "AbstractProcess": {
+      "$ref": "../../../../../sensorml/schemas/json/AbstractProcess.json"
+    },
+    "PhysicalComponent": {
+      "$ref": "../../../../../sensorml/schemas/json/PhysicalComponent.json"
+    },
+    "PhysicalSystem": {
+      "$ref": "../../../../../sensorml/schemas/json/PhysicalSystem.json"
+    },
+    "SimpleProcess": {
+      "$ref": "../../../../../sensorml/schemas/json/SimpleProcess.json"
+    },
+    "AggregateProcess": {
+      "$ref": "../../../../../sensorml/schemas/json/AggregateProcess.json"
+    },
+    "Deployment": {
+      "$ref": "../../../../../sensorml/schemas/json/Deployment.json"
+    },
+    "DeployedSystem": {
+      "$ref": "../../../../../sensorml/schemas/json/DeployedSystem.json"
+    },
+    "DerivedProperty": {
+      "$ref": "../../../../../sensorml/schemas/json/DerivedProperty.json"
+    },
+    "Pose": {
+      "$ref": "../../../../../sensorml/schemas/json/Pose.json"
+    }
+  }
+}

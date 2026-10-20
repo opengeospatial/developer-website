@@ -1,0 +1,51 @@
+{
+  "commandFormat": "application/swe+json",
+  "recordSchema": {
+    "type": "DataRecord",
+    "fields": [
+      {
+        "name": "time",
+        "type": "Time",
+        "definition": "http://www.opengis.net/def/property/OGC/0/IssueTime",
+        "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+        "label": "Issue Time",
+        "uom": {
+          "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+        }
+      },
+      {
+        "name": "pan",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/PanAngle",
+        "label": "Pan Angle",
+        "description": "Rotation of the camera around its vertical axis (i.e., causing the image to translate along its horizontal axis)",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "tilt",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/PanAngle",
+        "label": "Tilt Angle",
+        "description": "Rotation of the camera around its horizontal axis (i.e., causing the image to translate along its vertical axis)",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "zoom",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/ZoomFactor",
+        "label": "Zoom Factor",
+        "description": "Amount of zoom, 0 being the highest FOV and 100 being the lowest",
+        "uom": {
+          "code": "%"
+        }
+      }
+    ]
+  },
+  "encoding": {
+    "type": "JSONEncoding"
+  }
+}

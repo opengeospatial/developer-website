@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "AbstractPhysicalProcess.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "PhysicalComponent"
+        },
+        "method": {
+          "$ref": "SimpleProcess.json#/$defs/ProcessMethod"
+        }
+      }
+    }
+  ]
+}

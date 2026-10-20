@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "feature.json" },
+    {
+      "properties": {
+        "properties": {
+          "properties": {
+            "featureType": {
+              "$ref": "../common/uris.json#/$defs/SystemTypeUris"
+            },
+            "assetType": {
+              "description": "Type of asset represented by this system.",
+              "type": "string",
+              "enum": [
+                "Equipment",
+                "Human",
+                "LivingThing",
+                "Simulation",
+                "Process",
+                "Group",
+                "Other"
+              ]
+            },
+            "validTime": {
+              "description": "Time period during which the system description is valid.",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
+            },
+            "systemKind@link": {
+              "description": "Link to the system kind description (i.e., its nature or specifications).",
+              "$ref": "../common/commonDefs.json#/$defs/Link"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
