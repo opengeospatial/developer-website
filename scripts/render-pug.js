@@ -160,6 +160,7 @@ function rebuild(type, filePath) {
   } else {
     console.log('\n📦 Copying assets\n');
     copyAssets();
+    copyAPI();
     copyJs();
   }
 }
