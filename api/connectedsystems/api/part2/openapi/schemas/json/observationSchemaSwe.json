@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "obsFormat": {
+      "type": "string"
+    },
+    "recordSchema": {
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
+    },
+    "encoding": {}
+  },
+  "required": [
+    "obsFormat", "recordSchema", "encoding"
+  ],
+  "oneOf": [
+    {
+      "title": "SWE JSON",
+      "properties": {
+        "obsFormat": {
+          "const": "application/swe+json"
+        },
+        "encoding": {
+          "$ref": "../common/sweCommonDefs.json#/$defs/JSONEncoding"
+        }
+      }
+    },
+    {
+      "title": "SWE Text",
+      "properties": {
+        "obsFormat": {
+          "const": "application/swe+text"
+        },
+        "encoding": {
+          "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding"
+        }
+      }
+    },
+    {
+      "title": "SWE CSV",
+      "properties": {
+        "obsFormat": {
+          "const": "application/swe+csv"
+        },
+        "encoding": {
+          "allOf": [
+            { "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding" },
+            {
+              "properties": {
+                "tokenSeparator": {
+                  "const": ","
+                },
+                "blockSeparator": {
+                  "const": "\n"
+                }
+              }
+            }
+          ]
+          
+        }
+      }
+    },
+    {
+      "title": "SWE Binary",
+      "properties": {
+        "obsFormat": {
+          "const": "application/swe+binary"
+        },
+        "encoding": {
+          "$ref": "../common/sweCommonDefs.json#/$defs/BinaryEncoding"
+        }
+      }
+    }
+  ]
+}

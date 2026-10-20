@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "useLimitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accessConstraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CodeListValue"
+      }
+    },
+    "useConstraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CodeListValue"
+      }
+    },
+    "otherConstraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "CodeListValue": {
+      "type": "object",
+      "properties": {
+        "codeSpace": {
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

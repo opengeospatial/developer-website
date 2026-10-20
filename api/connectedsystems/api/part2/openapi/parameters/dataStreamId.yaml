@@ -1,0 +1,7 @@
+name: dataStreamId
+in: path
+description: Local identifier of a Datastream
+required: true
+schema:
+  type: string
+  minLength: 1

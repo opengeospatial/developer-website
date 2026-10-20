@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "role": {
+      "description": "Type of document (semantic link)",
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "description": "Name of the document",
+      "type": "string"
+    },
+    "description": {
+      "description": "Human readable description of the document",
+      "type": "string"
+    },
+    "link": {
+      "description": "URI of the document (Favor a URL if the document is directly accessible online)",
+      "$ref": "commonDefs.json#/$defs/XLink"
+    }
+  },
+  "unevaluatedProperties": false,
+  "required": [ "name", "link" ]
+}

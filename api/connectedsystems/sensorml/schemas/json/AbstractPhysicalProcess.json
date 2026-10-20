@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "AbstractProcess.json"
+    },
+    {
+      "properties": {
+        "attachedTo": {
+          "description": "References the physical component or system (e.g., platform) to which to which this component or system is attached.",
+          "$ref": "commonDefs.json#/$defs/XLink"
+        },
+        "localReferenceFrames": {
+          "description": "A list of spatial reference frames, attached to the physical component itself.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpatialFrame"
+          }
+        },
+        "localTimeFrames": {
+          "description": "Supports local time reference frames such as \"time past mission start\". Note that units are handled in timePosition so they are not specified in the TemporalFrame.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TemporalFrame"
+          }
+        },
+        "position": {
+          "description": "Provides positional information relating the component's spatial reference frame to an external spatial reference frame.",
+          "$ref": "#/$defs/Position"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "SpatialFrame": {
+      "description": "A general spatial Cartesian Reference Frame where the axes and origin will be defined textually relative to a physical component.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
+        },
+        {
+          "properties": {
+            "origin": {
+              "description": "A textual description of the origin of the reference frame relative to the physical device (e.g., \"the origin is at the point of attachment of the sensor to the platform\").",
+              "type": "string"
+            },
+            "axes": {
+              "description": "Axis with name attribute and a textual description of the relationship of the axis to the physical device; the order of the axes listed determines their relationship according to the right-handed rule (e.g., axis 1 cross axis 2 = axis 3).",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "description"
+                ]
+              }
+            }
+          },
+          "required": [
+            "origin",
+            "axes"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "TemporalFrame": {
+      "description": "A general temporal frame such as a mission start time or timer start time. The origin should just describe context of the start of time (e.g., start of local timer).",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
+        },
+        {
+          "properties": {
+            "origin": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "origin"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "Position": {
+      "oneOf": [
+        {
+          "title": "by Text",
+          "description": "A textual description of where the system is located (e.g., a building name, a room number, etc.)",
+          "$ref": "sweCommonDefs.json#/$defs/Text"
+        },
+        {
+          "title": "by Point",
+          "$ref": "https://geojson.org/schema/Point.json"
+        },
+        {
+          "title": "by Pose",
+          "$ref": "Pose.json"
+        },
+        {
+          "title": "by Process",
+          "$ref": "AbstractProcess.json"
+        },
+        {
+          "title": "by Datastream",
+          "$ref": "commonDefs.json#/$defs/XLink"
+        },
+        {
+          "title": "by Location Vector",
+          "deprecated": true,
+          "$ref": "sweCommonDefs.json#/$defs/Vector"
+        },
+        {
+          "title": "by Position (DataRecord)",
+          "deprecated": true,
+          "$ref": "sweCommonDefs.json#/$defs/DataRecord"
+        },
+        {
+          "title": "by Trajectory (DataArray)",
+          "deprecated": true,
+          "$ref": "sweCommonDefs.json#/$defs/DataArray"
+        }
+      ]
+    }
+  }
+}

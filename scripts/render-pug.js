@@ -107,6 +107,15 @@ function copyAssets() {
   }
 }
 
+function copyAPI() {
+  const srcAPI = path.join(srcDir, 'api');
+  const dstAPI = path.join(distDir, 'api');
+  if (fs.existsSync(srcAPI)) {
+    copyDir(srcAPI, dstAPI);
+    console.log('  ✓ api/');
+  }
+}
+
 function copyJs() {
   const jsSrc = path.join(srcDir, 'js');
   const jsDst = path.join(distDir, 'assets', 'js');
@@ -134,6 +143,7 @@ function build() {
   compileScss();
   compilePug();
   copyAssets();
+  copyAPI();
   copyJs();
   copyCNAME()
   console.log('\n✅ Done\n');

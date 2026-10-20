@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "https://geojson.org/schema/Feature.json" },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Local ID of the feature (ignored on create or update)",
+          "minLength": 1
+        },
+        "geometry": {
+          "description": "Geometry of the feature"
+        },
+        "bbox": {
+          "description": "Optional bounding box for the feature"
+        },
+        "properties": {
+          "description": "Feature properties",
+          "type": "object",
+          "required": [ "featureType", "uid", "name" ],
+          "properties": {
+            "featureType": {
+              "description": "Identifier of the type of feature, either a URI, a CURIE, or a simple token",
+              "type": "string"
+            },
+            "uid": {
+              "description": "Globally unique identifier of the feature",
+              "type": "string",
+              "format": "uri",
+              "example": "urn:x-org:namespace:id"
+            },
+            "name": {
+              "description": "Human readable name of the feature",
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "description": "Human readable description of the feature",
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "links": {
+          "description": "Links to related resources",
+          "$ref": "../common/links.json"
+        }
+      }
+    }
+  ]
+}

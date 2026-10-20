@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "baseStream.json"
+    },
+    {
+      "properties": {
+        "system@link": {
+          "description": "Link to the system producing the observations",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
+        },
+        "outputName": {
+          "description": "Name of the system output feeding this datastream",
+          "type": "string"
+        },
+        "procedure@link": {
+          "description": "Link to the procedure used to acquire observations (only provided if all observations in the datastream share the same procedure)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "deployment@link": {
+          "description": "Link to the deployment during which the observations are/were collected (only provided if all observations in the datastream share the same deployment)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "featureOfInterest@link": {
+          "description": "Link to the ultimate feature of interest (only provided if all observations in the datastream share the same feature of interest)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "samplingFeature@link": {
+          "description": "Link to the sampling feature (only provided if all observations in the datastream share the same sampling feature)",
+          "$ref": "../common/commonDefs.json#/$defs/Link"
+        },
+        "observedProperties": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "List of observed properties included in this datastream",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "readOnly": true
+        },
+        "phenomenonTime": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all phenomenon times of observations in this datastream",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
+            }
+          ],
+          "readOnly": true
+        },
+        "phenomenonTimeInterval": {
+          "description": "An indication of how often feature of interest properties are observed",
+          "type": "string",
+          "format": "duration"
+        },
+        "resultTime": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all result times of observations in this datastream",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
+            }
+          ],
+          "readOnly": true
+        },
+        "resultTimeInterval": {
+          "description": "An indication of how often observation results are produced",
+          "type": "string",
+          "format": "duration"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "status",
+            "observation"
+          ]
+        },
+        "resultType": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "measure",
+                "vector",
+                "record",
+                "coverage",
+                "complex"
+              ]
+            }
+          ],
+          "readOnly": true
+        },
+        "live": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Flag indicating if the datastream is currently streaming data",
+              "type": "boolean"
+            }
+          ]
+        },
+        "schema": {
+          "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
+          "$ref": "observationSchema.json",
+          "writeOnly": true
+        },
+        "links": {
+          "description": "Other links to related resources",
+          "$ref": "../common/commonDefs.json#/$defs/Links"
+        }
+      }
+    }
+  ],
+  "required": [
+    "name",
+    "system@link",
+    "observedProperties",
+    "phenomenonTime",
+    "resultTime",
+    "resultType",
+    "live"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "dataStream.json" },
+    { 
+      "properties": {
+        "schema": {
+          "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
+          "$ref": "observationSchema.json",
+          "writeOnly": true
+        }
+      },
+      "required": [
+        "schema"
+      ]}
+  ]
+}

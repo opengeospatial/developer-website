@@ -1,0 +1,53 @@
+parameters:
+  - $ref: ../parameters/dataStreamId.yaml
+  
+get:
+  summary: List observations from a specific datastream
+  description: |-
+    List or search all observations available from a datastream.
+  tags:
+    - Observations
+  parameters:
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../parameters/phenomenonTime.yaml
+    - $ref: ../parameters/resultTime.yaml
+    - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/obsPropIdList.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/observationCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Add an observation
+  description: |-
+    Add a new observation to an existing datastream.
+  tags:
+    - Observations
+  requestBody:
+    $ref: ../requests/observation.yaml
+  responses:
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+  

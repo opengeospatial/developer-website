@@ -1,0 +1,47 @@
+{
+  "type": "PhysicalSystem",
+  "id": "PLT412",
+  "definition": "http://www.w3.org/ns/sosa/Platform",
+  "uniqueId": "urn:x-usaf:systems:aircraft:101",
+  "label": "Global Hawk 101",
+  "description": "Example UAV platform",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/ge4pjqq0hq6y?f=json",
+    "uid": "urn:x-ngc:datasheets:uav:RQ-4B",
+    "type" : "application/sml+json"
+  },
+  "identifiers": [
+    {
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "0123456879"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "Field Maintenance Corp."
+    }
+  ],
+  "localReferenceFrames": [
+    {
+      "label": "Platform Frame",
+      "description": "The platform frame is defined as the aircraft principal axes",
+      "origin": "Center of gravity of the aircraft",
+      "axes": [
+        {
+          "name": "x",
+          "description": "Longitudinal or roll axis, parallel to the fuselage reference line, directed forward"
+        },
+        {
+          "name": "y",
+          "description": "Transverse or pitch axis, parallel to the line drawn from wingtip to wingtip, directed to the right of the aircraft when looking forward"
+        },
+        {
+          "name": "z",
+          "description": "Vertical or yaw axis, perpendicular to the wings and to the fuselage reference line, directed toward the bottom of the aircraft"
+        }
+      ]
+    }
+  ]
+}

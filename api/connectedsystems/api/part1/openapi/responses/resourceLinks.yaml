@@ -1,0 +1,18 @@
+description: Success. Several new resources created. (Only sent if the payload contained an array of resources).
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          description: Array of resource URIs
+          type: array
+          items:
+            type: string
+            format: uri
+    example:
+      - https://data.example.org/api/{collection_path}/546861
+      - https://data.example.org/api/{collection_path}/546862
+      - https://data.example.org/api/{collection_path}/546863

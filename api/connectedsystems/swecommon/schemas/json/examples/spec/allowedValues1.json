@@ -1,0 +1,9 @@
+{
+  "type": "Quantity",
+  "definition": "http://qudt.org/vocab/quantitykind/Angle",
+  "label": "Planar Angle",
+  "uom": { "code": "deg" },
+  "constraint": {
+    "intervals": [[-180, 180]]
+  }
+}

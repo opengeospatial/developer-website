@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "obsFormat": {
+      "type": "string",
+      "not": {
+        "enum": [
+          "application/json",
+          "application/swe+json",
+          "application/swe+text",
+          "application/swe+binary",
+          "application/x-protobuf"
+        ]
+      }
+    },
+    "any": {
+      "description": "Any other properties to describe schema"
+    }
+  },
+  "required": [ "obsFormat" ]
+}
