@@ -3,7 +3,7 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": ".",
-  "documentNamespace": "http://trivy.dev/repository/.-ab48172f-b048-4c0c-a831-7a07957daa46",
+  "documentNamespace": "http://trivy.dev/repository/.-325a90b0-7ee1-4f7c-9cd3-0fecd8764ef1",
   "creationInfo": {
     "creators": [
       "Organization: aquasecurity",
@@ -12,95 +12,6 @@
     "created": "0000-00-00T00:00:00Z"
   },
   "packages": [
-    {
-      "name": "package-lock.json",
-      "SPDXID": "SPDXRef-Application-6401eeaf7b6ee158",
-      "downloadLocation": "git+.",
-      "filesAnalyzed": false,
-      "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "NOASSERTION",
-      "primaryPackagePurpose": "APPLICATION",
-      "annotations": [
-        {
-          "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
-          "annotationType": "OTHER",
-          "comment": "Class: lang-pkgs"
-        },
-        {
-          "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
-          "annotationType": "OTHER",
-          "comment": "Type: npm"
-        }
-      ]
-    },
-    {
-      "name": "@popperjs/core",
-      "SPDXID": "SPDXRef-Package-f8f4343f844b7db2",
-      "versionInfo": "2.11.8",
-      "supplier": "NOASSERTION",
-      "downloadLocation": "git+.",
-      "filesAnalyzed": false,
-      "sourceInfo": "package found in: package-lock.json",
-      "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "NOASSERTION",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE-MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:npm/%40popperjs/core@2.11.8"
-        }
-      ],
-      "primaryPackagePurpose": "LIBRARY",
-      "annotations": [
-        {
-          "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
-          "annotationType": "OTHER",
-          "comment": "PkgID: @popperjs/core@2.11.8"
-        },
-        {
-          "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
-          "annotationType": "OTHER",
-          "comment": "PkgType: npm"
-        }
-      ]
-    },
-    {
-      "name": "bootstrap",
-      "SPDXID": "SPDXRef-Package-60b7e80ebcbf6a55",
-      "versionInfo": "5.0.2",
-      "supplier": "NOASSERTION",
-      "downloadLocation": "git+.",
-      "filesAnalyzed": false,
-      "sourceInfo": "package found in: package-lock.json",
-      "licenseConcluded": "NOASSERTION",
-      "licenseDeclared": "NOASSERTION",
-      "externalRefs": [
-        {
-          "referenceCategory": "PACKAGE-MANAGER",
-          "referenceType": "purl",
-          "referenceLocator": "pkg:npm/bootstrap@5.0.2"
-        }
-      ],
-      "primaryPackagePurpose": "LIBRARY",
-      "annotations": [
-        {
-          "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
-          "annotationType": "OTHER",
-          "comment": "PkgID: bootstrap@5.0.2"
-        },
-        {
-          "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
-          "annotationType": "OTHER",
-          "comment": "PkgType: npm"
-        }
-      ]
-    },
     {
       "name": ".",
       "SPDXID": "SPDXRef-Repository-741c5ff31ac42f2e",
@@ -112,7 +23,7 @@
       "annotations": [
         {
           "annotator": "Tool: trivy-0.70.0",
-          "annotationDate": "2026-11-24T15:03:05Z",
+          "annotationDate": "2026-11-24T15:14:38Z",
           "annotationType": "OTHER",
           "comment": "SchemaVersion: 2"
         }
@@ -121,24 +32,9 @@
   ],
   "relationships": [
     {
-      "spdxElementId": "SPDXRef-Application-6401eeaf7b6ee158",
-      "relatedSpdxElement": "SPDXRef-Package-60b7e80ebcbf6a55",
-      "relationshipType": "CONTAINS"
-    },
-    {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relatedSpdxElement": "SPDXRef-Repository-741c5ff31ac42f2e",
       "relationshipType": "DESCRIBES"
-    },
-    {
-      "spdxElementId": "SPDXRef-Package-60b7e80ebcbf6a55",
-      "relatedSpdxElement": "SPDXRef-Package-f8f4343f844b7db2",
-      "relationshipType": "DEPENDS_ON"
-    },
-    {
-      "spdxElementId": "SPDXRef-Repository-741c5ff31ac42f2e",
-      "relatedSpdxElement": "SPDXRef-Application-6401eeaf7b6ee158",
-      "relationshipType": "CONTAINS"
     }
   ]
 }
