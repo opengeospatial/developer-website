@@ -6,7 +6,7 @@ on:
       - '**.md'
   pull_request:
     branches:
-      - master
+      - full-refactor
     paths-ignore:
       - '!**.md'
   release:
@@ -25,7 +25,7 @@ jobs:
         working-directory: .
     steps:
     - name: Checkout repository
-      uses: actions/checkout@master
+      uses: actions/checkout@full-refactor
     - name: Scan vulnerabilities with trivy
       uses: aquasecurity/trivy-action@v0.36.0
       with:
@@ -57,13 +57,13 @@ jobs:
         path: sbom.spdx.*
         retention-days: 30
     - name: Normalize SBOM timestamp
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/full-refactor'
       run: |
         # SPDX records a generation timestamp; pin it so consecutive runs
         # produce byte-identical SBOMs and the commit below is idempotent.
         sed -i -E 's/"created": "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:.Z-]+"/"created": "0000-00-00T00:00:00Z"/' sbom.spdx.json
     - name: Commit SBOM to repository
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/full-refactor'
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
