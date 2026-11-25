@@ -1,5 +1,7 @@
 # Trivy configuration for this workflow (passed via the trivy-config input
 # of aquasecurity/trivy-action in .github/workflows/trivy.yml)
+# NOTE: this file intentionally lives OUTSIDE .github/workflows/, because
+# GitHub treats every YAML file in that directory as a workflow definition.
 pkg:
   # This is a static website: all npm dependencies are devDependencies,
   # so include them or Trivy has nothing left to scan.

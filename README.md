@@ -98,7 +98,7 @@ repository with the `vuln`, `misconfig`, and `secret` scanners enabled:
 - **Vulnerabilities** — known CVEs in the installed npm packages
   (`CRITICAL` and `HIGH` severities, unfixed findings ignored; the build fails
   when any are detected). Because all npm dependencies of this static site are
-  `devDependencies`, [`trivy-config.yaml`](.github/workflows/trivy-config.yaml)
+  `devDependencies`, [`trivy-config.yaml`](.github/trivy-config.yaml)
   sets `pkg.include-dev-deps: true` so they are not skipped.
 - **Misconfigurations** — checks on configuration files found in the repository.
 - **Secrets** — accidentally committed credentials, keys, or tokens.
