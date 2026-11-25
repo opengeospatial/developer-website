@@ -83,6 +83,71 @@ The build process (`npm run build`) does the following in order:
 
 3. Rebuild with `npm run build`.
 
+## Security: Vulnerability Scanning & SBOM
+
+The [`trivy.yml`](.github/workflows/trivy.yml) workflow ("Check vulnerabilities") uses
+[Trivy](https://trivy.dev/) via [`aquasecurity/trivy-action`](https://github.com/aquasecurity/trivy-action)
+to scan the repository for security issues and to generate a
+[SPDX](https://spdx.dev/) Bill of Materials (BOM) of the project's npm dependencies.
+
+### What it scans
+
+The workflow installs the npm dependencies and then runs `trivy fs` over the
+repository with the `vuln`, `misconfig`, and `secret` scanners enabled:
+
+- **Vulnerabilities** — known CVEs in the installed npm packages
+  (`CRITICAL` and `HIGH` severities, unfixed findings ignored; the build fails
+  when any are detected). Because all npm dependencies of this static site are
+  `devDependencies`, [`trivy-config.yaml`](.github/workflows/trivy-config.yaml)
+  sets `pkg.include-dev-deps: true` so they are not skipped.
+- **Misconfigurations** — checks on configuration files found in the repository.
+- **Secrets** — accidentally committed credentials, keys, or tokens.
+
+The full dependency tree is scanned: the workflow runs `npm install` before
+scanning, so `node_modules` is present.
+
+### SBOM generation
+
+The same Trivy run also produces an SPDX BOM of the installed dependencies:
+
+| File | Format |
+|---|---|
+| [`sbom.spdx.json`](sbom.spdx.json) | SPDX SBOM (machine-readable) |
+| [`sbom.spdx.md`](sbom.spdx.md) | Human-readable Markdown table generated from the SBOM |
+
+Both files are committed to the repository (on pushes to the `full-refactor`
+branch, after a timestamp normalization step so that consecutive runs with no
+dependency changes produce an identical file) and are also uploaded as the
+`sbom` workflow artifact (30-day retention).
+
+### When it runs
+
+The workflow triggers on:
+
+| Event | Description |
+|---|---|
+| Push (any branch) | Runs on every push, except pushes that only change Markdown files |
+| Pull request | Pull requests targeting the `full-refactor` branch |
+| Release | When a release is published |
+| Schedule | Daily at 08:00 UTC (keeps the scan current as new vulnerabilities are disclosed) |
+| Workflow dispatch | Manually, from the GitHub Actions page |
+
+Scheduled and manual runs report results and regenerate the SBOM artifacts, but
+do not commit anything to the repository.
+
+### Running the scan locally
+
+```bash
+npm install
+trivy fs . --scanners vuln,misconfig,secret --severity CRITICAL,HIGH
+```
+
+For the SPDX BOM:
+
+```bash
+trivy fs . --format spdx-json --output sbom.spdx.json
+```
+
 ## Troubleshooting
 
 **`EACCES: permission denied` on build** — This can happen if files in `dist/` become read-only (e.g., from a previous build). The build script now cleans `dist/` before each run. If the issue persists, manually remove the folder:
