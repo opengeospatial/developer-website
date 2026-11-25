@@ -16,6 +16,10 @@ on:
     - cron: '0 8 * * *'  # runs daily at 8h UTC
   workflow_dispatch:
 
+permissions:
+  # Least privilege 
+  contents: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/full-refactor') && 'write' || 'read' }}
+
 jobs:
 
   vulnerabilities:
