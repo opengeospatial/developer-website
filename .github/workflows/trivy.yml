@@ -17,8 +17,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  # Least privilege 
-  contents: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/full-refactor') && 'write' || 'read' }}
+  contents: write
 
 jobs:
 
