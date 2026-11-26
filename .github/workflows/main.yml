@@ -70,53 +70,53 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-      - name: Add subtree 15
-        run: |
-          git subtree add --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash || echo "Adding sprints/15"
+      # - name: Add subtree 15
+      #   run: |
+      #     git subtree add --prefix sprints/15 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-15.git gh-pages --squash || echo "Adding sprints/15"
 
-      - name: Add subtree 16
-        run: |
-          git subtree add --prefix sprints/16 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-16.git gh-pages --squash || echo "Adding sprints/16"
+      # - name: Add subtree 16
+      #   run: |
+      #     git subtree add --prefix sprints/16 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-16.git gh-pages --squash || echo "Adding sprints/16"
 
-      - name: Add subtree 17
-        run: |
-          git subtree add --prefix sprints/17 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-17.git gh-pages --squash || echo "Adding sprints/17"
+      # - name: Add subtree 17
+      #   run: |
+      #     git subtree add --prefix sprints/17 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-17.git gh-pages --squash || echo "Adding sprints/17"
 
-      - name: Add subtree 18
-        run: |
-          git subtree add --prefix sprints/18 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-18.git gh-pages --squash || echo "Adding sprints/18"
+      # - name: Add subtree 18
+      #   run: |
+      #     git subtree add --prefix sprints/18 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-18.git gh-pages --squash || echo "Adding sprints/18"
 
-      - name: Add subtree 17
-        run: |
-          git subtree add --prefix sprints/19 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-19.git gh-pages --squash || echo "Adding sprints/19"
+      # - name: Add subtree 17
+      #   run: |
+      #     git subtree add --prefix sprints/19 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-19.git gh-pages --squash || echo "Adding sprints/19"
 
-      - name: Add subtree 20
-        run: |
-          git subtree add --prefix sprints/20 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-20.git gh-pages --squash || echo "Adding sprints/20"
+      # - name: Add subtree 20
+      #   run: |
+      #     git subtree add --prefix sprints/20 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-20.git gh-pages --squash || echo "Adding sprints/20"
 
-      - name: Add subtree 21
-        run: |
-          git subtree add --prefix sprints/21 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-21.git gh-pages --squash || echo "Adding sprints/21"
+      # - name: Add subtree 21
+      #   run: |
+      #     git subtree add --prefix sprints/21 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-21.git gh-pages --squash || echo "Adding sprints/21"
 
-      - name: Add subtree 22
-        run: |
-          git subtree add --prefix sprints/22 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-22.git gh-pages --squash || echo "Adding sprints/22"
+      # - name: Add subtree 22
+      #   run: |
+      #     git subtree add --prefix sprints/22 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-22.git gh-pages --squash || echo "Adding sprints/22"
 
-      - name: Add subtree 23
-        run: |
-          git subtree add --prefix sprints/23 https://github.com/opengeospatial/dev-ogc-sprint-landing-23.git gh-pages --squash || echo "Adding sprints/23"
+      # - name: Add subtree 23
+      #   run: |
+      #     git subtree add --prefix sprints/23 https://github.com/opengeospatial/dev-ogc-sprint-landing-23.git gh-pages --squash || echo "Adding sprints/23"
 
-      - name: Add subtree 24
-        run: |
-          git subtree add --prefix sprints/24 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-24.git gh-pages --squash || echo "Adding sprints/24"
+      # - name: Add subtree 24
+      #   run: |
+      #     git subtree add --prefix sprints/24 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-24.git gh-pages --squash || echo "Adding sprints/24"
 
-      - name: Add subtree 25
-        run: |
-          git subtree add --prefix sprints/25 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-25.git gh-pages --squash || echo "Adding sprints/25"
+      # - name: Add subtree 25
+      #   run: |
+      #     git subtree add --prefix sprints/25 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-25.git gh-pages --squash || echo "Adding sprints/25"
 
-      - name: Add subtree 26
-        run: |
-          git subtree add --prefix sprints/26 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-26.git gh-pages --squash || echo "Adding sprints/26"
+      # - name: Add subtree 26
+      #   run: |
+      #     git subtree add --prefix sprints/26 https://github.com/opengeospatial/dev-ogc-org-sprint-landing-26.git gh-pages --squash || echo "Adding sprints/26"
 
       - name: Add subtree sponsoring
         run: |
